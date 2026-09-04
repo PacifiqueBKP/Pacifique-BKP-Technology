@@ -1,259 +1,93 @@
-<!DOCTYPE html><html lang="fr"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PACIFIQUE_BKP TECHNOLOGY - IT SERVICES - Goma</title>
-<link rel="icon" href="logo.png">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PACIFIQUE BKP TECHNOLOGY | Goma RDC</title>
 <style>
-body{font-family:sans-serif;margin:0;background:#f5f5f5}
-header{background:#0a1224;color:#fff;padding:12px 15px;display:flex;align-items:center;justify-content:space-between}
-header img{height:55px;background:#fff;border-radius:10px;padding:3px}
-header h1{font-size:17px;margin:0} header span{color:#0a84ff;font-size:11px;letter-spacing:3px;display:block}
-.hero{padding:35px 15px;text-align:center;background:white}
-.badge{background:#e0f0ff;color:#0a84ff;padding:5px 12px;border-radius:20px;font-size:12px;font-weight:700}
-.services{padding:15px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.services div{background:#fff;padding:15px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.06);text-align:center;font-size:13px}
-.gallery{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:15px}
-.gallery img{width:100%;border-radius:10px;height:160px;object-fit:cover;background:#ddd}
-.video{padding:15px;text-align:center;background:#fff;margin:15px;border-radius:12px}
-footer{background:#0a1224;color:#94a3b8;text-align:center;padding:30px 15px;font-size:13px;line-height:1.7}
-footer strong{color:#fff}
-.btn-wa{display:inline-block;padding:12px 20px;background:#25D366;color:#fff;text-decoration:none;border-radius:8px;font-weight:700;margin:5px}
-</style></head><body>
-
+:root{--blue:#0a1931;--gold:#d4af37;--gold2:#ffe082;--light:#f8f5ec}
+*{box-sizing:border-box}body{margin:0;font-family:Montserrat,Segoe UI,sans-serif;background:var(--light);color:var(--blue)}
+header{background:var(--blue);color:#fff;padding:14px 5%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;border-bottom:2px solid var(--gold)}
+.logo{font-weight:900} .logo span{color:var(--gold)}
+nav a{color:#fff;text-decoration:none;margin:0 8px;font-size:13px} .cta{background:var(--gold);color:var(--blue)!important;padding:8px 16px;border-radius:20px;font-weight:800}
+.hero{background:radial-gradient(1200px at 80% -10%,#1e3a8a 0%,#0a1931 65%);color:#fff;padding:55px 5%;display:grid;grid-template-columns:1.2fr .8fr;gap:20px}
+.hero h1{font-size:34px;margin:0;line-height:1.15} .hero h1 span{color:var(--gold2)} .hero p{color:#b9c7de}
+.btns{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap}
+.btn{padding:13px 22px;border-radius:30px;text-decoration:none;font-weight:800;display:inline-block}
+.btn-gold{background:linear-gradient(90deg,var(--gold),var(--gold2));color:var(--blue)}
+.btn-outline{border:2px solid var(--gold);color:var(--gold)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.card{background:#fff;border:1px solid #e9e0c9;border-left:4px solid var(--gold);border-radius:14px;padding:20px}
+.card h3{margin:0 0 8px 0;font-size:17px}
+.services{padding:45px 5%;max-width:1200px;margin:auto}
+footer{background:#060f25;color:#8a9bb8;padding:28px 5%;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+footer a{color:var(--gold2);text-decoration:none}
+@media(max-width:800px){.hero{grid-template-columns:1fr}.hero h1{font-size:26px}}
+</style>
+</head>
+<body>
 <header>
-  <div style="display:flex;align-items:center">
-    <img src="logo.png" alt="BKP Logo">
-    <div style="margin-left:12px">
-      <h1>PACIFIQUE_BKP TECHNOLOGY</h1>
-      <span>IT SERVICES</span>
-    </div>
-  </div>
+<div class="logo">PACIFIQUE <span>BKP</span> TECHNOLOGY</div>
+<nav>
+<a href="#">Accueil</a>
+<a href="#services">Services</a>
+<a class="cta" href="https://wa.me/243976717995">Devis</a>
+</nav>
 </header>
 
 <div class="hero">
-  <img src="logo.png" style="width:140px;background:#fff;border-radius:20px;padding:10px;box-shadow:0 10px 30px rgba(0,0,0,.1)">
-  <h2>Vente PC, Imprimantes & Accessoires - Goma</h2>
-  <p><span class="badge">BKP-TECHNOLOGY OFFICIEL</span></p>
-  <p>Bienvenue chez PACIFIQUE_BKP TECHNOLOGY</p>
-  <a class="btn-wa" href="https://wa.me/243976717995">WhatsApp 1</a>
-  <a class="btn-wa" href="https://wa.me/243840037762">WhatsApp 2</a>
-</div>
-
-<!-- SERVICES -->
-<div style="padding:15px"><h3 style="text-align:center">Nos Services - bkp-technology</h3>
-<div class="services">
-  <div>🖥️<br><strong>Vente PC, Imprimantes & Accessoires</strong><br>PC, HP/Epson, Toners, Disques, RAM</div>
-  <div>🔧<br><strong>Réparation & Maintenance</strong><br>PC & Imprimantes - Installation</div>
-  <div>🌐<br><strong>Réseaux & Sécurité</strong><br>WiFi, LAN, Caméras</div>
-  <div>💻<br><strong>Développement Web</strong><br>Sites & Boutiques Firebase</div>
+<div>
+<div style="border:1px solid var(--gold);display:inline-block;padding:4px 12px;border-radius:20px;font-size:11px;color:var(--gold2)">📍 Goma • Nord-Kivu • RDC</div>
+<h1>Transformation digitale<br><span>Solutions IT & Formation</span></h1>
+<p>Entreprises, écoles et organisations à Goma. Le même catalogue que WhatsApp, maintenant en site PRO. Formation Bureautique mise en avant.</p>
+<div class="btns">
+<a class="btn btn-gold" href="https://wa.me/243976717995?text=Bonjour%20BKP%20Technology">WhatsApp: 0976 717 995</a>
+<a class="btn btn-outline" href="tel:+243840037762">0840 037 762</a>
 </div>
 </div>
-
-<div class="gallery">
-  <img src="shop1.jpg" alt="Boutique BKP Goma">
-  <img src="produit.jpg" alt="Produits BKP">
+<div style="background:#fff;color:var(--blue);border-radius:14px;padding:18px">
+<h3 style="margin:0">💬 Commander</h3>
+<p style="font-size:13px">Cliquez → message WhatsApp direct</p>
+<ul style="font-size:13px;line-height:2.1">
+<li>Formation Bureautique</li>
+<li>Maintenance Informatique</li>
+<li>Création Sites Web</li>
+<li>Vente Matériels</li>
+<li>Infographie</li>
+<li>Réseaux Wi-Fi</li>
+</ul>
+<a href="https://wa.me/243976717995" style="background:#25D366;color:#fff;padding:11px;border-radius:30px;display:block;text-align:center;text-decoration:none;font-weight:800">WhatsApp Direct</a>
+</div>
 </div>
 
-<div class="video">
-  <h3>Notre vidéo pub - BKP Technology</h3>
-  <video width="100%" controls style="border-radius:10px"><source src="pub.mp4" type="video/mp4"></video>
+<section id="services" class="services">
+<h2 style="text-align:center;margin:0">Nos Services</h2>
+<p style="text-align:center;color:#5a6a85">Catalogue complet BKP Technology</p>
+<div class="grid" style="margin-top:25px">
+<div class="card"><h3>🎓 Formation Bureautique</h3><p style="font-size:13px">Word, Excel, PowerPoint, Publisher. Pratique, avec certificat délivré à Goma. Pour étudiants, secrétaires, entreprises.</p></div>
+<div class="card"><h3>🔧 Maintenance Informatique</h3><p style="font-size:13px">Dépannage, réparation, installation Windows, antivirus. Intervention rapide Goma.</p></div>
+<div class="card"><h3>🌐 Création Sites Web</h3><p style="font-size:13px">Sites vitrines et e-commerce modernes, rapides, optimisés téléphone.</p></div>
+<div class="card"><h3>🖥️ Vente Matériels</h3><p style="font-size:13px">Ordinateurs, imprimantes, onduleurs, accessoires. Neufs & garantis.</p></div>
+<div class="card"><h3>🎨 Infographie</h3><p style="font-size:13px">Logos V4 Or, affiches, cartes de visite, flyers pro.</p></div>
+<div class="card"><h3>📡 Réseaux</h3><p style="font-size:13px">Installation et sécurisation réseaux, Wi-Fi entreprise.</p></div>
 </div>
+</section>
 
-<!-- CONTACT OFFICIEL -->
-<!-- REMPLACE TA SECTION CONTACT PRO PAR CELLE-CI -->
-
-<!-- AVIS CLIENTS + CAPTCHA -->
-<div class="container py-5">
-  <h2 class="text-center fw-bold">⭐ Ce que disent nos clients - Goma</h2>
-  <p class="text-center text-muted">Donnez votre avis sur nos articles & amélioration du site</p>
-  
-  <div class="row mt-4">
-    <div class="col-md-5">
-      <div class="card p-4 rounded-4 shadow-sm">
-        <h5>Laisser votre avis</h5>
-        <input id="avisNom" placeholder="Votre nom" class="form-control mb-2">
-        <select id="avisNote" class="form-control mb-2">
-          <option value="5">⭐⭐⭐⭐⭐ Excellent (5)</option>
-          <option value="4">⭐⭐⭐⭐ Très bien (4)</option>
-          <option value="3">⭐⭐⭐ Bien (3)</option>
-        </select>
-        <textarea id="avisTexte" placeholder="Votre avis sur l'article ou suggestion d'amélioration du site..." class="form-control mb-3" rows="3"></textarea>
-        
-        <!-- QUESTION DE SÉCURITÉ ANTI-ROBOT -->
-        <div class="p-3 bg-light rounded mb-3">
-          <label class="fw-bold small">🛡️ Question de sécurité : Êtes-vous humain ?</label>
-          <p class="mb-1 small" id="captchaQuestion">Chargement...</p>
-          <input id="captchaRep" type="number" placeholder="Votre réponse" class="form-control form-control-sm">
-          <div class="form-check mt-2">
-            <input class="form-check-input" type="checkbox" id="checkRobot">
-            <label class="form-check-label small">Je ne suis pas un robot</label>
-          </div>
-        </div>
-
-        <button onclick="envoyerAvis()" class="btn btn-dark w-100">Envoyer mon avis</button>
-      </div>
-    </div>
-    <div class="col-md-7">
-      <div class="card p-4 rounded-4 shadow-sm h-100">
-        <h5>Avis récents (Firebase)</h5>
-        <div id="listeAvis"><p class="text-muted small">Chargement des avis...</p></div>
-      </div>
-    </div>
-  </div>
+<div style="background:var(--blue);color:#fff;padding:28px 5%;text-align:center">
+<h2 style="margin:0;color:var(--gold2)">Prêt à digitaliser ?</h2>
+<p>Contact direct BKP Technology</p>
+<div style="margin-top:18px">
+<a class="btn btn-gold" href="https://wa.me/243976717995">+243 976 717 995</a>
+<a class="btn btn-outline" href="mailto:pacifiquekakuru6@gmail.com">pacifiquekakuru6@gmail.com</a>
 </div>
-
-<!-- CONTACT PRO (gardé) -->
-<div class="container pb-5">
-  <div class="card p-4 rounded-4 shadow-sm bg-dark text-white">
-    <h4>CONTACT PROFESSIONNEL</h4>
-    <p>Tel / WhatsApp : +243 976 717 995 / +243 840 037 762<br>Email : pacifiquekakuru6@gmail.com<br>Goma, Nord-Kivu - RDC | Lun-Sam 8h-18h</p>
-  </div>
-</div>
-
-
-<!-- REMPLACE TA SECTION CONTACT PRO PAR CELLE-CI -->
-
-<!-- AVIS CLIENTS + CAPTCHA -->
-<div class="container py-5">
-  <h2 class="text-center fw-bold">⭐ Ce que disent nos clients - Goma</h2>
-  <p class="text-center text-muted">Donnez votre avis sur nos articles & amélioration du site</p>
-  
-  <div class="row mt-4">
-    <div class="col-md-5">
-      <div class="card p-4 rounded-4 shadow-sm">
-        <h5>Laisser votre avis</h5>
-        <input id="avisNom" placeholder="Votre nom" class="form-control mb-2">
-        <select id="avisNote" class="form-control mb-2">
-          <option value="5">⭐⭐⭐⭐⭐ Excellent (5)</option>
-          <option value="4">⭐⭐⭐⭐ Très bien (4)</option>
-          <option value="3">⭐⭐⭐ Bien (3)</option>
-        </select>
-        <textarea id="avisTexte" placeholder="Votre avis sur l'article ou suggestion d'amélioration du site..." class="form-control mb-3" rows="3"></textarea>
-        
-        <!-- QUESTION DE SÉCURITÉ ANTI-ROBOT -->
-        <div class="p-3 bg-light rounded mb-3">
-          <label class="fw-bold small">🛡️ Question de sécurité : Êtes-vous humain ?</label>
-          <p class="mb-1 small" id="captchaQuestion">Chargement...</p>
-          <input id="captchaRep" type="number" placeholder="Votre réponse" class="form-control form-control-sm">
-          <div class="form-check mt-2">
-            <input class="form-check-input" type="checkbox" id="checkRobot">
-            <label class="form-check-label small">Je ne suis pas un robot</label>
-          </div>
-        </div>
-
-        <button onclick="envoyerAvis()" class="btn btn-dark w-100">Envoyer mon avis</button>
-      </div>
-    </div>
-    <div class="col-md-7">
-      <div class="card p-4 rounded-4 shadow-sm h-100">
-        <h5>Avis récents (Firebase)</h5>
-        <div id="listeAvis"><p class="text-muted small">Chargement des avis...</p></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- CONTACT PRO (gardé) -->
-<div class="container pb-5">
-  <div class="card p-4 rounded-4 shadow-sm bg-dark text-white">
-    <h4>CONTACT PROFESSIONNEL</h4>
-    <p>Tel / WhatsApp : +243 976 717 995 / +243 840 037 762<br>Email : pacifiquekakuru6@gmail.com<br>Goma, Nord-Kivu - RDC | Lun-Sam 8h-18h</p>
-  </div>
-</div>
-<!-- REMPLACE TA SECTION CONTACT PRO PAR CELLE-CI -->
-
-<!-- AVIS CLIENTS + CAPTCHA -->
-<div class="container py-5">
-  <h2 class="text-center fw-bold">⭐ Ce que disent nos clients - Goma</h2>
-  <p class="text-center text-muted">Donnez votre avis sur nos articles & amélioration du site</p>
-  
-  <div class="row mt-4">
-    <div class="col-md-5">
-      <div class="card p-4 rounded-4 shadow-sm">
-        <h5>Laisser votre avis</h5>
-        <input id="avisNom" placeholder="Votre nom" class="form-control mb-2">
-        <select id="avisNote" class="form-control mb-2">
-          <option value="5">⭐⭐⭐⭐⭐ Excellent (5)</option>
-          <option value="4">⭐⭐⭐⭐ Très bien (4)</option>
-          <option value="3">⭐⭐⭐ Bien (3)</option>
-        </select>
-        <textarea id="avisTexte" placeholder="Votre avis sur l'article ou suggestion d'amélioration du site..." class="form-control mb-3" rows="3"></textarea>
-        
-        <!-- QUESTION DE SÉCURITÉ ANTI-ROBOT -->
-        <div class="p-3 bg-light rounded mb-3">
-          <label class="fw-bold small">🛡️ Question de sécurité : Êtes-vous humain ?</label>
-          <p class="mb-1 small" id="captchaQuestion">Chargement...</p>
-          <input id="captchaRep" type="number" placeholder="Votre réponse" class="form-control form-control-sm">
-          <div class="form-check mt-2">
-            <input class="form-check-input" type="checkbox" id="checkRobot">
-            <label class="form-check-label small">Je ne suis pas un robot</label>
-          </div>
-        </div>
-
-        <button onclick="envoyerAvis()" class="btn btn-dark w-100">Envoyer mon avis</button>
-      </div>
-    </div>
-    <div class="col-md-7">
-      <div class="card p-4 rounded-4 shadow-sm h-100">
-        <h5>Avis récents (Firebase)</h5>
-        <div id="listeAvis"><p class="text-muted small">Chargement des avis...</p></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- CONTACT PRO (gardé) -->
-<div class="container pb-5">
-  <div class="card p-4 rounded-4 shadow-sm bg-dark text-white">
-    <h4>CONTACT PROFESSIONNEL</h4>
-    <p>Tel / WhatsApp : +243 976 717 995 / +243 840 037 762<br>Email : pacifiquekakuru6@gmail.com<br>Goma, Nord-Kivu - RDC | Lun-Sam 8h-18h</p>
-  </div>
-</div>
-
-<script>
-// --- CAPTCHA MAISON ---
-let captchaSolution = 0;
-function genererCaptcha(){
-  let a = Math.floor(Math.random()*8)+2;
-  let b = Math.floor(Math.random()*8)+1;
-  captchaSolution = a + b;
-  document.getElementById('captchaQuestion').innerText = `Combien font ${a} + ${b} ?`;
-}
-genererCaptcha();
-</script>
-  
-<div style="background:white;padding:20px;margin:15px;border-radius:10px">
-<h3>Passer commande rapide</h3>
-<input id="nom" placeholder="Votre Nom" style="width:100%;padding:12px;border-radius:8px;border:1px solid #ddd"><br><br>
-<input id="tel" placeholder="Votre Téléphone" style="width:100%;padding:12px;border-radius:8px;border:1px solid #ddd"><br><br>
-<button onclick="envoyerCommande()" style="width:100%;padding:14px;background:#0a1224;color:#fff;border-radius:8px;font-weight:700;border:none">Envoyer Commande</button>
+<p style="margin-top:12px;font-size:13px">Second: +243 840 037 762 | Goma, Nord-Kivu, RDC</p>
 </div>
 
 <footer>
-  <strong>PACIFIQUE_BKP TECHNOLOGY - IT SERVICES</strong><br>
-  Vente PC, Imprimantes & Accessoires - Goma<br><br>
-  📧 pacifiquekakuru6@gmail.com | 📞 +243976717995 / +243840037762<br><br>
-  Copyright © 2026 Pacifique_BKP Technology. Tous droits réservés.<br>
-  Conçu et développé par Pacifique_BKP Technology<br> Le savoir est une force mais l'humilité est la clé 🔑 de la réussite... 👂🦁🙏
+<div><b style="color:#fff">PACIFIQUE BKP TECHNOLOGY</b><br><span style="font-size:12px">Partenaire IT confiance Goma</span></div>
+<div style="font-size:13px;line-height:1.8">📍 Goma, Nord-Kivu<br>📞 +243 976 717 995<br>📞 +243 840 037 762<br>✉️ pacifiquekakuru6@gmail.com</div>
+<div style="font-size:13px">Lun-Ven: 8h-17h<br>Sam: 9h-13h<br><br><a href="https://wa.me/243976717995">Catalogue WhatsApp</a></div>
 </footer>
-
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-const firebaseConfig = {
-  apiKey: "AIzaSyC__3NS0ZA9h8kd_Qyoovs-PiivzFqfhCI",
-  authDomain: "bkp-technology.firebaseapp.com",
-  projectId: "bkp-technology",
-  storageBucket: "bkp-technology.appspot.com",
-  messagingSenderId: "463493266655",
-  appId: "1:463493266655:web:5b6c78f89ce0e96c3a7d6a"
-};
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-window.envoyerCommande = async () => {
-  const nom=document.getElementById('nom').value; const tel=document.getElementById('tel').value;
-  if(!nom||!tel) return alert("Veuillez remplir Nom et Téléphone");
-  await addDoc(collection(db,"commandes"),{nom,telephone:tel,date:new Date(),entreprise:"PACIFIQUE_BKP TECHNOLOGY",email_contact:"pacifiquekakuru6@gmail.com"});
-  alert("Commande envoyée chez BKP ! Nous vous appelons au +243976717995 / +243840037762");
-  document.getElementById('nom').value=""; document.getElementById('tel').value="";
-}
-</script></body></html>
+<div style="text-align:center;background:#040a1a;color:#5a6a85;padding:10px;font-size:11px">© 2026 PACIFIQUE BKP TECHNOLOGY - Tous droits réservés</div>
+</body>
+</html>
