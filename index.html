@@ -1,186 +1,132 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PACIFIQUE BKP TECHNOLOGY | IT Services</title>
 <style>
-  <style>
 :root{--blue:#0a1931;--gold:#d4af37;--gold2:#ffe082;--light:#f8f5ec}
 *{box-sizing:border-box}
-body{margin:0;font-family:Montserrat,Segoe UI,sans-serif;background:var(--light);color:var(--blue);scroll-behavior:smooth;overflow-x:hidden}
-
-/* HEADER MOBILE */
-header{background:var(--blue);color:#fff;padding:10px 4%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000;border-bottom:2px solid var(--gold);flex-wrap:wrap}
-.logo{font-weight:900;font-size:14px}.logo span{color:var(--gold)}
-nav{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
-nav a{color:#fff;text-decoration:none;margin:0 4px;font-size:11px;cursor:pointer;padding:5px 6px;border-radius:10px}
-.cta{background:var(--gold)!important;color:var(--blue)!important;padding:6px 12px!important;border-radius:20px;font-weight:800;font-size:11px!important}
-
-/* HERO MOBILE FIRST */
-.hero{background:radial-gradient(1200px at 80% -10%,#1e3a8a 0%,#0a1931 65%);color:#fff;padding:25px 4%;display:grid;grid-template-columns:1fr;gap:20px}
-.hero h1{font-size:24px;line-height:1.2;margin:8px 0}
-.hero p{font-size:14px}
-
-.btn{padding:12px 18px;border-radius:30px;text-decoration:none;font-weight:800;display:inline-block;cursor:pointer;border:none;font-size:13px;text-align:center;word-break:break-word}
-.btn-gold{background:linear-gradient(90deg,var(--gold),var(--gold2));color:var(--blue)}
-.grid{display:grid;grid-template-columns:1fr;gap:14px}
-.card{background:#fff;border:1px solid #e9e0c9;border-left:4px solid var(--gold);border-radius:14px;padding:16px}
-.form-bkp{background:#fff;padding:16px;border-radius:14px;border:1px solid #e9e0c9}
-.form-bkp input,.form-bkp textarea,.form-bkp select{width:100%;padding:12px;margin:7px 0;border:1px solid #ddd;border-radius:8px;font-size:16px} /* 16px évite zoom iPhone */
-
-.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,100px);background:var(--blue);color:var(--gold2);padding:12px 18px;border-radius:30px;opacity:0;transition:.4s;z-index:9999;border:1px solid var(--gold);font-size:13px;width:90%;text-align:center;max-width:320px}
-.toast.show{transform:translate(-50%,0);opacity:1}
-#adminPanel{display:none;position:fixed;inset:0;background:rgba(0,0,0,.93);z-index:10000;padding:10px;overflow:auto}.admin-box{max-width:900px;margin:auto;background:#fff;border-radius:14px;padding:16px}
-.section-hidden{display:none}.section-active{display:block}
-footer{background:#060f25;color:#8a9bb8;padding:20px 4%;text-align:center;font-size:12px;line-height:1.6}
-
-/* --- CORRECTION PC (quand écran grand) --- */
-@media(min-width:800px){
-  header{padding:14px 5%}.logo{font-size:18px} nav a{font-size:13px;margin:0 6px}
-  .hero{grid-template-columns:1.2fr .8fr;padding:55px 5%}.hero h1{font-size:34px}
-  .grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-  .toast{left:auto;right:20px;transform:translateY(100px);width:auto}.toast.show{transform:translateY(0)}
+body{margin:0;font-family:system-ui,Arial,sans-serif;background:var(--light);color:var(--blue);overflow-x:hidden}
+header{background:var(--blue);color:#fff;padding:12px 4%;display:flex;flex-direction:column;gap:8px;position:sticky;top:0;z-index:999;border-bottom:3px solid var(--gold)}
+.header-top{display:flex;justify-content:space-between;align-items:center;width:100%}
+.logo{font-weight:900;font-size:16px;letter-spacing:.5px}.logo span{color:var(--gold)}
+.menu{width:100%;display:flex;gap:6px;overflow-x:auto;white-space:nowrap;padding-bottom:4px;-webkit-overflow-scrolling:touch}
+.menu::-webkit-scrollbar{display:none}
+.menu a{color:#fff;text-decoration:none;font-size:12px;background:rgba(255,255,255,.1);padding:7px 12px;border-radius:20px;flex-shrink:0}
+.menu a.cta{background:var(--gold)!important;color:var(--blue)!important;font-weight:900}
+.hero{background:linear-gradient(180deg,#132a5a 0%,#0a1931 100%);color:#fff;padding:20px 4%}
+.hero h1{font-size:22px;margin:10px 0;line-height:1.2}.hero h1 span{color:var(--gold2)}
+.badge{border:1px solid var(--gold);color:var(--gold2);display:inline-block;padding:4px 10px;border-radius:20px;font-size:10px}
+.btn{padding:12px 18px;border-radius:30px;font-weight:800;display:inline-block;border:none;cursor:pointer;text-decoration:none;text-align:center;font-size:13px}
+.btn-gold{background:var(--gold);color:var(--blue);width:100%;margin:6px 0}
+.btn-outline{border:2px solid var(--gold);color:var(--gold);background:transparent;width:100%;margin:6px 0}
+.grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:14px}
+.card{background:#fff;border-radius:12px;padding:14px;border:1px solid #e9e0c9;border-left:4px solid var(--gold)}
+.qr-box{background:#fff;border-radius:12px;padding:10px;text-align:center;border:2px dashed var(--gold)}
+.qr-box img{width:100%;max-width:130px;height:auto}
+.form-bkp{background:#fff;padding:14px;border-radius:12px;border:1px solid #e9e0c9;margin-top:14px}
+.form-bkp input,.form-bkp textarea,.form-bkp select{width:100%;padding:13px;margin:6px 0;border:1px solid #ddd;border-radius:8px;font-size:16px}
+.content{padding:18px 4%}
+#adminPanel{display:none;position:fixed;inset:0;background:rgba(0,0,0,.96);z-index:10000;padding:10px;overflow:auto}
+.admin-box{background:#fff;border-radius:12px;padding:14px;max-width:900px;margin:auto}
+.section-hidden{display:none}
+.toast{position:fixed;bottom:15px;left:4%;right:4%;background:var(--blue);color:var(--gold2);padding:12px;text-align:center;border-radius:30px;transform:translateY(120px);opacity:0;transition:.4s;z-index:9999;border:1px solid var(--gold)}
+.toast.show{transform:translateY(0);opacity:1}
+footer{background:#060f25;color:#8a9bb8;padding:18px 4%;text-align:center;font-size:11px}
+@media(min-width:768px){
+  header{flex-direction:row}.menu{width:auto;overflow:visible}
+  .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:20px;padding:40px 5%}.hero h1{font-size:32px}
+  .btn{width:auto}.btn-gold,.btn-outline{width:auto}
+  .grid{grid-template-columns:repeat(3,1fr)}.content{padding:30px 5%}
+  .toast{left:auto;right:20px;right:4%;max-width:320px}
 }
-@media(max-width:400px){
-  nav a{font-size:10px;padding:4px 5px}
-  .hero h1{font-size:20px}
-}
-</style>
 </style>
 </head>
 <body>
 <header>
-<div class="logo">PACIFIQUE <span>BKP</span> TECHNOLOGY</div>
-<nav>
-<a onclick="showPage('accueil')">Accueil</a>
-<a onclick="showPage('services')">Services</a>
-<a onclick="showPage('avis')">Avis</a>
-<a onclick="showPage('blog')">Blog</a>
-<a onclick="showPage('commander')">Commander</a>
-<a class="cta" id="btnAdmin">ADMIN</a>
-</nav>
+  <div class="header-top">
+    <div class="logo">PACIFIQUE <span>BKP</span> TECHNOLOGY</div>
+    <div style="font-size:10px;color:var(--gold2)">GOMA RDC</div>
+  </div>
+  <div class="menu">
+    <a onclick="showPage('accueil')">Accueil</a>
+    <a onclick="showPage('services')">Services</a>
+    <a onclick="showPage('avis')">Avis</a>
+    <a onclick="showPage('blog')">Blog</a>
+    <a onclick="showPage('commander')">Commander</a>
+    <a class="cta" id="btnAdmin">ADMIN</a>
+  </div>
 </header>
 
-<!-- PAGE ACCUEIL -->
-<div id="page-accueil" class="section-active">
-<div class="hero">
-<div>
-<div style="border:1px solid var(--gold);display:inline-block;padding:4px 12px;border-radius:20px;font-size:11px;color:var(--gold2)">● Goma - Nord-Kivu, Pacifique_Bkp-technology 👂🦁🙏🇨🇩</div>
-<h1>Transformation digitale<br><span style="color:var(--gold2)">Solutions IT & Formation</span></h1>
-<p>De la PAGE web vers le SITE web PRO. Navigation par pages.</p>
-<div style="margin-top:15px">
-<button class="btn btn-gold" onclick="showPage('commander')">Commander Maintenant</button>
-<a class="btn" style="border:2px solid var(--gold);color:var(--gold)" href="https://wa.me/243976717995">WhatsApp</a>
-</div>
-<div class="grid" style="grid-template-columns:1fr 1fr;margin-top:18px;gap:10px">
-<div style="background:#fff;color:var(--blue);padding:10px;border-radius:10px;text-align:center"><b>QR WhatsApp</b><br><img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://wa.me/243976717995" style="margin-top:5px"></div>
-<div style="background:#fff;color:var(--blue);padding:10px;border-radius:10px;text-align:center"><b>QR Site</b><br><img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://pacifiquebkp.github.io/Pacifique-BKP-Technology/" style="margin-top:5px"></div>
-</div>
-</div>
-<div class="form-bkp"><h3 style="margin:0">💬 Devis Rapide</h3><input id="c_nom" placeholder="Nom *"><input id="c_tel" placeholder="Tel WhatsApp *"><select id="c_service"><option>Formation Bureautique</option><option>Maintenance</option><option>Sites Web</option><option>Vente Matériels</option><option>Infographie</option><option>Réseaux</option></select><textarea id="c_msg" placeholder="Besoin..."></textarea><button class="btn btn-gold" style="width:100%" id="btnCommander">Envoyer vers Firebase</button><p id="c_status" style="font-size:12px"></p></div>
-</div>
-</div>
-
-<!-- PAGE SERVICES -->
-<div id="page-services" class="section-hidden" style="padding:30px 5%;max-width:1200px;margin:auto">
-<h2>Nos Services - Firestore"produits"</h2>
-<div class="grid" id="produitsGrid"></div>
-<button class="btn btn-gold" onclick="showPage('accueil')">← Retour Accueil</button>
-</div>
-
-<!-- PAGE AVIS -->
-<div id="page-avis" class="section-hidden" style="padding:30px 5%;max-width:1000px;margin:auto">
-<h2>⭐ Avis Clients Live</h2>
-<div class="grid" style="grid-template-columns:1fr 1fr">
-<div class="form-bkp"><h3>Donnez votre avis</h3><input id="a_nom" placeholder="Nom"><select id="a_stars"><option value="5">⭐⭐⭐⭐⭐ 5</option><option value="4">⭐⭐⭐⭐ 4</option><option value="3">⭐⭐⭐ 3</option></select><textarea id="a_msg" placeholder="Votre expérience..."></textarea><button class="btn btn-gold" style="width:100%" id="btnAvis">Publier</button></div>
-<div id="avisList"></div>
-</div>
-<button class="btn btn-gold" onclick="showPage('accueil')" style="margin-top:15px">← Accueil</button>
+<div id="page-accueil">
+  <div class="hero">
+    <div>
+      <div class="badge">Goma, Nord-Kivu RDC, Pacifique_bkp-technology...👂🦁🙏🇨🇩</div>
+      <h1>Transformation digitale <br><span>Solutions IT & Formation</span></h1>
+      <p style="font-size:13px;opacity:.9">Site Mobile First - 100% visible sur téléphone et PC. Par Pacifique BKP.</p>
+      <button class="btn btn-gold" onclick="showPage('commander')">🛒 Commander Maintenant</button>
+      <a class="btn btn-outline" href="https://wa.me/243976717995" style="display:block;text-align:center">💬 WhatsApp 0976 717 995</a>
+      <div class="grid" style="grid-template-columns:1fr 1fr">
+        <div class="qr-box"><b style="font-size:11px">QR WhatsApp</b><br><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://wa.me/243976717995"><br><small style="font-size:10px">Scannez</small></div>
+        <div class="qr-box"><b style="font-size:11px">QR Site Web</b><br><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://pacifiquebkp.github.io/Pacifique-BKP-Technology/"><br><small style="font-size:10px">Visitez</small></div>
+      </div>
+    </div>
+    <div class="form-bkp">
+      <h3 style="margin:0 0 6px 0">💬 Devis Rapide (Firebase)</h3>
+      <input id="c_nom" placeholder="Votre Nom *">
+      <input id="c_tel" placeholder="Tél WhatsApp *">
+      <select id="c_service"><option>Formation Bureautique</option><option>Maintenance Informatique</option><option>Création Sites Web</option><option>Vente Matériels</option><option>Infographie</option><option>Réseaux Wi-Fi</option></select>
+      <textarea id="c_msg" placeholder="Détails de votre besoin..."></textarea>
+      <button class="btn btn-gold" id="btnCommander">Envoyer → Firebase</button>
+      <p id="c_status" style="font-size:12px"></p>
+    </div>
+  </div>
+  <div class="content">
+    <h3>⭐ Services Populaires</h3>
+    <div class="grid" id="produitsGrid"></div>
+  </div>
 </div>
 
-<!-- PAGE BLOG -->
-<div id="page-blog" class="section-hidden" style="padding:30px 5%;max-width:1200px;margin:auto">
-<h2>📰 Blog BKP Technology - Base "blogs"</h2>
-<div class="grid" id="blogGrid"></div>
-<button class="btn btn-gold" onclick="showPage('accueil')">← Accueil</button>
-</div>
-
-<!-- PAGE COMMANDER -->
-<div id="page-commander" class="section-hidden" style="padding:30px 5%;max-width:700px;margin:auto">
-<h2>🛒 Commander / Devis</h2>
-<div class="form-bkp"><input id="c2_nom" placeholder="Nom"><input id="c2_tel" placeholder="Tel"><select id="c2_service"><option>Formation Bureautique</option><option>Maintenance</option><option>Sites Web</option></select><textarea id="c2_msg" placeholder="Détails..."></textarea><button class="btn btn-gold" style="width:100%" id="btnCommander2">Envoyer</button><p id="c2_status"></p></div>
-</div>
+<div id="page-services" class="section-hidden content"><h2>Nos Services (Firestore: produits)</h2><div class="grid" id="produitsGrid2"></div><button class="btn btn-gold" onclick="showPage('accueil')">← Accueil</button></div>
+<div id="page-avis" class="section-hidden content"><h2>⭐ Avis Live (Firestore: avis)</h2><div class="form-bkp" style="margin-bottom:12px"><input id="a_nom" placeholder="Nom"><select id="a_stars"><option value="5">⭐⭐⭐⭐⭐ 5</option><option value="4">⭐⭐⭐⭐ 4</option></select><textarea id="a_msg" placeholder="Votre expérience..."></textarea><button class="btn btn-gold" id="btnAvis">Publier Avis</button></div><div id="avisList"></div><button class="btn btn-gold" onclick="showPage('accueil')">← Accueil</button></div>
+<div id="page-blog" class="section-hidden content"><h2>📰 Blog (Firestore: blogs)</h2><div class="grid" id="blogGrid"></div><button class="btn btn-gold" onclick="showPage('accueil')">← Accueil</button></div>
+<div id="page-commander" class="section-hidden content"><h2>🛒 Commander</h2><div class="form-bkp"><input id="c2_nom" placeholder="Nom"><input id="c2_tel" placeholder="Tel"><select id="c2_service"><option>Formation</option><option>Maintenance</option><option>Sites Web</option></select><textarea id="c2_msg" placeholder="Détails"></textarea><button class="btn btn-gold" id="btnCommander2">Envoyer</button><p id="c2_status"></p></div></div>
 
 <div class="toast" id="toast"></div>
 
 <div id="adminPanel"><div class="admin-box">
-<div style="display:flex;justify-content:space-between"><h2>🔐 Dashboard Admin BKP V8.1</h2><button id="btnCloseAdmin" class="btn" style="border:2px solid var(--blue)">Fermer X</button></div>
-<p style="font-size:12px;color:#666">C'est ici que tu alimentes ta base. Seul toi as le mot de passe.</p>
-<hr>
-<h3>📦 Ajouter Service/Produit (va dans "produits")</h3><input id="ad_p_nom" placeholder="Ex: Ordinateur HP"><input id="ad_p_desc" placeholder="Description + prix"><button class="btn btn-gold" id="btnAddProduit">Ajouter Produit</button><hr>
-<h3>📰 Ajouter Article Blog (va dans "blogs")</h3><input id="ad_b_titre" placeholder="Titre"><textarea id="ad_b_contenu" placeholder="Contenu complet"></textarea><button class="btn btn-gold" id="btnAddBlog">Publier Blog</button><hr>
-<h3>📊 Commandes Reçues (collection "commandes")</h3><div id="adminCommandes" style="background:#f5f5f5;padding:10px;border-radius:8px;max-height:200px;overflow:auto;font-size:13px"></div><hr>
-<h3>💬 Avis (collection "avis")</h3><div id="adminAvis" style="background:#f5f5f5;padding:10px;border-radius:8px;max-height:200px;overflow:auto;font-size:13px"></div>
+  <div style="display:flex;justify-content:space-between;align-items:center"><h3 style="margin:0">🔐 Dashboard Admin V8.2</h3><button id="btnCloseAdmin" class="btn" style="background:#eee;color:#000;padding:8px 12px">X Fermer</button></div>
+  <hr>
+  <h4>📦 Ajouter Produit</h4><input id="ad_p_nom" placeholder="Nom ex: PC HP"><input id="ad_p_desc" placeholder="Desc + prix"><button class="btn btn-gold" id="btnAddProduit">Ajouter</button><hr>
+  <h4>📰 Ajouter Blog</h4><input id="ad_b_titre" placeholder="Titre"><textarea id="ad_b_contenu" placeholder="Contenu"></textarea><button class="btn btn-gold" id="btnAddBlog">Publier Blog</button><hr>
+  <h4>📊 Commandes</h4><div id="adminCommandes" style="background:#f5f5f5;padding:8px;border-radius:8px;max-height:180px;overflow:auto;font-size:12px"></div><hr>
+  <h4>💬 Avis</h4><div id="adminAvis" style="background:#f5f5f5;padding:8px;border-radius:8px;max-height:180px;overflow:auto;font-size:12px"></div>
 </div></div>
 
-<footer>© 2026 PACIFIQUE BKP TECHNOLOGY - Goma, RDC</footer>
+<footer>© 2026 PACIFIQUE BKP TECHNOLOGY - Goma RDC 🇨🇩 </footer>
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
 import { getFirestore, collection, addDoc, getDocs, onSnapshot, serverTimestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyC__3NS0ZA9h8kd_Qyoovs-PiivzFqfhCI",
-  authDomain: "bkp-technology.firebaseapp.com",
-  projectId: "bkp-technology",
-  storageBucket: "bkp-technology.firebasestorage.app",
-  messagingSenderId: "463493266655",
-  appId: "1:463493266655:web:5b6c78f89ce0e96c3a7d6a",
-  measurementId: "G-0RSMYHK8LW"
-};
+const firebaseConfig = { apiKey: "AIzaSyC__3NS0ZA9h8kd_Qyoovs-PiivzFqfhCI", authDomain: "bkp-technology.firebaseapp.com", projectId: "bkp-technology", storageBucket: "bkp-technology.firebasestorage.app", messagingSenderId: "463493266655", appId: "1:463493266655:web:5b6c78f89ce0e96c3a7d6a", measurementId: "G-0RSMYHK8LW" };
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-
-function toast(msg){ const t=document.getElementById('toast'); t.innerText=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),3000); }
-window.showPage = (name)=>{
-  document.querySelectorAll('[id^=\"page-\"]').forEach(p=>{ p.classList.remove('section-active'); p.classList.add('section-hidden'); });
-  const target=document.getElementById('page-'+name); if(target){ target.classList.remove('section-hidden'); target.classList.add('section-active'); window.scrollTo(0,0); }
-}
-
-async function envoyerCommande(nomId,telId,serviceId,msgId,statusId){
-  const nom=document.getElementById(nomId).value, tel=document.getElementById(telId).value, service=document.getElementById(serviceId).value, msg=document.getElementById(msgId).value;
-  if(!nom||!tel){ toast("⚠️ Nom et Tel obligatoires"); return; }
-  document.getElementById(statusId).innerText="⏳ Envoi...";
-  try{ await addDoc(collection(db,"commandes"),{nom,tel,service,msg,date:serverTimestamp(),statut:"Nouveau"}); document.getElementById(statusId).innerText="✅ Envoyé ! Vérifie dans Firebase > commandes"; toast("✅ Commande enregistrée"); document.getElementById(nomId).value=""; document.getElementById(telId).value=""; document.getElementById(msgId).value=""; }catch(e){ document.getElementById(statusId).innerText="❌ "+e.message; toast("❌ Erreur"); }
-}
-document.getElementById('btnCommander').addEventListener('click', ()=>envoyerCommande('c_nom','c_tel','c_service','c_msg','c_status'));
-document.getElementById('btnCommander2').addEventListener('click', ()=>envoyerCommande('c2_nom','c2_tel','c2_service','c2_msg','c2_status'));
-
-document.getElementById('btnAvis').addEventListener('click', async ()=>{
-  const nom=document.getElementById('a_nom').value, stars=document.getElementById('a_stars').value, msg=document.getElementById('a_msg').value;
-  if(!nom||!msg){ toast("Remplis tout"); return; }
-  await addDoc(collection(db,"avis"),{nom,stars:parseInt(stars),msg,date:serverTimestamp()}); toast("⭐ Avis publié !"); document.getElementById('a_nom').value=""; document.getElementById('a_msg').value="";
-});
-
-onSnapshot(query(collection(db,"avis"),orderBy("date","desc")), (snap)=>{
-  const list=document.getElementById('avisList'); list.innerHTML=""; snap.forEach(doc=>{ const d=doc.data(); list.innerHTML+=`<div style=\"background:#fff;padding:12px;border-radius:10px;margin:8px 0;border-left:3px solid #d4af37\"><b>${d.nom}</b> ${"⭐".repeat(d.stars||5)}<br><span style=\"font-size:13px\">${d.msg}</span></div>` }); if(!list.innerHTML) list.innerHTML="Aucun avis";
-});
-onSnapshot(query(collection(db,"blogs"),orderBy("date","desc")), (snap)=>{
-  const grid=document.getElementById('blogGrid'); grid.innerHTML=""; snap.forEach(doc=>{ const d=doc.data(); grid.innerHTML+=`<div class=\"card\"><h3>${d.titre}</h3><p style=\"font-size:13px\">${(d.contenu||'').substring(0,150)}...</p><button class=\"btn btn-gold\" style=\"padding:6px 12px;font-size:12px\" onclick=\"showPage('accueil')\">Lire</button></div>` }); if(!grid.innerHTML) grid.innerHTML=`<div class=\"card\"><h3>🚀 Blog vide - Ajoute ton 1er article via ADMIN</h3><p style=\"font-size:13px\">Clique ADMIN > Ajouter Blog</p></div>`;
-});
-onSnapshot(collection(db,"produits"), (snap)=>{
-  const grid=document.getElementById('produitsGrid'); if(snap.empty){ grid.innerHTML=`<div class=\"card\"><h3>🎓 Formation Bureautique</h3><p>Word, Excel...</p></div><div class=\"card\"><h3>🔧 Maintenance</h3><p>Dépannage Goma</p></div><div class=\"card\"><h3>🌐 Sites Web</h3><p>Sites dynamiques</p></div>`; return; } grid.innerHTML=""; snap.forEach(doc=>{ const p=doc.data(); grid.innerHTML+=`<div class=\"card\"><h3>${p.nom}</h3><p style=\"font-size:13px\">${p.desc||''}</p><a href=\"https://wa.me/243976717995?text=Je veux ${p.nom}\" class=\"btn btn-gold\" style=\"padding:7px 12px;font-size:12px\">Commander</a></div>` });
-});
-
-async function loadAdmin(){
-  const comSnap=await getDocs(query(collection(db,"commandes"),orderBy("date","desc"))); let h=""; comSnap.forEach(d=>{ const x=d.data(); h+=`<div><b>${x.nom}</b> (${x.tel}) - ${x.service}<br><small>${x.msg}</small><hr></div>` }); document.getElementById('adminCommandes').innerHTML=h||"Aucune commande";
-  const avisSnap=await getDocs(query(collection(db,"avis"),orderBy("date","desc"))); let h2=""; avisSnap.forEach(d=>{ const x=d.data(); h2+=`<div><b>${x.nom}</b>: ${x.msg}<hr></div>` }); document.getElementById('adminAvis').innerHTML=h2||"Aucun avis";
-}
-document.getElementById('btnAdmin').addEventListener('click', ()=>{ const pass=prompt("Mot de passe Admin (bkp2026)"); if(pass!=="bkp2026"){ toast("❌ Mauvais MDP"); return; } document.getElementById('adminPanel').style.display="block"; loadAdmin(); });
-document.getElementById('btnCloseAdmin').addEventListener('click', ()=>document.getElementById('adminPanel').style.display="none");
-document.getElementById('btnAddProduit').addEventListener('click', async ()=>{ const nom=document.getElementById('ad_p_nom').value, desc=document.getElementById('ad_p_desc').value; if(!nom) return toast("Nom requis"); await addDoc(collection(db,"produits"),{nom,desc,date:serverTimestamp()}); toast("✅ Produit ajouté dans 'produits'"); document.getElementById('ad_p_nom').value=""; document.getElementById('ad_p_desc').value=""; });
-document.getElementById('btnAddBlog').addEventListener('click', async ()=>{ const titre=document.getElementById('ad_b_titre').value, contenu=document.getElementById('ad_b_contenu').value; if(!titre) return toast("Titre requis"); await addDoc(collection(db,"blogs"),{titre,contenu,date:serverTimestamp()}); toast("✅ Blog publié dans 'blogs'"); document.getElementById('ad_b_titre').value=""; document.getElementById('ad_b_contenu').value=""; });
+function toast(m){ const t=document.getElementById('toast'); t.innerText=m; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),3000); }
+window.showPage=(n)=>{ document.querySelectorAll('[id^=\"page-\"]').forEach(p=>p.classList.add('section-hidden')); const el=document.getElementById('page-'+n); if(el) el.classList.remove('section-hidden'); window.scrollTo(0,0); }
+async function envoyer(n,t,s,m,st){ const nom=document.getElementById(n).value, tel=document.getElementById(t).value, serv=document.getElementById(s).value, msg=document.getElementById(m).value; if(!nom||!tel){ toast("Nom+Tel requis"); return;} document.getElementById(st).innerText="Envoi..."; try{ await addDoc(collection(db,"commandes"),{nom,tel,service:serv,msg,date:serverTimestamp()}); document.getElementById(st).innerText="✅ Envoyé !"; toast("✅ Commande OK"); document.getElementById(n).value=""; document.getElementById(t).value=""; document.getElementById(m).value=""; }catch(e){ document.getElementById(st).innerText="❌ "+e.message; } }
+document.getElementById('btnCommander').onclick=()=>envoyer('c_nom','c_tel','c_service','c_msg','c_status');
+document.getElementById('btnCommander2').onclick=()=>envoyer('c2_nom','c2_tel','c2_service','c2_msg','c2_status');
+document.getElementById('btnAvis').onclick=async()=>{ const nom=document.getElementById('a_nom').value, stars=document.getElementById('a_stars').value, msg=document.getElementById('a_msg').value; if(!nom||!msg){toast("Remplis tout");return;} await addDoc(collection(db,"avis"),{nom,stars:parseInt(stars),msg,date:serverTimestamp()}); toast("⭐ Avis publié"); document.getElementById('a_nom').value=""; document.getElementById('a_msg').value=""; };
+onSnapshot(query(collection(db,"avis"),orderBy("date","desc")),snap=>{ const l=document.getElementById('avisList'); l.innerHTML=""; snap.forEach(d=>{ const x=d.data(); l.innerHTML+=`<div class=\"card\"><b>${x.nom}</b> ${"⭐".repeat(x.stars||5)}<br><small>${x.msg}</small></div>`}); if(!l.innerHTML) l.innerHTML="<small>Aucun avis, sois le premier !</small>"; });
+onSnapshot(query(collection(db,"blogs"),orderBy("date","desc")),snap=>{ const g=document.getElementById('blogGrid'); g.innerHTML=""; snap.forEach(d=>{ const x=d.data(); g.innerHTML+=`<div class=\"card\"><h4 style=\"margin:0\">${x.titre}</h4><p style=\"font-size:12px\">${(x.contenu||'').substring(0,120)}...</p></div>`}); if(!g.innerHTML) g.innerHTML="<div class='card'>Blog vide - Ajoute via ADMIN</div>"; });
+function renderProduits(snap, id){ const g=document.getElementById(id); if(snap.empty){ g.innerHTML=`<div class=\"card\"><h4>🎓 Formation Bureautique</h4><p style=\"font-size:12px\">Word Excel PowerPoint</p></div><div class=\"card\"><h4>🔧 Maintenance</h4><p style=\"font-size:12px\">Dépannage Goma</p></div><div class=\"card\"><h4>🌐 Sites Web</h4><p style=\"font-size:12px\">Sites dynamiques</p></div>`; return;} g.innerHTML=""; snap.forEach(d=>{ const p=d.data(); g.innerHTML+=`<div class=\"card\"><h4>${p.nom}</h4><p style=\"font-size:12px\">${p.desc||''}</p><a href=\"https://wa.me/243976717995?text=Je veux ${p.nom}\" class=\"btn btn-gold\" style=\"padding:8px 12px;font-size:11px;display:inline-block;width:auto\">Commander</a></div>`}); }
+onSnapshot(collection(db,"produits"),snap=>{ renderProduits(snap,'produitsGrid'); renderProduits(snap,'produitsGrid2'); });
+async function loadAdmin(){ const c=await getDocs(query(collection(db,"commandes"),orderBy("date","desc"))); let h=""; c.forEach(d=>{ const x=d.data(); h+=`<div><b>${x.nom}</b> (${x.tel}) - ${x.service} - ${x.msg}<hr></div>`}); document.getElementById('adminCommandes').innerHTML=h||"Aucune"; const a=await getDocs(query(collection(db,"avis"),orderBy("date","desc"))); let h2=""; a.forEach(d=>{ const x=d.data(); h2+=`<div><b>${x.nom}</b>: ${x.msg}<hr></div>`}); document.getElementById('adminAvis').innerHTML=h2||"Aucun"; }
+document.getElementById('btnAdmin').onclick=()=>{ const p=prompt("MDP Admin (bkp2026)"); if(p!=="bkp2026"){ toast("❌ Mauvais MDP"); return;} document.getElementById('adminPanel').style.display="block"; loadAdmin(); };
+document.getElementById('btnCloseAdmin').onclick=()=>document.getElementById('adminPanel').style.display="none";
+document.getElementById('btnAddProduit').onclick=async()=>{ const n=document.getElementById('ad_p_nom').value, d=document.getElementById('ad_p_desc').value; if(!n) return toast("Nom requis"); await addDoc(collection(db,"produits"),{nom:n,desc:d,date:serverTimestamp()}); toast("✅ Produit ajouté"); };
+document.getElementById('btnAddBlog').onclick=async()=>{ const t=document.getElementById('ad_b_titre').value, c=document.getElementById('ad_b_contenu').value; if(!t) return toast("Titre requis"); await addDoc(collection(db,"blogs"),{titre:t,contenu:c,date:serverTimestamp()}); toast("✅ Blog publié"); };
 </script>
 </body>
 </html>
