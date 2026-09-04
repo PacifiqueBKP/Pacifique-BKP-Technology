@@ -3,115 +3,145 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PACIFIQUE BKP TECHNOLOGY | Goma RDC</title>
+<title>PACIFIQUE BKP TECHNOLOGY | Goma RDC - V8 DYNAMIQUE</title>
 <style>
 :root{--blue:#0a1931;--gold:#d4af37;--gold2:#ffe082;--light:#f8f5ec}
-*{box-sizing:border-box}body{margin:0;font-family:Montserrat,Segoe UI,sans-serif;background:var(--light);color:var(--blue)}
-header{background:var(--blue);color:#fff;padding:14px 5%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;border-bottom:2px solid var(--gold)}
-.logo{font-weight:900} .logo span{color:var(--gold)}
-nav a{color:#fff;text-decoration:none;margin:0 8px;font-size:13px} .cta{background:var(--gold);color:var(--blue)!important;padding:8px 16px;border-radius:20px;font-weight:800}
+*{box-sizing:border-box}body{margin:0;font-family:Montserrat,Segoe UI,sans-serif;background:var(--light);color:var(--blue);scroll-behavior:smooth}
+header{background:var(--blue);color:#fff;padding:14px 5%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000;border-bottom:2px solid var(--gold)}
+.logo{font-weight:900}.logo span{color:var(--gold)}
+nav a{color:#fff;text-decoration:none;margin:0 8px;font-size:13px}.cta{background:var(--gold);color:var(--blue)!important;padding:8px 16px;border-radius:20px;font-weight:800}
 .hero{background:radial-gradient(1200px at 80% -10%,#1e3a8a 0%,#0a1931 65%);color:#fff;padding:55px 5%;display:grid;grid-template-columns:1.2fr .8fr;gap:20px}
-.hero h1{font-size:34px;margin:0;line-height:1.15} .hero h1 span{color:var(--gold2)} .hero p{color:#b9c7de}
-.btns{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap}
-.btn{padding:13px 22px;border-radius:30px;text-decoration:none;font-weight:800;display:inline-block}
-.btn-gold{background:linear-gradient(90deg,var(--gold),var(--gold2));color:var(--blue)}
-.btn-outline{border:2px solid var(--gold);color:var(--gold)}
+.btn{padding:13px 22px;border-radius:30px;text-decoration:none;font-weight:800;display:inline-block;transition:.3s;cursor:pointer;border:none}
+.btn:hover{transform:translateY(-2px)}.btn-gold{background:linear-gradient(90deg,var(--gold),var(--gold2));color:var(--blue)}.btn-outline{border:2px solid var(--gold);color:var(--gold);background:transparent}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
-.card{background:#fff;border:1px solid #e9e0c9;border-left:4px solid var(--gold);border-radius:14px;padding:20px}
-.card h3{margin:0 0 8px 0;font-size:17px}
+.card{background:#fff;border:1px solid #e9e0c9;border-left:4px solid var(--gold);border-radius:14px;padding:20px;transition:.3s}
+.card:hover{transform:translateY(-5px);box-shadow:0 12px 25px rgba(0,0,0,.1)}
 .services{padding:45px 5%;max-width:1200px;margin:auto}
+.form-bkp{background:#fff;padding:20px;border-radius:14px;border:1px solid #e9e0c9}
+.form-bkp input,.form-bkp textarea,.form-bkp select{width:100%;padding:12px;margin:8px 0;border:1px solid #ddd;border-radius:8px}
+.qr-box{background:#fff;padding:15px;border-radius:14px;text-align:center;border:2px dashed var(--gold)}
+.toast{position:fixed;bottom:20px;right:20px;background:var(--blue);color:var(--gold2);padding:14px 22px;border-radius:30px;transform:translateY(100px);opacity:0;transition:.4s;z-index:9999;border:1px solid var(--gold)}.toast.show{transform:translateY(0);opacity:1}
+.float-wa{position:fixed;bottom:20px;left:20px;background:#25D366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;text-decoration:none;z-index:9999;box-shadow:0 4px 15px rgba(0,0,0,.3)}
+#adminPanel{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:10000;padding:20px;overflow:auto}.admin-box{max-width:900px;margin:auto;background:#fff;border-radius:14px;padding:25px}
 footer{background:#060f25;color:#8a9bb8;padding:28px 5%;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-footer a{color:var(--gold2);text-decoration:none}
-@media(max-width:800px){.hero{grid-template-columns:1fr}.hero h1{font-size:26px}}
+@media(max-width:800px){.hero{grid-template-columns:1fr}}
 </style>
 </head>
-  <!-- BKP DYNAMIQUE V7.1 - Firebase Connect -->
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
-  import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
-
-  const firebaseConfig = {
-    apiKey: "TA_CLE_ICI",
-    authDomain: "pacifique-bkp.firebaseapp.com",
-    projectId: "pacifique-bkp",
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-
-  // Lecture automatique des produits BKP
-  async function chargerProduitsBKP() {
-    const querySnapshot = await getDocs(collection(db, "produits"));
-    querySnapshot.forEach((doc) => {
-      console.log("Produit BKP:", doc.data());
-      // Ici on va l'afficher sur ton site
-    });
-  }
-  chargerProduitsBKP();
-</script>
 <body>
 <header>
 <div class="logo">PACIFIQUE <span>BKP</span> TECHNOLOGY</div>
-<nav>
-<a href="#">Accueil</a>
-<a href="#services">Services</a>
-<a class="cta" href="https://wa.me/243976717995">Devis</a>
-</nav>
+<nav><a href="#">Accueil</a><a href="#avis">Avis</a><a href="#blog">Blog</a><a class="cta" href="#" onclick="openAdmin()">ADMIN</a><a class="cta" href="https://wa.me/243976717995">Devis</a></nav>
 </header>
 
 <div class="hero">
 <div>
-<div style="border:1px solid var(--gold);display:inline-block;padding:4px 12px;border-radius:20px;font-size:11px;color:var(--gold2)">📍 Goma • Nord-Kivu • RDC</div>
+<div style="border:1px solid var(--gold);display:inline-block;padding:4px 12px;border-radius:20px;font-size:11px;color:var(--gold2)">📍 Goma • Nord-Kivu • FIREBASE CONNECTÉ ✅</div>
 <h1>Transformation digitale<br><span>Solutions IT & Formation</span></h1>
-<p>Entreprises, écoles et organisations à Goma. Le même catalogue que WhatsApp, maintenant en site PRO. Formation Bureautique mise en avant.</p>
-<div class="btns">
-<a class="btn btn-gold" href="https://wa.me/243976717995?text=Bonjour%20BKP%20Technology">WhatsApp: 0976 717 995</a>
-<a class="btn btn-outline" href="tel:+243840037762">0840 037 762</a>
+<p>Site V8 Dynamique connecté à <b>bkp-technology</b>. Commandes, avis, blog en temps réel.</p>
+<div style="display:flex;gap:10px;margin-top:18px;flex-wrap:wrap">
+<a class="btn btn-gold" href="https://wa.me/243976717995">WhatsApp: 0976 717 995</a>
+<a class="btn btn-outline" href="#commander">Commander en ligne</a>
+</div>
+<div class="grid" style="margin-top:20px;grid-template-columns:1fr 1fr;gap:10px">
+<div class="qr-box"><b>QR WhatsApp</b><br><img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://wa.me/243976717995" alt="QR WA"><br><small style="font-size:10px">Scannez pour discuter</small></div>
+<div class="qr-box"><b>QR Site Web</b><br><img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://pacifiquebkp.github.io/Pacifique-BKP-Technology/" alt="QR Site"><br><small style="font-size:10px">pacifiquebkp.github.io</small></div>
 </div>
 </div>
-<div style="background:#fff;color:var(--blue);border-radius:14px;padding:18px">
-<h3 style="margin:0">💬 Commander</h3>
-<p style="font-size:13px">Cliquez → message WhatsApp direct</p>
-<ul style="font-size:13px;line-height:2.1">
-<li>Formation Bureautique</li>
-<li>Maintenance Informatique</li>
-<li>Création Sites Web</li>
-<li>Vente Matériels</li>
-<li>Infographie</li>
-<li>Réseaux Wi-Fi</li>
-</ul>
-<a href="https://wa.me/243976717995" style="background:#25D366;color:#fff;padding:11px;border-radius:30px;display:block;text-align:center;text-decoration:none;font-weight:800">WhatsApp Direct</a>
+<div id="commander" class="form-bkp">
+<h3 style="margin:0">💬 Commander / Devis Dynamique</h3><p style="font-size:12px;color:#666">Va direct dans Firebase > commandes</p>
+<input id="c_nom" placeholder="Votre Nom *"><input id="c_tel" placeholder="Téléphone WhatsApp *">
+<select id="c_service"><option>Formation Bureautique</option><option>Maintenance Informatique</option><option>Création Sites Web</option><option>Vente Matériels</option><option>Infographie</option><option>Réseaux Wi-Fi</option></select>
+<textarea id="c_msg" placeholder="Détails..."></textarea>
+<button class="btn btn-gold" style="width:100%" onclick="envoyerCommande()">Envoyer → Firebase</button>
+<p id="c_status" style="font-size:12px"></p>
 </div>
 </div>
 
 <section id="services" class="services">
-<h2 style="text-align:center;margin:0">Nos Services</h2>
-<p style="text-align:center;color:#5a6a85">Catalogue complet BKP Technology</p>
-<div class="grid" style="margin-top:25px">
-<div class="card"><h3>🎓 Formation Bureautique</h3><p style="font-size:13px">Word, Excel, PowerPoint, Publisher. Pratique, avec certificat délivré à Goma. Pour étudiants, secrétaires, entreprises.</p></div>
-<div class="card"><h3>🔧 Maintenance Informatique</h3><p style="font-size:13px">Dépannage, réparation, installation Windows, antivirus. Intervention rapide Goma.</p></div>
-<div class="card"><h3>🌐 Création Sites Web</h3><p style="font-size:13px">Sites vitrines et e-commerce modernes, rapides, optimisés téléphone.</p></div>
-<div class="card"><h3>🖥️ Vente Matériels</h3><p style="font-size:13px">Ordinateurs, imprimantes, onduleurs, accessoires. Neufs & garantis.</p></div>
-<div class="card"><h3>🎨 Infographie</h3><p style="font-size:13px">Logos V4 Or, affiches, cartes de visite, flyers pro.</p></div>
-<div class="card"><h3>📡 Réseaux</h3><p style="font-size:13px">Installation et sécurisation réseaux, Wi-Fi entreprise.</p></div>
+<h2 style="text-align:center">Nos Services (Dynamiques)</h2>
+<p style="text-align:center;color:#5a6a85;font-size:13px">Collection Firestore: "produits" → s'affiche ici auto</p>
+<div class="grid" id="produitsGrid" style="margin-top:25px">
+<div class="card"><h3>🎓 Formation Bureautique</h3><p style="font-size:13px">Word, Excel, PowerPoint, Publisher. Certificat à Goma.</p></div>
+<div class="card"><h3>🔧 Maintenance Informatique</h3><p style="font-size:13px">Dépannage rapide, installation Windows.</p></div>
+<div class="card"><h3>🌐 Création Sites Web</h3><p style="font-size:13px">Sites modernes, version dynamique comme celui-ci.</p></div>
 </div>
 </section>
 
-<div style="background:var(--blue);color:#fff;padding:28px 5%;text-align:center">
-<h2 style="margin:0;color:var(--gold2)">Prêt à digitaliser ?</h2>
-<p>Contact direct BKP Technology</p>
-<div style="margin-top:18px">
-<a class="btn btn-gold" href="https://wa.me/243976717995">+243 976 717 995</a>
-<a class="btn btn-outline" href="mailto:pacifiquekakuru6@gmail.com">pacifiquekakuru6@gmail.com</a>
+<section id="avis" style="background:#fff;padding:45px 5%"><div style="max-width:1000px;margin:auto">
+<h2 style="text-align:center">⭐ Avis Visiteurs Live</h2>
+<div class="grid" style="grid-template-columns:1fr 1fr">
+<div class="form-bkp"><h3>Laissez votre avis</h3><input id="a_nom" placeholder="Votre Nom"><select id="a_stars"><option value="5">⭐⭐⭐⭐⭐ Excellent</option><option value="4">⭐⭐⭐⭐ Bien</option><option value="3">⭐⭐⭐ Moyen</option></select><textarea id="a_msg" placeholder="Votre expérience BKP..."></textarea><button class="btn btn-gold" style="width:100%" onclick="envoyerAvis()">Publier Avis</button></div>
+<div id="avisList"><p style="font-size:13px">Chargement Firebase...</p></div>
 </div>
-<p style="margin-top:12px;font-size:13px">Second: +243 840 037 762 | Goma, Nord-Kivu, RDC</p>
-</div>
+</div></section>
 
-<footer>
-<div><b style="color:#fff">PACIFIQUE BKP TECHNOLOGY</b><br><span style="font-size:12px">Partenaire IT confiance Goma</span></div>
-<div style="font-size:13px;line-height:1.8">📍 Goma, Nord-Kivu<br>📞 +243 976 717 995<br>📞 +243 840 037 762<br>✉️ pacifiquekakuru6@gmail.com</div>
-<div style="font-size:13px">Lun-Ven: 8h-17h<br>Sam: 9h-13h<br><br><a href="https://wa.me/243976717995">Catalogue WhatsApp</a></div>
-</footer>
-<div style="text-align:center;background:#040a1a;color:#5a6a85;padding:10px;font-size:11px">© 2026 PACIFIQUE BKP TECHNOLOGY - Tous droits réservés</div>
-</body>
-</html>
+<section id="blog" class="services"><h2 style="text-align:center">📰 Blog BKP Technology</h2><div class="grid" id="blogGrid" style="margin-top:20px"></div></section>
+
+<footer><div><b style="color:#fff">PACIFIQUE BKP TECHNOLOGY</b><br><span style="font-size:11px">V8 Dynamique - bkp-technology.firebaseapp.com</span></div><div style="font-size:13px">📞 0976 717 995 / 0840 037 762<br>✉️ pacifiquekakuru6@gmail.com</div><div><button onclick="openAdmin()" style="background:var(--gold);border:none;padding:8px 14px;border-radius:20px;font-weight:800;cursor:pointer">Dashboard Admin</button></div></footer>
+
+<div class="toast" id="toast"></div><a class="float-wa" href="https://wa.me/243976717995">💬</a>
+
+<div id="adminPanel"><div class="admin-box">
+<div style="display:flex;justify-content:space-between"><h2>🔐 Dashboard Admin BKP</h2><button onclick="closeAdmin()" class="btn btn-outline" style="color:#0a1931;border-color:#0a1931">Fermer</button></div>
+<h3>📦 Ajouter Produit</h3><input id="ad_p_nom" placeholder="Nom"><input id="ad_p_desc" placeholder="Description"><button class="btn btn-gold" onclick="adminAddProduit()">Ajouter</button><hr>
+<h3>📰 Ajouter Blog</h3><input id="ad_b_titre" placeholder="Titre"><textarea id="ad_b_contenu" placeholder="Contenu"></textarea><button class="btn btn-gold" onclick="adminAddBlog()">Publier</button><hr>
+<h3>📊 Commandes</h3><div id="adminCommandes" style="font-size:13px;background:#f5f5f5;padding:10px;border-radius:8px;max-height:200px;overflow:auto"></div><hr>
+<h3>💬 Avis</h3><div id="adminAvis" style="font-size:13px;background:#f5f5f5;padding:10px;border-radius:8px;max-height:200px;overflow:auto"></div>
+</div></div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+import { getFirestore, collection, addDoc, getDocs, onSnapshot, serverTimestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-analytics.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyC__3NS0ZA9h8kd_Qyoovs-PiivzFqfhCI",
+  authDomain: "bkp-technology.firebaseapp.com",
+  projectId: "bkp-technology",
+  storageBucket: "bkp-technology.firebasestorage.app",
+  messagingSenderId: "463493266655",
+  appId: "1:463493266655:web:5b6c78f89ce0e96c3a7d6a",
+  measurementId: "G-0RSMYHK8LW"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+try{ getAnalytics(app); }catch(e){}
+
+function showToast(msg){ const t=document.getElementById('toast'); t.innerText=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),3500); }
+
+window.envoyerCommande = async ()=>{
+  const nom=document.getElementById('c_nom').value, tel=document.getElementById('c_tel').value, service=document.getElementById('c_service').value, msg=document.getElementById('c_msg').value;
+  if(!nom||!tel){ showToast("⚠️ Nom + Tel obligatoires"); return; }
+  document.getElementById('c_status').innerText="⏳ Envoi...";
+  try{
+    await addDoc(collection(db,"commandes"),{nom,tel,service,msg,date:serverTimestamp(),statut:"Nouveau"});
+    document.getElementById('c_status').innerText="✅ Envoyé ! On vous contacte sur WhatsApp.";
+    showToast("✅ Commande enregistrée !");
+    document.getElementById('c_nom').value="";document.getElementById('c_tel').value="";document.getElementById('c_msg').value="";
+  }catch(e){ document.getElementById('c_status').innerText="❌ "+e.message; showToast("❌ Erreur"); }
+}
+
+window.envoyerAvis = async ()=>{
+  const nom=document.getElementById('a_nom').value, stars=document.getElementById('a_stars').value, msg=document.getElementById('a_msg').value;
+  if(!nom||!msg){ showToast("⚠️ Remplis tout"); return; }
+  await addDoc(collection(db,"avis"),{nom,stars:parseInt(stars),msg,date:serverTimestamp()});
+  showToast("⭐ Avis publié !"); document.getElementById('a_nom').value="";document.getElementById('a_msg').value="";
+}
+
+onSnapshot(query(collection(db,"avis"),orderBy("date","desc")), (snap)=>{
+  const list=document.getElementById('avisList'); list.innerHTML="";
+  snap.forEach(doc=>{ const d=doc.data(); list.innerHTML+=`<div style="background:#fff;padding:12px;border-radius:10px;margin:8px 0;border-left:3px solid #d4af37"><b>${d.nom}</b> - ${"⭐".repeat(d.stars)}<br><span style="font-size:13px">${d.msg}</span></div>` });
+  if(list.innerHTML=="") list.innerHTML="<p style='font-size:13px'>Aucun avis. Soyez le premier !</p>";
+});
+
+onSnapshot(query(collection(db,"blogs"),orderBy("date","desc")), (snap)=>{
+  const grid=document.getElementById('blogGrid'); grid.innerHTML="";
+  snap.forEach(doc=>{ const d=doc.data(); grid.innerHTML+=`<div class="card"><h3>${d.titre}</h3><p style="font-size:13px">${(d.contenu||'').substring(0,130)}...</p></div>` });
+  if(grid.innerHTML=="") grid.innerHTML=`<div class="card"><h3>🚀 Bienvenue sur le Blog BKP</h3><p style="font-size:13px">Publiez vos astuces depuis le Dashboard Admin. Ce blog est 100% dynamique via Firebase.</p></div>`;
+});
+
+onSnapshot(collection(db,"produits"), (snap)=>{
+  if(snap.empty) return;
+  const grid=document.getElementById('produitsGrid'); grid.innerHTML="";
+  snap.forEach(doc=>
