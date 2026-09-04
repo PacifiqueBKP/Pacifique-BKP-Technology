@@ -1,45 +1,48 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PACIFIQUE BKP TECHNOLOGY | IT Services</title>
 <style>
-:root{--blue:#0a1931;--gold:#d4af37;--gold2:#ffe082;--light:#f8f5ec}
-*{box-sizing:border-box}
-body{margin:0;font-family:system-ui,Arial,sans-serif;background:var(--light);color:var(--blue);overflow-x:hidden}
+:root{--blue:#0a1931;--gold:#d4af37;--gold2:#ffe082;--light:#f8f5ec;--red:#e11d48}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,Arial,sans-serif;background:var(--light);color:var(--blue);overflow-x:hidden}
 header{background:var(--blue);color:#fff;padding:12px 4%;display:flex;flex-direction:column;gap:8px;position:sticky;top:0;z-index:999;border-bottom:3px solid var(--gold)}
 .header-top{display:flex;justify-content:space-between;align-items:center;width:100%}
-.logo{font-weight:900;font-size:16px;letter-spacing:.5px}.logo span{color:var(--gold)}
+.logo{font-weight:900;font-size:16px;letter-spacing:.5px;animation:shine 3s infinite;background:linear-gradient(90deg,var(--gold),#fff,var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-size:200%}
+@keyframes shine{0%{background-position:-200%}100%{background-position:200%}}
 .menu{width:100%;display:flex;gap:6px;overflow-x:auto;white-space:nowrap;padding-bottom:4px;-webkit-overflow-scrolling:touch}
 .menu::-webkit-scrollbar{display:none}
-.menu a{color:#fff;text-decoration:none;font-size:12px;background:rgba(255,255,255,.1);padding:7px 12px;border-radius:20px;flex-shrink:0}
+.menu a{color:#fff;text-decoration:none;font-size:12px;background:rgba(255,255,255,.1);padding:7px 12px;border-radius:20px;flex-shrink:0;cursor:pointer}
 .menu a.cta{background:var(--gold)!important;color:var(--blue)!important;font-weight:900}
 .hero{background:linear-gradient(180deg,#132a5a 0%,#0a1931 100%);color:#fff;padding:20px 4%}
 .hero h1{font-size:22px;margin:10px 0;line-height:1.2}.hero h1 span{color:var(--gold2)}
 .badge{border:1px solid var(--gold);color:var(--gold2);display:inline-block;padding:4px 10px;border-radius:20px;font-size:10px}
 .btn{padding:12px 18px;border-radius:30px;font-weight:800;display:inline-block;border:none;cursor:pointer;text-decoration:none;text-align:center;font-size:13px}
-.btn-gold{background:var(--gold);color:var(--blue);width:100%;margin:6px 0}
-.btn-outline{border:2px solid var(--gold);color:var(--gold);background:transparent;width:100%;margin:6px 0}
+.btn-gold{background:var(--gold);color:var(--blue);width:100%;margin:6px 0}.btn-outline{border:2px solid var(--gold);color:var(--gold);background:transparent;width:100%;margin:6px 0}
+.btn-red{background:var(--red);color:#fff;padding:6px 10px;border-radius:8px;font-size:10px;border:none;cursor:pointer;margin-top:6px}
 .grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:14px}
-.card{background:#fff;border-radius:12px;padding:14px;border:1px solid #e9e0c9;border-left:4px solid var(--gold)}
+.card{background:#fff;border-radius:12px;padding:14px;border:1px solid #e9e0c9;border-left:4px solid var(--gold);position:relative}
 .qr-box{background:#fff;border-radius:12px;padding:10px;text-align:center;border:2px dashed var(--gold)}
 .qr-box img{width:100%;max-width:130px;height:auto}
 .form-bkp{background:#fff;padding:14px;border-radius:12px;border:1px solid #e9e0c9;margin-top:14px}
 .form-bkp input,.form-bkp textarea,.form-bkp select{width:100%;padding:13px;margin:6px 0;border:1px solid #ddd;border-radius:8px;font-size:16px}
 .content{padding:18px 4%}
 #adminPanel{display:none;position:fixed;inset:0;background:rgba(0,0,0,.96);z-index:10000;padding:10px;overflow:auto}
-.admin-box{background:#fff;border-radius:12px;padding:14px;max-width:900px;margin:auto}
+.admin-box{background:#fff;border-radius:12px;padding:14px;max-width:1000px;margin:auto}
+.admin-tabs{display:flex;gap:6px;overflow-x:auto;margin-bottom:10px}.admin-tabs button{padding:8px 12px;border-radius:20px;border:1px solid var(--blue);background:#fff;font-size:11px;flex-shrink:0;cursor:pointer}
+.admin-tabs button.active{background:var(--blue);color:var(--gold2)}
+.admin-sec{display:none}.admin-sec.active{display:block}
+.upload-zone{border:2px dashed var(--gold);padding:12px;text-align:center;border-radius:12px;background:#fffbe6;margin:8px 0}
 .section-hidden{display:none}
 .toast{position:fixed;bottom:15px;left:4%;right:4%;background:var(--blue);color:var(--gold2);padding:12px;text-align:center;border-radius:30px;transform:translateY(120px);opacity:0;transition:.4s;z-index:9999;border:1px solid var(--gold)}
 .toast.show{transform:translateY(0);opacity:1}
-footer{background:#060f25;color:#8a9bb8;padding:18px 4%;text-align:center;font-size:11px}
+footer{background:#060f25;color:#8a9bb8;padding:18px 4%;text-align:center;font-size:11px;line-height:1.6}
 @media(min-width:768px){
   header{flex-direction:row}.menu{width:auto;overflow:visible}
-  .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:20px;padding:40px 5%}.hero h1{font-size:32px}
-  .btn{width:auto}.btn-gold,.btn-outline{width:auto}
-  .grid{grid-template-columns:repeat(3,1fr)}.content{padding:30px 5%}
-  .toast{left:auto;right:20px;right:4%;max-width:320px}
+ .hero{display:grid;grid-template-columns:1.2fr.8fr;gap:20px;padding:40px 5%}.hero h1{font-size:32px}
+ .btn{width:auto}.btn-gold,.btn-outline{width:auto}
+ .grid{grid-template-columns:repeat(3,1fr)}.content{padding:30px 5%}
+ .toast{left:auto;right:20px;max-width:320px}
 }
 </style>
 </head>
@@ -47,26 +50,27 @@ footer{background:#060f25;color:#8a9bb8;padding:18px 4%;text-align:center;font-s
 <header>
   <div class="header-top">
     <div class="logo">PACIFIQUE <span>BKP</span> TECHNOLOGY</div>
-    <div style="font-size:10px;color:var(--gold2)">GOMA RDC</div>
+    <div style="font-size:10px;color:var(--gold2)">SATAN 2 • GOMA RDC</div>
   </div>
   <div class="menu">
     <a onclick="showPage('accueil')">Accueil</a>
     <a onclick="showPage('services')">Services</a>
+    <a onclick="showPage('galerie')">Galerie</a>
     <a onclick="showPage('avis')">Avis</a>
     <a onclick="showPage('blog')">Blog</a>
+    <a onclick="showPage('politique')">Politique</a>
     <a onclick="showPage('commander')">Commander</a>
-    <a class="cta" id="btnAdmin">ADMIN</a>
+    <a class="cta" id="btnAdmin">ADMIN 🔐</a>
   </div>
 </header>
 
 <div id="page-accueil">
   <div class="hero">
     <div>
-      <div class="badge">Goma, Nord-Kivu RDC, Pacifique_bkp-technology...👂🦁🙏🇨🇩</div>
-      <h1>Transformation digitale <br><span>Solutions IT & Formation</span></h1>
-      <p style="font-size:13px;opacity:.9">Nous sommes une entreprise œuvrant à Goma dans la Province du Kivu, en RDC... Ensemble nous pouvons ajouter une pierre àl'édifice dans ce monde.. Merci à vous d'avance pour la confiance accordée...
-      Merci Papa Innocent KAKURU & Maman Ernestine KAVANGA.. Gisèle KASIDIKA et tous les autres membres pour votre soutien... In God we trust..🦁🙏🇨🇩
-      <button class="btn btn-gold" onclick="showPage('commander')">🛒 Commander Maintenant</button>
+      <div class="badge"> Goma, Nord-Kivu,  RDC / Pacifique-BKP-Technology</div>
+      <h1>Transformation digitale <br><span>Solutions IT & Formation - Goma/RDC</span></h1>
+      <p style="font-size:13px;opacity:.9">V9 Enterprise : 10 Services, Galerie Apprenants, Suppression Produits, MDP Secret, Politique.</p>
+      <button class="btn btn-gold" onclick="showPage('commander')">🛒 Commander - 10 Rubriques</button>
       <a class="btn btn-outline" href="https://wa.me/243976717995" style="display:block;text-align:center">💬 WhatsApp 0976 717 995</a>
       <div class="grid" style="grid-template-columns:1fr 1fr">
         <div class="qr-box"><b style="font-size:11px">QR WhatsApp</b><br><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://wa.me/243976717995"><br><small style="font-size:10px">Scannez</small></div>
@@ -74,60 +78,106 @@ footer{background:#060f25;color:#8a9bb8;padding:18px 4%;text-align:center;font-s
       </div>
     </div>
     <div class="form-bkp">
-      <h3 style="margin:0 0 6px 0">💬 Devis Rapide (Firebase)</h3>
+      <h3 style="margin:0 0 6px 0">💬 Devis Rapide (10 Services)</h3>
       <input id="c_nom" placeholder="Votre Nom *">
       <input id="c_tel" placeholder="Tél WhatsApp *">
-      <select id="c_service"><option>Formation Bureautique</option><option>Maintenance Informatique</option><option>Création Sites Web</option><option>Vente Matériels</option><option>Infographie</option><option>Réseaux Wi-Fi</option></select>
+      <select id="c_service">
+        <option>🎓 Formation Bureautique</option><option>🔧 Maintenance Informatique</option><option>🌐 Création Sites Web</option><option>💻 Vente Matériels</option><option>🎨 Infographie & Design</option><option>📡 Réseaux & Wi-Fi</option><option>🖨️ Impression & Sérigraphie</option><option>🏠 Dépannage à Domicile Goma</option><option>🌍 Abonnement Internet</option><option>🏢 Location Salle Formation</option>
+      </select>
       <textarea id="c_msg" placeholder="Détails de votre besoin..."></textarea>
       <button class="btn btn-gold" id="btnCommander">Envoyer → Firebase</button>
       <p id="c_status" style="font-size:12px"></p>
     </div>
   </div>
   <div class="content">
-    <h3>⭐ Services Populaires</h3>
+    <h3>⭐ Services Populaires (Live)</h3>
     <div class="grid" id="produitsGrid"></div>
   </div>
 </div>
 
 <div id="page-services" class="section-hidden content"><h2>Nos Services (Firestore: produits)</h2><div class="grid" id="produitsGrid2"></div><button class="btn btn-gold" onclick="showPage('accueil')">← Accueil</button></div>
-<div id="page-avis" class="section-hidden content"><h2>⭐ Avis Live (Firestore: avis)</h2><div class="form-bkp" style="margin-bottom:12px"><input id="a_nom" placeholder="Nom"><select id="a_stars"><option value="5">⭐⭐⭐⭐⭐ 5</option><option value="4">⭐⭐⭐⭐ 4</option></select><textarea id="a_msg" placeholder="Votre expérience..."></textarea><button class="btn btn-gold" id="btnAvis">Publier Avis</button></div><div id="avisList"></div><button class="btn btn-gold" onclick="showPage('accueil')">← Accueil</button></div>
-<div id="page-blog" class="section-hidden content"><h2>📰 Blog (Firestore: blogs)</h2><div class="grid" id="blogGrid"></div><button class="btn btn-gold" onclick="showPage('accueil')">← Accueil</button></div>
-<div id="page-commander" class="section-hidden content"><h2>🛒 Commander</h2><div class="form-bkp"><input id="c2_nom" placeholder="Nom"><input id="c2_tel" placeholder="Tel"><select id="c2_service"><option>Formation</option><option>Maintenance</option><option>Sites Web</option></select><textarea id="c2_msg" placeholder="Détails"></textarea><button class="btn btn-gold" id="btnCommander2">Envoyer</button><p id="c2_status"></p></div></div>
+<div id="page-galerie" class="section-hidden content"><h2>📸 Galerie - Souvenirs Apprenants & Affiches Promo</h2><p style="font-size:12px">Uploadé depuis Admin > Galerie. Stockage Firebase Storage.</p><div class="grid" id="galerieGrid"></div><button class="btn btn-gold" onclick="showPage('accueil')">← Accueil</button></div>
+<div id="page-avis" class="section-hidden content"><h2>⭐ Avis Live</h2><div class="form-bkp" style="margin-bottom:12px"><input id="a_nom" placeholder="Nom"><select id="a_stars"><option value="5">⭐⭐⭐⭐⭐ 5</option><option value="4">⭐⭐⭐⭐ 4</option></select><textarea id="a_msg" placeholder="Votre expérience..."></textarea><button class="btn btn-gold" id="btnAvis">Publier Avis</button></div><div id="avisList"></div><button class="btn btn-gold" onclick="showPage('accueil')">← Accueil</button></div>
+<div id="page-blog" class="section-hidden content"><h2>📰 Blog BKP</h2><div class="grid" id="blogGrid"></div><button class="btn btn-gold" onclick="showPage('accueil')">← Accueil</button></div>
+<div id="page-politique" class="section-hidden content"><h2>📜 Politique d'Utilisation - BKP Technology</h2><div class="card"><p style="font-size:12px;line-height:1.7"><b>1. Services:</b> Formations certifiées (Word, Excel, Web), maintenance, vente matériels, infographie.<br><b>2. Paiement:</b> 50% avance service, 100% matériel. M-Pesa, Orange Money, Airtel Money, Cash.<br><b>3. Livraison:</b> Goma 24h. Garantie 3 mois matériel, support 1 mois formation.<br><b>4. Données:</b> Nom/Tel stockés dans Firebase bkp-technology, usage interne uniquement, jamais vendues. WhatsApp chiffré.<br><b>5. Admin vs User:</b> User = client, commande. Admin = gérant avec MDP secret stocké dans config/admin (modifiable).<br><b>6. Uploads:</b> Photos apprenants publiées avec consentement. Affiches promo propriété BKP.<br><b>7. Contact:</b> +243 976 717 995 - Goma, Nord-Kivu RDC.<br><br>© 2026 PACIFIQUE BKP TECHNOLOGY - Goma / RDC</p></div><button class="btn btn-gold" onclick="showPage('accueil')">← Accueil</button></div>
+<div id="page-commander" class="section-hidden content"><h2>🛒 Commander - 10 Rubriques</h2><div class="form-bkp"><input id="c2_nom" placeholder="Nom"><input id="c2_tel" placeholder="Tel"><select id="c2_service"><option>🎓 Formation Bureautique</option><option>🔧 Maintenance</option><option>🌐 Sites Web</option><option>💻 Vente Matériels</option><option>🎨 Infographie</option><option>📡 Réseaux</option><option>🖨️ Impression</option><option>🏠 Dépannage Domicile</option><option>🌍 Abonnement Internet</option><option>🏢 Et bien d’autres service</option></select><textarea id="c2_msg" placeholder="Détails"></textarea><button class="btn btn-gold" id="btnCommander2">Envoyer</button><p id="c2_status"></p></div></div>
 
 <div class="toast" id="toast"></div>
 
 <div id="adminPanel"><div class="admin-box">
-  <div style="display:flex;justify-content:space-between;align-items:center"><h3 style="margin:0">🔐 Dashboard Admin V8.2</h3><button id="btnCloseAdmin" class="btn" style="background:#eee;color:#000;padding:8px 12px">X Fermer</button></div>
-  <hr>
-  <h4>📦 Ajouter Produit</h4><input id="ad_p_nom" placeholder="Nom ex: PC HP"><input id="ad_p_desc" placeholder="Desc + prix"><button class="btn btn-gold" id="btnAddProduit">Ajouter</button><hr>
-  <h4>📰 Ajouter Blog</h4><input id="ad_b_titre" placeholder="Titre"><textarea id="ad_b_contenu" placeholder="Contenu"></textarea><button class="btn btn-gold" id="btnAddBlog">Publier Blog</button><hr>
-  <h4>📊 Commandes</h4><div id="adminCommandes" style="background:#f5f5f5;padding:8px;border-radius:8px;max-height:180px;overflow:auto;font-size:12px"></div><hr>
-  <h4>💬 Avis</h4><div id="adminAvis" style="background:#f5f5f5;padding:8px;border-radius:8px;max-height:180px;overflow:auto;font-size:12px"></div>
+  <div style="display:flex;justify-content:space-between;align-items:center"><h3 style="margin:0">🔐 BKP Admin - Dashboard</h3><button id="btnCloseAdmin" class="btn" style="background:#eee;color:#000;padding:8px 12px">X Fermer</button></div>
+  <div class="admin-tabs">
+    <button class="active" onclick="adminTab('produits',this)">📦 Produits</button><button onclick="adminTab('blogs',this)">📰 Blogs</button><button onclick="adminTab('galerie',this)">📸 Galerie</button><button onclick="adminTab('commandes',this)">📊 Commandes</button><button onclick="adminTab('avis',this)">💬 Avis</button><button onclick="adminTab('secu',this)">🔑 Sécurité</button>
+  </div>
+
+  <div id="adm-produits" class="admin-sec active">
+    <h4>📦 Produits (Supprimables)</h4><input id="ad_p_nom" placeholder="Nom ex: PC HP"><input id="ad_p_desc" placeholder="Desc + prix"><button class="btn btn-gold" id="btnAddProduit">Ajouter Produit</button>
+    <div id="adminProduitsList" style="margin-top:10px;font-size:12px"></div>
+  </div>
+  <div id="adm-blogs" class="admin-sec"><h4>📰 Blogs</h4><input id="ad_b_titre" placeholder="Titre"><textarea id="ad_b_contenu" placeholder="Contenu"></textarea><button class="btn btn-gold" id="btnAddBlog">Publier Blog</button><div id="adminBlogsList" style="margin-top:10px;font-size:12px"></div></div>
+  <div id="adm-galerie" class="admin-sec">
+    <h4>📤 Uploader Affiches / Apprenants / Docs</h4>
+    <div class="upload-zone"><input type="file" id="fileInput" accept="image/*,.pdf"><br><br><input id="fileTitre" placeholder="Titre: Promo Janvier, Apprenants G1 2026" style="width:100%;padding:10px;border-radius:8px;border:1px solid #ddd"><br><br><button class="btn btn-gold" id="btnUpload">⬆️ Uploader vers Firebase Storage</button><p id="uploadStatus" style="font-size:11px"></p></div>
+    <div id="adminGalerieList" style="font-size:12px"></div>
+  </div>
+  <div id="adm-commandes" class="admin-sec"><h4>📊 Commandes Reçues</h4><div id="adminCommandes" style="background:#f5f5f5;padding:8px;border-radius:8px;max-height:200px;overflow:auto;font-size:12px"></div></div>
+  <div id="adm-avis" class="admin-sec"><h4>💬 Avis</h4><div id="adminAvis" style="background:#f5f5f5;padding:8px;border-radius:8px;max-height:200px;overflow:auto;font-size:12px"></div></div>
+  <div id="adm-secu" class="admin-sec">
+    <h4>🔑 Sécurité - Changer MDP Admin (plus dans le code!)</h4><p style="font-size:11px">MDP actuel: <b id="currentPassShow">bkp2026</b><br>Il est dans Firebase config/admin, invisible pour les visiteurs.</p><input id="newPass" type="password" placeholder="Nouveau MDP"><button class="btn btn-gold" id="btnChangePass">Changer MDP</button>
+    <hr><p style="font-size:11px"><b>User:</b> Client voit site, commande.<br><b>Admin:</b> Toi seul, après MDP, tu peux ajouter/supprimer/uploader.</p>
+  </div>
 </div></div>
 
-<footer>© 2026 PACIFIQUE BKP TECHNOLOGY - Goma RDC 🇨🇩 </footer>
+<footer>© 2026 PACIFIQUE BKP TECHNOLOGY - Goma / RDC - <span style="color:var(--gold);cursor:pointer" onclick="showPage('politique')">Politique d'utilisation</span> • Firebase bkp-technology</footer>
 
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs, onSnapshot, serverTimestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, getDocs, onSnapshot, serverTimestamp, query, orderBy, doc, deleteDoc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-storage.js";
 const firebaseConfig = { apiKey: "AIzaSyC__3NS0ZA9h8kd_Qyoovs-PiivzFqfhCI", authDomain: "bkp-technology.firebaseapp.com", projectId: "bkp-technology", storageBucket: "bkp-technology.firebasestorage.app", messagingSenderId: "463493266655", appId: "1:463493266655:web:5b6c78f89ce0e96c3a7d6a", measurementId: "G-0RSMYHK8LW" };
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const storage = getStorage(app);
+
+let adminPassword="bkp2026";
+async function loadPass(){ try{ const s=await getDoc(doc(db,"config","admin")); if(s.exists()){ adminPassword=s.data().password; document.getElementById('currentPassShow').innerText=adminPassword; } }catch(e){} }
+loadPass();
+
 function toast(m){ const t=document.getElementById('toast'); t.innerText=m; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),3000); }
-window.showPage=(n)=>{ document.querySelectorAll('[id^=\"page-\"]').forEach(p=>p.classList.add('section-hidden')); const el=document.getElementById('page-'+n); if(el) el.classList.remove('section-hidden'); window.scrollTo(0,0); }
-async function envoyer(n,t,s,m,st){ const nom=document.getElementById(n).value, tel=document.getElementById(t).value, serv=document.getElementById(s).value, msg=document.getElementById(m).value; if(!nom||!tel){ toast("Nom+Tel requis"); return;} document.getElementById(st).innerText="Envoi..."; try{ await addDoc(collection(db,"commandes"),{nom,tel,service:serv,msg,date:serverTimestamp()}); document.getElementById(st).innerText="✅ Envoyé !"; toast("✅ Commande OK"); document.getElementById(n).value=""; document.getElementById(t).value=""; document.getElementById(m).value=""; }catch(e){ document.getElementById(st).innerText="❌ "+e.message; } }
+window.showPage=(n)=>{ document.querySelectorAll('[id^="page-"]').forEach(p=>p.classList.add('section-hidden')); const el=document.getElementById('page-'+n); if(el) el.classList.remove('section-hidden'); window.scrollTo(0,0); }
+window.adminTab=(n,btn)=>{ document.querySelectorAll('.admin-sec').forEach(s=>s.classList.remove('active')); document.querySelectorAll('.admin-tabs button').forEach(b=>b.classList.remove('active')); document.getElementById('adm-'+n).classList.add('active'); if(btn) btn.classList.add('active'); }
+window.supprDoc=async(col,id)=>{ if(!confirm("Supprimer?")) return; await deleteDoc(doc(db,col,id)); toast("🗑️ Supprimé"); };
+
+async function envoyer(n,t,s,m,st){ const nom=document.getElementById(n).value, tel=document.getElementById(t).value, serv=document.getElementById(s).value, msg=document.getElementById(m).value; if(!nom||!tel){ toast("Nom+Tel requis"); return;} document.getElementById(st).innerText="Envoi..."; try{ await addDoc(collection(db,"commandes"),{nom,tel,service:serv,msg,date:serverTimestamp()}); document.getElementById(st).innerText="✅ Envoyé!"; toast("✅ Commande OK"); document.getElementById(n).value=""; document.getElementById(t).value=""; document.getElementById(m).value=""; }catch(e){ document.getElementById(st).innerText="❌ "+e.message; } }
 document.getElementById('btnCommander').onclick=()=>envoyer('c_nom','c_tel','c_service','c_msg','c_status');
 document.getElementById('btnCommander2').onclick=()=>envoyer('c2_nom','c2_tel','c2_service','c2_msg','c2_status');
-document.getElementById('btnAvis').onclick=async()=>{ const nom=document.getElementById('a_nom').value, stars=document.getElementById('a_stars').value, msg=document.getElementById('a_msg').value; if(!nom||!msg){toast("Remplis tout");return;} await addDoc(collection(db,"avis"),{nom,stars:parseInt(stars),msg,date:serverTimestamp()}); toast("⭐ Avis publié"); document.getElementById('a_nom').value=""; document.getElementById('a_msg').value=""; };
-onSnapshot(query(collection(db,"avis"),orderBy("date","desc")),snap=>{ const l=document.getElementById('avisList'); l.innerHTML=""; snap.forEach(d=>{ const x=d.data(); l.innerHTML+=`<div class=\"card\"><b>${x.nom}</b> ${"⭐".repeat(x.stars||5)}<br><small>${x.msg}</small></div>`}); if(!l.innerHTML) l.innerHTML="<small>Aucun avis, sois le premier !</small>"; });
-onSnapshot(query(collection(db,"blogs"),orderBy("date","desc")),snap=>{ const g=document.getElementById('blogGrid'); g.innerHTML=""; snap.forEach(d=>{ const x=d.data(); g.innerHTML+=`<div class=\"card\"><h4 style=\"margin:0\">${x.titre}</h4><p style=\"font-size:12px\">${(x.contenu||'').substring(0,120)}...</p></div>`}); if(!g.innerHTML) g.innerHTML="<div class='card'>Blog vide - Ajoute via ADMIN</div>"; });
-function renderProduits(snap, id){ const g=document.getElementById(id); if(snap.empty){ g.innerHTML=`<div class=\"card\"><h4>🎓 Formation Bureautique</h4><p style=\"font-size:12px\">Word Excel PowerPoint</p></div><div class=\"card\"><h4>🔧 Maintenance</h4><p style=\"font-size:12px\">Dépannage Goma</p></div><div class=\"card\"><h4>🌐 Sites Web</h4><p style=\"font-size:12px\">Sites dynamiques</p></div>`; return;} g.innerHTML=""; snap.forEach(d=>{ const p=d.data(); g.innerHTML+=`<div class=\"card\"><h4>${p.nom}</h4><p style=\"font-size:12px\">${p.desc||''}</p><a href=\"https://wa.me/243976717995?text=Je veux ${p.nom}\" class=\"btn btn-gold\" style=\"padding:8px 12px;font-size:11px;display:inline-block;width:auto\">Commander</a></div>`}); }
-onSnapshot(collection(db,"produits"),snap=>{ renderProduits(snap,'produitsGrid'); renderProduits(snap,'produitsGrid2'); });
-async function loadAdmin(){ const c=await getDocs(query(collection(db,"commandes"),orderBy("date","desc"))); let h=""; c.forEach(d=>{ const x=d.data(); h+=`<div><b>${x.nom}</b> (${x.tel}) - ${x.service} - ${x.msg}<hr></div>`}); document.getElementById('adminCommandes').innerHTML=h||"Aucune"; const a=await getDocs(query(collection(db,"avis"),orderBy("date","desc"))); let h2=""; a.forEach(d=>{ const x=d.data(); h2+=`<div><b>${x.nom}</b>: ${x.msg}<hr></div>`}); document.getElementById('adminAvis').innerHTML=h2||"Aucun"; }
-document.getElementById('btnAdmin').onclick=()=>{ const p=prompt("MDP Admin (bkp2026)"); if(p!=="bkp2026"){ toast("❌ Mauvais MDP"); return;} document.getElementById('adminPanel').style.display="block"; loadAdmin(); };
+document.getElementById('btnAvis').onclick=async()=>{ const nom=document.getElementById('a_nom').value, stars=document.getElementById('a_stars').value, msg=document.getElementById('a_msg').value; if(!nom||!msg){toast("Remplis tout");return;} await addDoc(collection(db,"avis"),{nom,stars:parseInt(stars),msg,date:serverTimestamp()}); toast("⭐ Avis publié"); };
+
+function renderProduits(snap,id,isAdmin=false){
+  const g=document.getElementById(id); g.innerHTML="";
+  if(snap.empty &&!isAdmin){ g.innerHTML=`<div class="card"><h4>🎓 Formation Bureautique</h4><p style="font-size:12px">Word Excel PowerPoint 50$</p></div><div class="card"><h4>🔧 Maintenance</h4><p style="font-size:12px">Dépannage rapide Goma</p></div><div class="card"><h4>🌐 Sites Web</h4><p style="font-size:12px">Sites dynamiques Firebase</p></div>`; return; }
+  snap.forEach(d=>{ const p=d.data(); const btn=isAdmin?`<button class="btn-red" onclick="supprDoc('produits','${d.id}')">🗑️ Supprimer</button>`: `<a href="https://wa.me/243976717995?text=Je veux ${p.nom}" class="btn btn-gold" style="padding:8px 12px;font-size:11px;width:auto;display:inline-block">Commander</a>`; g.innerHTML+=`<div class="card"><h4 style="margin:0">${p.nom}</h4><p style="font-size:12px">${p.desc||''}</p>${btn}</div>`; });
+}
+onSnapshot(collection(db,"produits"),snap=>{ renderProduits(snap,'produitsGrid'); renderProduits(snap,'produitsGrid2'); renderProduits(snap,'adminProduitsList',true); });
+onSnapshot(query(collection(db,"avis"),orderBy("date","desc")),snap=>{ const l=document.getElementById('avisList'); l.innerHTML=""; snap.forEach(d=>{ const x=d.data(); l.innerHTML+=`<div class="card"><b>${x.nom}</b> ${"⭐".repeat(x.stars||5)}<br><small>${x.msg}</small></div>`}); if(!l.innerHTML) l.innerHTML="<small>Aucun avis</small>"; });
+onSnapshot(query(collection(db,"blogs"),orderBy("date","desc")),snap=>{
+  const g=document.getElementById('blogGrid'); g.innerHTML=""; const ag=document.getElementById('adminBlogsList'); if(ag) ag.innerHTML="";
+  snap.forEach(d=>{ const x=d.data(); g.innerHTML+=`<div class="card"><h4>${x.titre}</h4><p style="font-size:12px">${(x.contenu||'').substring(0,120)}...</p></div>`; if(ag) ag.innerHTML+=`<div style="border-bottom:1px solid #eee;padding:6px 0"><b>${x.titre}</b> <button class="btn-red" onclick="supprDoc('blogs','${d.id}')">Supprimer</button></div>`; });
+  if(!g.innerHTML) g.innerHTML="<div class='card'>Blog vide - Ajoute via ADMIN</div>";
+});
+onSnapshot(query(collection(db,"galerie"),orderBy("date","desc")),snap=>{
+  const g=document.getElementById('galerieGrid'); g.innerHTML=""; const ag=document.getElementById('adminGalerieList'); if(ag) ag.innerHTML="";
+  snap.forEach(d=>{ const x=d.data(); const isPdf=x.url.includes('.pdf') || x.type==='application/pdf'; const html=isPdf? `<a href="${x.url}" target="_blank" style="font-size:12px">📄 ${x.titre} - Voir PDF</a>` : `<img src="${x.url}" style="width:100%;border-radius:8px;max-height:200px;object-fit:cover"><br><small>${x.titre}</small>`; g.innerHTML+=`<div class="card">${html}</div>`; if(ag) ag.innerHTML+=`<div style="border-bottom:1px solid #eee;padding:6px 0">${html}<br><button class="btn-red" onclick="supprDoc('galerie','${d.id}')">Supprimer</button></div>`; });
+});
+
+async function loadAdmin(){ const c=await getDocs(query(collection(db,"commandes"),orderBy("date","desc"))); let h=""; c.forEach(d=>{ const x=d.data(); h+=`<div><b>${x.nom}</b> (${x.tel}) - ${x.service}<br><small>${x.msg}</small> <button class="btn-red" onclick="supprDoc('commandes','${d.id}')">X</button><hr></div>`}); document.getElementById('adminCommandes').innerHTML=h||"Aucune commande"; const a=await getDocs(query(collection(db,"avis"),orderBy("date","desc"))); let h2=""; a.forEach(d=>{ const x=d.data(); h2+=`<div><b>${x.nom}</b>: ${x.msg} <button class="btn-red" onclick="supprDoc('avis','${d.id}')">X</button><hr></div>`}); document.getElementById('adminAvis').innerHTML=h2||"Aucun avis"; }
+
+document.getElementById('btnAdmin').onclick=async()=>{ await loadPass(); const p=prompt("MDP Admin (défaut bkp2026) - Après tu pourras le changer"); if(p!==adminPassword){ toast("❌ Mauvais MDP - Mode User"); return;} document.getElementById('adminPanel').style.display="block"; loadAdmin(); toast("🔓 ADMIN activé - Suppression OK"); };
 document.getElementById('btnCloseAdmin').onclick=()=>document.getElementById('adminPanel').style.display="none";
-document.getElementById('btnAddProduit').onclick=async()=>{ const n=document.getElementById('ad_p_nom').value, d=document.getElementById('ad_p_desc').value; if(!n) return toast("Nom requis"); await addDoc(collection(db,"produits"),{nom:n,desc:d,date:serverTimestamp()}); toast("✅ Produit ajouté"); };
-document.getElementById('btnAddBlog').onclick=async()=>{ const t=document.getElementById('ad_b_titre').value, c=document.getElementById('ad_b_contenu').value; if(!t) return toast("Titre requis"); await addDoc(collection(db,"blogs"),{titre:t,contenu:c,date:serverTimestamp()}); toast("✅ Blog publié"); };
+document.getElementById('btnAddProduit').onclick=async()=>{ const n=document.getElementById('ad_p_nom').value, d=document.getElementById('ad_p_desc').value; if(!n) return toast("Nom requis"); await addDoc(collection(db,"produits"),{nom:n,desc:d,date:serverTimestamp()}); toast("✅ Produit ajouté"); document.getElementById('ad_p_nom').value=""; document.getElementById('ad_p_desc').value=""; };
+document.getElementById('btnAddBlog').onclick=async()=>{ const t=document.getElementById('ad_b_titre').value, c=document.getElementById('ad_b_contenu').value; if(!t) return toast("Titre requis"); await addDoc(collection(db,"blogs"),{titre:t,contenu:c,date:serverTimestamp()}); toast("✅ Blog publié"); document.getElementById('ad_b_titre').value=""; document.getElementById('ad_b_contenu').value=""; };
+document.getElementById('btnChangePass').onclick=async()=>{ const np=document.getElementById('newPass').value; if(np.length<4) return toast("MDP trop court"); await setDoc(doc(db,"config","admin"),{password:np}); adminPassword=np; document.getElementById('currentPassShow').innerText=np; toast("🔑 MDP changé: "+np); };
+document.getElementById('btnUpload').onclick=async()=>{ const file=document.getElementById('fileInput').files[0]; const titre=document.getElementById('fileTitre').value; if(!file) return toast("Choisis fichier"); if(!titre) return toast("Titre requis"); document.getElementById('uploadStatus').innerText="⏳ Upload Storage..."; try{ const r=ref(storage,'bkp/'+Date.now()+'_'+file.name); await uploadBytes(r,file); const url=await getDownloadURL(r); await addDoc(collection(db,"galerie"),{titre,url,date:serverTimestamp(),type:file.type}); document.getElementById('uploadStatus').innerText="✅ Upload OK!"; toast("✅ Uploadé! Visible dans Galerie"); }catch(e){ document.getElementById('uploadStatus').innerText="❌ "+e.message+" (Vérifie Storage Rules = allow true)"; } };
 </script>
 </body>
 </html>
