@@ -25,6 +25,30 @@ footer a{color:var(--gold2);text-decoration:none}
 @media(max-width:800px){.hero{grid-template-columns:1fr}.hero h1{font-size:26px}}
 </style>
 </head>
+  <!-- BKP DYNAMIQUE V7.1 - Firebase Connect -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+  import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "TA_CLE_ICI",
+    authDomain: "pacifique-bkp.firebaseapp.com",
+    projectId: "pacifique-bkp",
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // Lecture automatique des produits BKP
+  async function chargerProduitsBKP() {
+    const querySnapshot = await getDocs(collection(db, "produits"));
+    querySnapshot.forEach((doc) => {
+      console.log("Produit BKP:", doc.data());
+      // Ici on va l'afficher sur ton site
+    });
+  }
+  chargerProduitsBKP();
+</script>
 <body>
 <header>
 <div class="logo">PACIFIQUE <span>BKP</span> TECHNOLOGY</div>
