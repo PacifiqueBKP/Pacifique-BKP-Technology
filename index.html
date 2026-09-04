@@ -4,20 +4,48 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PACIFIQUE BKP TECHNOLOGY | IT Services</title>
 <style>
+  <style>
 :root{--blue:#0a1931;--gold:#d4af37;--gold2:#ffe082;--light:#f8f5ec}
-*{box-sizing:border-box}body{margin:0;font-family:Montserrat,sans-serif;background:var(--light);color:var(--blue);scroll-behavior:smooth}
-header{background:var(--blue);color:#fff;padding:14px 5%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000;border-bottom:2px solid var(--gold)}
-.logo{font-weight:900}.logo span{color:var(--gold)} nav a{color:#fff;text-decoration:none;margin:0 6px;font-size:13px;cursor:pointer}.cta{background:var(--gold);color:var(--blue)!important;padding:8px 16px;border-radius:20px;font-weight:800}
-.hero{background:radial-gradient(1200px at 80% -10%,#1e3a8a 0%,#0a1931 65%);color:#fff;padding:45px 5%;display:grid;grid-template-columns:1.2fr .8fr;gap:20px}
-.btn{padding:12px 20px;border-radius:30px;text-decoration:none;font-weight:800;display:inline-block;cursor:pointer;border:none}.btn-gold{background:linear-gradient(90deg,var(--gold),var(--gold2));color:var(--blue)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-.card{background:#fff;border:1px solid #e9e0c9;border-left:4px solid var(--gold);border-radius:14px;padding:18px}
-.form-bkp{background:#fff;padding:18px;border-radius:14px;border:1px solid #e9e0c9}.form-bkp input,.form-bkp textarea,.form-bkp select{width:100%;padding:11px;margin:7px 0;border:1px solid #ddd;border-radius:8px}
-.toast{position:fixed;bottom:20px;right:20px;background:var(--blue);color:var(--gold2);padding:14px 22px;border-radius:30px;transform:translateY(100px);opacity:0;transition:.4s;z-index:9999;border:1px solid var(--gold)}.toast.show{transform:translateY(0);opacity:1}
-#adminPanel{display:none;position:fixed;inset:0;background:rgba(0,0,0,.93);z-index:10000;padding:15px;overflow:auto}.admin-box{max-width:900px;margin:auto;background:#fff;border-radius:14px;padding:20px}
-.section-hidden{display:none}.section-active{display:block;animation:fade .4s}
-@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-footer{background:#060f25;color:#8a9bb8;padding:22px 5%;text-align:center;font-size:13px}
+*{box-sizing:border-box}
+body{margin:0;font-family:Montserrat,Segoe UI,sans-serif;background:var(--light);color:var(--blue);scroll-behavior:smooth;overflow-x:hidden}
+
+/* HEADER MOBILE */
+header{background:var(--blue);color:#fff;padding:10px 4%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000;border-bottom:2px solid var(--gold);flex-wrap:wrap}
+.logo{font-weight:900;font-size:14px}.logo span{color:var(--gold)}
+nav{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+nav a{color:#fff;text-decoration:none;margin:0 4px;font-size:11px;cursor:pointer;padding:5px 6px;border-radius:10px}
+.cta{background:var(--gold)!important;color:var(--blue)!important;padding:6px 12px!important;border-radius:20px;font-weight:800;font-size:11px!important}
+
+/* HERO MOBILE FIRST */
+.hero{background:radial-gradient(1200px at 80% -10%,#1e3a8a 0%,#0a1931 65%);color:#fff;padding:25px 4%;display:grid;grid-template-columns:1fr;gap:20px}
+.hero h1{font-size:24px;line-height:1.2;margin:8px 0}
+.hero p{font-size:14px}
+
+.btn{padding:12px 18px;border-radius:30px;text-decoration:none;font-weight:800;display:inline-block;cursor:pointer;border:none;font-size:13px;text-align:center;word-break:break-word}
+.btn-gold{background:linear-gradient(90deg,var(--gold),var(--gold2));color:var(--blue)}
+.grid{display:grid;grid-template-columns:1fr;gap:14px}
+.card{background:#fff;border:1px solid #e9e0c9;border-left:4px solid var(--gold);border-radius:14px;padding:16px}
+.form-bkp{background:#fff;padding:16px;border-radius:14px;border:1px solid #e9e0c9}
+.form-bkp input,.form-bkp textarea,.form-bkp select{width:100%;padding:12px;margin:7px 0;border:1px solid #ddd;border-radius:8px;font-size:16px} /* 16px évite zoom iPhone */
+
+.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,100px);background:var(--blue);color:var(--gold2);padding:12px 18px;border-radius:30px;opacity:0;transition:.4s;z-index:9999;border:1px solid var(--gold);font-size:13px;width:90%;text-align:center;max-width:320px}
+.toast.show{transform:translate(-50%,0);opacity:1}
+#adminPanel{display:none;position:fixed;inset:0;background:rgba(0,0,0,.93);z-index:10000;padding:10px;overflow:auto}.admin-box{max-width:900px;margin:auto;background:#fff;border-radius:14px;padding:16px}
+.section-hidden{display:none}.section-active{display:block}
+footer{background:#060f25;color:#8a9bb8;padding:20px 4%;text-align:center;font-size:12px;line-height:1.6}
+
+/* --- CORRECTION PC (quand écran grand) --- */
+@media(min-width:800px){
+  header{padding:14px 5%}.logo{font-size:18px} nav a{font-size:13px;margin:0 6px}
+  .hero{grid-template-columns:1.2fr .8fr;padding:55px 5%}.hero h1{font-size:34px}
+  .grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .toast{left:auto;right:20px;transform:translateY(100px);width:auto}.toast.show{transform:translateY(0)}
+}
+@media(max-width:400px){
+  nav a{font-size:10px;padding:4px 5px}
+  .hero h1{font-size:20px}
+}
+</style>
 </style>
 </head>
 <body>
