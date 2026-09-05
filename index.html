@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pacifique BKP Technology - Goma RDC</title>
+<title>Pacifique BKP Technology - Goma RDC V5.6</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;800;900&display=swap');
 :root{--blue:#070f26;--gold:#d4af37;--light:#fcfaf3}
@@ -17,7 +17,7 @@ header{background:var(--blue);color:#fff;padding:10px 4%;position:sticky;top:28p
 .content{padding:20px 4%;min-height:60vh}.grid{display:grid;grid-template-columns:1fr;gap:14px}
 .card{background:#fff;border-radius:16px;padding:14px;box-shadow:0 8px 20px rgba(0,0,0,.06);border-left:4px solid var(--gold)}
 .btn{width:100%;padding:13px;border-radius:30px;border:none;font-weight:900;background:linear-gradient(90deg,var(--gold),#ffef99);cursor:pointer}
-.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn:disabled{opacity:.5}
 .form{background:#fff;padding:14px;border-radius:16px;border:1px solid #e9e0c9}
 .form input,.form textarea,.form select{width:100%;padding:12px;margin:6px 0;border:1px solid #ddd;border-radius:10px;font-size:16px}
 .progress{height:14px;background:#eee;border-radius:10px;display:none;overflow:hidden;margin:8px 0;border:1px solid #ddd}.progress-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--gold),#00ff88);transition:.2s}
@@ -29,18 +29,20 @@ header{background:var(--blue);color:#fff;padding:10px 4%;position:sticky;top:28p
 .admin-content{padding:14px 4%}.admin-sec{display:none}.admin-sec.active{display:block}
 .social{position:fixed;right:12px;bottom:98px;display:flex;flex-direction:column;gap:8px;z-index:9998}
 .social a{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;font-weight:900}
-.hidden{display:none}.toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--blue);color:var(--gold);padding:12px 20px;border-radius:30px;transition:.4s;z-index:30000;opacity:0;text-align:center;font-size:12px}.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+.hidden{display:none}.toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--blue);color:var(--gold);padding:12px 20px;border-radius:30px;transition:.4s;z-index:30000;opacity:0;text-align:center;font-size:12px;max-width:90%}.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
 #chatBtn{position:fixed;left:12px;bottom:98px;width:56px;height:56px;border-radius:50%;background:var(--blue);color:var(--gold);border:2px solid var(--gold);font-size:24px;cursor:pointer;z-index:9998}
 #chatBox{display:none;position:fixed;left:12px;bottom:162px;width:88%;max-width:340px;height:380px;background:#fff;border-radius:16px;box-shadow:0 12px 30px rgba(0,0,0,.3);z-index:9999;flex-direction:column;overflow:hidden;border:1px solid var(--gold)}
 #chatHead{background:var(--blue);color:var(--gold);padding:10px 12px;font-weight:900;font-size:12px;display:flex;justify-content:space-between}
 #chatMsgs{flex:1;padding:10px;overflow:auto;font-size:12px;display:flex;flex-direction:column;gap:8px}
 .msg{padding:8px 10px;border-radius:12px;max-width:80%}.msg.bot{background:#f1f1f1;align-self:flex-start}.msg.user{background:var(--gold);align-self:flex-end;color:var(--blue)}
 #chatInput{display:flex;gap:4px;padding:8px;border-top:1px solid #eee}#chatInput input{flex:1;padding:10px;border-radius:20px;border:1px solid #ddd}
-.slider{position:relative;height:240px;overflow:hidden;border-radius:16px;background:#111;display:flex;align-items:center;justify-content:center}
-.slider img,.slider video{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;opacity:0;transition:opacity 1s ease}
+/* FIX REALISATIONS - IMAGE AJUSTEE */
+.slider{position:relative;height:280px;overflow:hidden;border-radius:16px;background:#000;display:flex;align-items:center;justify-content:center}
+.slider img,.slider video{width:100%;height:100%;object-fit:contain;background:#000;position:absolute;inset:0;opacity:0;transition:opacity 1s ease}
 .slider img.active,.slider video.active{opacity:1;z-index:2}
 .cta-bar{position:fixed;bottom:0;left:0;right:0;background:#fff;padding:10px 4%;display:flex;gap:6px;overflow:auto;border-top:2px solid var(--gold);z-index:9990;box-shadow:0 -4px 18px rgba(0,0,0,.1)}
 .cta-bar a,.cta-bar button{padding:10px 14px;border-radius:20px;font-size:11px;font-weight:900;white-space:nowrap;text-decoration:none;border:none;cursor:pointer;display:inline-flex;align-items:center}
+@media(min-width:900px){.grid{grid-template-columns:repeat(3,1fr)}.slider{height:400px}}
 </style>
 </head>
 <body>
@@ -57,7 +59,7 @@ header{background:var(--blue);color:#fff;padding:10px 4%;position:sticky;top:28p
 <div id="page-galerie" class="hidden content"><h2>📸 Galerie</h2><div class="grid" id="gridGalerie"></div></div>
 <div id="page-avis" class="hidden content"><h2>⭐ Avis Clients</h2><div class="form"><input id="a_nom" placeholder="Votre nom"><select id="a_platform"><option>Site BKP</option><option>Facebook</option><option>WhatsApp</option><option>Gmail</option></select><select id="a_stars"><option value="5">⭐⭐⭐⭐⭐</option><option value="4">⭐⭐⭐⭐</option></select><textarea id="a_msg" placeholder="Votre expérience..."></textarea><button type="button" class="btn" id="btnAvis">Publier mon avis</button></div><div class="grid" id="gridAvis" style="margin-top:16px"></div></div>
 <div id="page-blog" class="hidden content"><h2>📰 Articles</h2><div class="grid" id="gridBlog"></div></div>
-<div id="page-commander" class="hidden content"><h2>🛒 Commander en 30s</h2><div class="form"><input id="c_nom" placeholder="Nom *"><input id="c_tel" placeholder="Téléphone / Email *"><select id="c_service"><option>Formation Bureautique</option><option>Maintenance PC</option><option>Sites Web</option><option>Vente Matériels</option><option>Infographie</option><option>Dépannage Domicile</option></select><textarea id="c_msg" placeholder="Détails..."></textarea><label style="font-size:11px;font-weight:800">📎 Pièce jointe</label><input type="file" id="c_file" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.mp4,.mov"><div class="progress" id="pC"><div class="progress-bar" id="pCF"></div></div><button type="button" class="btn" id="btnCmd">Envoyer ma commande →</button><p id="c_status" style="font-size:11px"></p></div></div>
+<div id="page-commander" class="hidden content"><h2>🛒 Commander en 30s</h2><div class="form"><input id="c_nom" placeholder="Nom *"><input id="c_tel" placeholder="Téléphone / Email *"><select id="c_service"><option>Formation Bureautique</option><option>Maintenance PC</option><option>Sites Web</option><option>Vente Matériels</option><option>Infographie</option><option>Dépannage Domicile</option></select><textarea id="c_msg" placeholder="Détails..."></textarea><label style="font-size:11px;font-weight:800">📎 Pièce jointe (tout format)</label><input type="file" id="c_file" multiple accept="image/*,video/*,.pdf,.doc,.docx,.heic,.heif,.webp"><div class="progress" id="pC"><div class="progress-bar" id="pCF"></div></div><button type="button" class="btn" id="btnCmd">Envoyer ma commande →</button><p id="c_status" style="font-size:11px"></p></div></div>
 
 <div class="cta-bar" id="ctaBar">
 <a onclick="locateMe()" style="background:#070f26;color:#d4af37">📍 Localiser</a>
@@ -73,15 +75,15 @@ header{background:var(--blue);color:#fff;padding:10px 4%;position:sticky;top:28p
 <div class="toast" id="toast"></div>
 
 <div id="adminView">
-<div class="admin-head"><div>🔐 ADMIN MAX 25Go - ANTI BOUCLE</div><button type="button" id="closeAdmin">X Fermer</button></div>
+<div class="admin-head"><div>🔐 ADMIN V5.6 - FIX TOUT FORMAT</div><button type="button" id="closeAdmin">X Fermer</button></div>
 <div class="admin-tabs"><button type="button" class="active" onclick="aTab('produits',this)">📦 Services</button><button type="button" onclick="aTab('galerie',this)">📸 Galerie</button><button type="button" onclick="aTab('blogs',this)">📰 Articles</button><button type="button" onclick="aTab('commandes',this)">📊 Commandes</button><button type="button" onclick="aTab('avis',this)">⭐ Avis</button><button type="button" onclick="aTab('config',this)">⚙️ Config</button></div>
 <div class="admin-content">
 <div id="adm-produits" class="admin-sec active"><input id="ad_p_nom" placeholder="Nom service"><input id="ad_p_desc" placeholder="Desc + Prix"><button type="button" class="btn" id="btnAddP">Ajouter</button><div id="adListP"></div></div>
-<div id="adm-galerie" class="admin-sec"><p style="font-size:10px;color:#b00">ADMIN: Reste ici pendant upload - Ne retourne plus à l'accueil</p><input type="file" id="ad_file" multiple><input id="ad_titre" placeholder="Titre pour tous"><div class="progress" id="pAd"><div class="progress-bar" id="pAdF"></div></div><button type="button" class="btn" id="btnUpload">Uploader MAX - Reste ici</button><p id="ad_status"></p><div id="adListG"></div></div>
+<div id="adm-galerie" class="admin-sec"><p style="font-size:10px;color:#b00">Accepte tout: JPG PNG HEIC WEBP MP4 MOV 20s - Si stockage plein, supprime anciennes en bas</p><input type="file" id="ad_file" multiple accept="image/*,video/*,.pdf,.doc,.docx,.heic,.heif,.webp"><input id="ad_titre" placeholder="Titre pour tous"><div class="progress" id="pAd"><div class="progress-bar" id="pAdF"></div></div><button type="button" class="btn" id="btnUpload">Uploader MAX - Reste ici</button><p id="ad_status" style="font-size:11px;white-space:pre-wrap"></p><div id="adListG"></div></div>
 <div id="adm-blogs" class="admin-sec"><input id="ad_b_titre" placeholder="Titre"><textarea id="ad_b_contenu" placeholder="Contenu"></textarea><button type="button" class="btn" id="btnAddB">Publier</button><div id="adListB"></div></div>
 <div id="adm-commandes" class="admin-sec"><div id="adListC"></div></div>
 <div id="adm-avis" class="admin-sec"><div id="adListA"></div></div>
-<div id="adm-config" class="admin-sec"><p>Gmail: pacifiquekakuru6@gmail.com</p><p>MDP: <b id="passShow">bkp2026</b></p><input id="newPass" placeholder="Nouveau MDP"><button type="button" class="btn" id="btnPass">Changer</button></div>
+<div id="adm-config" class="admin-sec"><p>Gmail: pacifiquekakuru6@gmail.com</p><p>MDP: <b id="passShow">bkp2026</b></p><input id="newPass" placeholder="Nouveau MDP"><button type="button" class="btn" id="btnPass">Changer</button><hr><p style="font-size:11px">Si stockage plein:</p><a href="https://console.cloudinary.com/console/c-5c0d0e3c6b7f3b7f3b7f/media_library/folders/home" target="_blank" class="btn" style="text-align:center;text-decoration:none;display:block">Ouvrir Cloudinary pour nettoyer</a></div>
 </div>
 </div>
 
@@ -92,37 +94,64 @@ const firebaseConfig = { apiKey: "AIzaSyC__3NS0ZA9h8kd_Qyoovs-PiivzFqfhCI", auth
 const app = initializeApp(firebaseConfig); const db=getFirestore(app);
 const CLOUD_NAME="miap4jdu", CLOUD_PRESET="bkp_2go";
 let adminPass="bkp2026"; async function loadPass(){ try{ const s=await getDoc(doc(db,"config","admin")); if(s.exists()){ adminPass=s.data().password; document.getElementById('passShow').innerText=adminPass; } }catch(e){} } loadPass();
-function toast(m){ const t=document.getElementById('toast'); t.innerText=m; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),4000); }
-// BLOCAGE ANTI-RETOUR ACCUEIL
-window.go=(id,el)=>{
-  const admin=document.getElementById('adminView');
-  if(admin && admin.style.display==="block"){
-    toast("🔒 Reste en ADMIN - Finis d'abord l'upload");
-    return;
-  }
-  try{
-    document.querySelectorAll('[id^="page-"]').forEach(p=>p.classList.add('hidden'));
-    const target=document.getElementById('page-'+id);
-    if(target) target.classList.remove('hidden');
-    if(el){ document.querySelectorAll('.menu a').forEach(a=>a.classList.remove('active')); el.classList.add('active'); }
-    window.scrollTo({top:0,behavior:'smooth'});
-  }catch(e){}
-};
+function toast(m){ const t=document.getElementById('toast'); t.innerText=m; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),5000); }
+window.go=(id,el)=>{ const admin=document.getElementById('adminView'); if(admin && admin.style.display==="block"){ toast("🔒 Reste en ADMIN"); return; } try{ document.querySelectorAll('[id^="page-"]').forEach(p=>p.classList.add('hidden')); const target=document.getElementById('page-'+id); if(target) target.classList.remove('hidden'); if(el){ document.querySelectorAll('.menu a').forEach(a=>a.classList.remove('active')); el.classList.add('active'); } window.scrollTo({top:0,behavior:'smooth'}); }catch(e){} };
 window.aTab=(id,el)=>{ document.querySelectorAll('.admin-sec').forEach(s=>s.classList.remove('active')); document.querySelectorAll('.admin-tabs button').forEach(b=>b.classList.remove('active')); document.getElementById('adm-'+id).classList.add('active'); el.classList.add('active'); }
-window.del=async(c,i)=>{ if(!confirm("Supprimer?")) return; await deleteDoc(doc(db,c,i)); toast("🗑️ Supprimé"); }
+window.del=async(c,i)=>{ if(!confirm("Supprimer? Ça libère du stockage aussi")) return; await deleteDoc(doc(db,c,i)); toast("🗑️ Supprimé de Firebase - Va aussi supprimer dans Cloudinary si besoin"); }
 window.locateMe=()=>{ if(!navigator.geolocation) return toast("Géo non supportée"); toast("📍 Localisation..."); navigator.geolocation.getCurrentPosition(p=>{ toast(`📍 ${p.coords.latitude.toFixed(3)},${p.coords.longitude.toFixed(3)} Himbi!`); },()=>toast("Active GPS")); };
-async function uploadCloud(file,barF,bar){ const bf=document.getElementById(barF), b=document.getElementById(bar); b.style.display="block"; bf.style.width="0%"; return new Promise((res,rej)=>{ const xhr=new XMLHttpRequest(); const fd=new FormData(); fd.append("file",file); fd.append("upload_preset",CLOUD_PRESET); fd.append("folder","bkp-technology"); xhr.open("POST",`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/auto/upload`); xhr.upload.onprogress=e=>{ if(e.lengthComputable) bf.style.width=Math.round(e.loaded/e.total*100)+"%"; }; xhr.onload=()=>{ try{ const j=JSON.parse(xhr.responseText); if(j.secure_url) res(j.secure_url); else rej(new Error(j.error?.message||"Erreur")); }catch(e){ rej(e); } }; xhr.onerror=()=>rej(new Error("Réseau")); xhr.send(fd); }); }
+
+// NOUVELLE FONCTION UPLOAD - TOUT FORMAT + COMPRESSION
+async function uploadCloud(file,barF,bar){
+  const bf=document.getElementById(barF), b=document.getElementById(bar);
+  b.style.display="block"; bf.style.width="0%";
+  const ext=file.name.split('.').pop().toLowerCase();
+  const isVideo=file.type.startsWith('video/') || ['mp4','mov','avi','mkv'].includes(ext);
+  const endpoint=`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/${isVideo?'video':'auto'}/upload`;
+  return new Promise((res,rej)=>{
+    const xhr=new XMLHttpRequest();
+    const fd=new FormData();
+    fd.append("file",file);
+    fd.append("upload_preset",CLOUD_PRESET);
+    fd.append("folder","bkp-technology");
+    fd.append("quality","auto:good");
+    fd.append("fetch_format","auto");
+    if(isVideo) fd.append("resource_type","video");
+    xhr.open("POST", endpoint);
+    xhr.upload.onprogress=e=>{
+      if(e.lengthComputable){
+        const pct=Math.round(e.loaded/e.total*100);
+        bf.style.width=pct+"%";
+        const st=document.getElementById('ad_status');
+        if(st) st.innerText=`⏳ ${file.name} : ${pct}% (${(file.size/1024/1024).toFixed(1)}Mo)`;
+      }
+    };
+    xhr.onload=()=>{
+      try{
+        const j=JSON.parse(xhr.responseText);
+        if(j.secure_url) res(j.secure_url);
+        else{
+          let msg=j.error?.message||"Erreur";
+          if(msg.toLowerCase().includes("storage")||msg.toLowerCase().includes("quota")||msg.includes("Insufficient")){
+            rej(new Error("STOCKAGE CLOUDINARY PLEIN (25Go atteint).\n👉 Va dans Cloudinary > Media Library > supprime 3 grosses vidéos, puis réessaye.\nOu clique Config > Ouvrir Cloudinary"));
+          }else if(msg.toLowerCase().includes("large")||msg.toLowerCase().includes("size")){
+            rej(new Error(`Fichier trop lourd (${(file.size/1024/1024).toFixed(1)}Mo). Max Cloudinary gratuit = 100Mo vidéo / 10Mo image.\nCompresse avec: envoie-toi la vidéo sur WhatsApp puis ré-upload la version WhatsApp`));
+          }else if(msg.toLowerCase().includes("format")||msg.toLowerCase().includes("heic")){
+            rej(new Error(`Format ${ext} non supporté par ton preset. Renomme en JPG ou convertis sur iloveimg.com`));
+          }else{ rej(new Error(msg)); }
+        }
+      }catch(e){ rej(new Error("Erreur parsing Cloudinary: "+e.message)); }
+    };
+    xhr.onerror=()=>rej(new Error("Réseau coupé - Vérifie connexion Goma"));
+    xhr.send(fd);
+  });
+}
 
 document.getElementById('openAdmin').onclick=async(e)=>{ e.preventDefault(); await loadPass(); if(prompt("MDP Admin")!==adminPass) return toast("❌ Mauvais MDP"); document.getElementById('adminView').style.display="block"; document.getElementById('ctaBar').style.display="none"; document.querySelector('.social').style.display="none"; document.getElementById('chatBtn').style.display="none"; };
 document.getElementById('closeAdmin').onclick=(e)=>{ e.preventDefault(); document.getElementById('adminView').style.display="none"; document.getElementById('ctaBar').style.display="flex"; document.querySelector('.social').style.display="flex"; document.getElementById('chatBtn').style.display="flex"; };
-
-document.getElementById('btnCmd').onclick=async(e)=>{ e.preventDefault(); e.stopPropagation(); const nom=document.getElementById('c_nom').value.trim(), tel=document.getElementById('c_tel').value.trim(), serv=document.getElementById('c_service').value, msg=document.getElementById('c_msg').value.trim(), files=document.getElementById('c_file').files; if(!nom||!tel) return toast("Nom + Contact"); const status=document.getElementById('c_status'); status.innerText="⏳ Envoi..."; const btn=e.currentTarget; btn.disabled=true; try{ let fileUrls=[]; if(files.length>0){ for(let f of files){ fileUrls.push(await uploadCloud(f,'pCF','pC')); } } await addDoc(collection(db,"commandes"),{nom,tel,service:serv,msg,fileUrl:fileUrls.join(','),fileUrls,date:serverTimestamp()}); status.innerText="✅ Envoyé!"; toast("✅ Commande reçue!"); document.getElementById('c_nom').value=""; document.getElementById('c_tel').value=""; document.getElementById('c_msg').value=""; document.getElementById('c_file').value=""; document.getElementById('pC').style.display="none"; }catch(err){ status.innerText="❌ "+err.message; } btn.disabled=false; };
-
+document.getElementById('btnCmd').onclick=async(e)=>{ e.preventDefault(); e.stopPropagation(); const nom=document.getElementById('c_nom').value.trim(), tel=document.getElementById('c_tel').value.trim(), serv=document.getElementById('c_service').value, msg=document.getElementById('c_msg').value.trim(), files=document.getElementById('c_file').files; if(!nom||!tel) return toast("Nom + Contact"); const status=document.getElementById('c_status'); status.innerText="⏳ Envoi..."; const btn=e.currentTarget; btn.disabled=true; try{ let fileUrls=[]; if(files.length>0){ for(let f of files){ fileUrls.push(await uploadCloud(f,'pCF','pC')); } } await addDoc(collection(db,"commandes"),{nom,tel,service:serv,msg,fileUrl:fileUrls.join(','),fileUrls,date:serverTimestamp()}); status.innerText="✅ Envoyé!"; toast("✅ Commande reçue!"); document.getElementById('c_nom').value=""; document.getElementById('c_tel').value=""; document.getElementById('c_msg').value=""; document.getElementById('c_file').value=""; document.getElementById('pC').style.display="none"; }catch(err){ status.innerText="❌ "+err.message; toast("❌ "+err.message); } btn.disabled=false; };
 document.getElementById('btnAvis').onclick=async(e)=>{ e.preventDefault(); const nom=document.getElementById('a_nom').value, platform=document.getElementById('a_platform').value, stars=document.getElementById('a_stars').value, msg=document.getElementById('a_msg').value; if(!nom||!msg) return toast("Remplis tout"); await addDoc(collection(db,"avis"),{nom,platform,stars:parseInt(stars),msg,date:serverTimestamp()}); toast("✅ Avis publié"); document.getElementById('a_nom').value=""; document.getElementById('a_msg').value=""; };
 document.getElementById('btnAddP').onclick=async(e)=>{ e.preventDefault(); const n=document.getElementById('ad_p_nom').value.trim(), d=document.getElementById('ad_p_desc').value.trim(); if(!n) return toast("Nom requis"); await addDoc(collection(db,"produits"),{nom:n,desc:d,date:serverTimestamp()}); toast("✅ Service ajouté"); document.getElementById('ad_p_nom').value=""; document.getElementById('ad_p_desc').value=""; };
 document.getElementById('btnAddB').onclick=async(e)=>{ e.preventDefault(); const t=document.getElementById('ad_b_titre').value.trim(), c=document.getElementById('ad_b_contenu').value.trim(); if(!t) return toast("Titre requis"); await addDoc(collection(db,"blogs"),{titre:t,contenu:c,date:serverTimestamp()}); toast("✅ Article"); document.getElementById('ad_b_titre').value=""; document.getElementById('ad_b_contenu').value=""; };
-
-// FIX BOUCLE 2E IMAGE
 document.getElementById('btnUpload').onclick=async(e)=>{
  e.preventDefault(); e.stopPropagation();
  const btn=e.currentTarget; if(btn.disabled) return;
@@ -130,7 +159,7 @@ document.getElementById('btnUpload').onclick=async(e)=>{
  if(files.length===0||!titre) return toast("Fichiers + Titre requis");
  btn.disabled=true; btn.innerText="⏳ Upload en cours... Reste ici";
  document.getElementById('pAd').style.display="block";
- document.getElementById('ad_status').innerText=`⏳ ${files.length} fichiers - Ne quitte pas`;
+ document.getElementById('ad_status').innerText=`⏳ ${files.length} fichiers - Démarrage`;
  try{
    for(let f of files){
      const url=await uploadCloud(f,'pAdF','pAd');
@@ -144,37 +173,30 @@ document.getElementById('btnUpload').onclick=async(e)=>{
    toast("❌ "+err.message);
  }
  btn.disabled=false; btn.innerText="Uploader MAX - Reste ici";
- document.getElementById('pAd').style.display="none";
- document.getElementById('pAdF').style.width="0%";
+ document.getElementById('pAd').style.display="none"; document.getElementById('pAdF').style.width="0%";
 };
-
 document.getElementById('btnPass').onclick=async(e)=>{ e.preventDefault(); const np=document.getElementById('newPass').value; if(np.length<4) return toast("Trop court"); await setDoc(doc(db,"config","admin"),{password:np},{merge:true}); adminPass=np; document.getElementById('passShow').innerText=np; toast("🔑 MDP changé"); document.getElementById('newPass').value=""; };
-
 const chatBtn=document.getElementById('chatBtn'), chatBox=document.getElementById('chatBox'), chatClose=document.getElementById('chatClose'), chatMsgs=document.getElementById('chatMsgs'), chatText=document.getElementById('chatText');
 chatBtn.onclick=(e)=>{ e.preventDefault(); chatBox.style.display= chatBox.style.display==="flex"? "none" : "flex"; }; chatClose.onclick=(e)=>{ e.preventDefault(); chatBox.style.display="none"; };
 function addMsg(t,w){ const d=document.createElement('div'); d.className='msg '+w; d.innerText=t; chatMsgs.appendChild(d); chatMsgs.scrollTop=chatMsgs.scrollHeight; }
 function botReply(q){ q=q.toLowerCase(); if(q.includes("formation")) return "🎓 Formation 50$ - Himbi. Email: pacifiquekakuru6@gmail.com"; if(q.includes("site")) return "🌐 Sites 100$ + domaine."; return "Merci 🙏 Bot BKP"; }
 document.getElementById('chatSend').onclick=(e)=>{ e.preventDefault(); const q=chatText.value.trim(); if(!q) return; addMsg(q,'user'); chatText.value=""; setTimeout(()=>addMsg(botReply(q),'bot'),600); }; chatText.onkeydown=e=>{ if(e.key==="Enter"){ e.preventDefault(); document.getElementById('chatSend').click(); } };
-
 onSnapshot(collection(db,"produits"),s=>{ const render=id=>{ const g=document.getElementById(id); if(!g) return; g.innerHTML=""; if(s.empty){ g.innerHTML=`<div class="card"><h4>🎓 Formation</h4><p>50$</p><button type="button" class="btn" onclick="go('commander',null)">🛒 Commander</button></div>`; return; } s.forEach(d=>{ g.innerHTML+=`<div class="card"><h4>${d.data().nom}</h4><p style="font-size:12px">${d.data().desc||''}</p><button type="button" class="btn" onclick="go('commander',null)">🛒 Commander</button></div>`; }); }; render('gridServices'); render('gridServices2'); const ad=document.getElementById('adListP'); if(ad){ ad.innerHTML=""; s.forEach(d=>ad.innerHTML+=`<div style="padding:6px 0;border-bottom:1px solid #ddd">${d.data().nom} <button type="button" onclick="del('produits','${d.id}')">X</button></div>`); } });
-
 let sliderTimer=null;
 onSnapshot(query(collection(db,"galerie"),orderBy("date","desc")),s=>{
  const g=document.getElementById('gridGalerie'), slider=document.getElementById('sliderAccueil');
  if(g) g.innerHTML=""; if(slider) slider.innerHTML="";
  const ad=document.getElementById('adListG'); if(ad) ad.innerHTML="";
  let items=[]; s.forEach(d=>items.push(d.data()));
- // Galerie
  s.forEach(d=>{
    const x=d.data();
    if(g){
      const isV=x.type?.includes('video')||x.url.includes('video')||x.url.includes('.mp4');
-     const html=isV?`<video src="${x.url}" controls style="width:100%;border-radius:10px"></video>`:`<img src="${x.url}" style="width:100%;border-radius:10px;max-height:200px;object-fit:cover">`;
+     const html=isV?`<video src="${x.url}" controls style="width:100%;border-radius:10px"></video>`:`<img src="${x.url}" style="width:100%;border-radius:10px;max-height:200px;object-fit:contain;background:#000">`;
      g.innerHTML+=`<div class="card">${html}<p style="font-size:12px">${x.titre}</p><a href="${x.url}" target="_blank">Ouvrir ↗</a></div>`;
    }
    if(ad) ad.innerHTML+=`<div style="border-bottom:1px solid #ddd;padding:6px 0">${x.titre} <button type="button" onclick="del('galerie','${d.id}')">X</button></div>`;
  });
- // Slider Accueil - PAUSE SI ADMIN OUVERT
  if(slider){
    if(items.length===0){ slider.innerHTML='<p style="color:#fff;padding:20px">Ajoute images en ADMIN</p>'; }
    else{
