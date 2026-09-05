@@ -8,16 +8,13 @@
 :root{--blue:#070f26;--gold:#d4af37;--light:#fcfaf3}
 *{box-sizing:border-box}body{margin:0;font-family:'Plus Jakarta Sans',sans-serif;background:var(--light);color:var(--blue)}
 .marquee{position:sticky;top:0;z-index:10001;background:var(--gold);color:var(--blue);padding:7px 0;overflow:hidden;white-space:nowrap;font-weight:900;font-size:10px}
-.marquee-track{display:inline-flex;animation:scroll 40s linear infinite}
-@keyframes scroll{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
+.marquee-track{display:inline-flex;animation:scroll 50s linear infinite}@keyframes scroll{0%{transform:translateX(80%)}100%{transform:translateX(-100%)}}
 header{background:var(--blue);color:#fff;padding:10px 4%;position:sticky;top:28px;z-index:10000;border-bottom:2px solid var(--gold)}
 .nav{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
 .menu{display:flex;gap:6px;overflow:auto}.menu a{padding:8px 14px;border-radius:20px;background:rgba(255,255,255,.1);color:#ddd;font-size:11px;cursor:pointer;white-space:nowrap;text-decoration:none}
 .menu a.active{background:var(--gold);color:var(--blue);font-weight:900}
-.hero{padding:30px 4%;background:radial-gradient(800px 400px at 20% 0%,#1a3a8a,var(--blue));color:#fff}
-.hero h1{font-size:28px;margin:0;line-height:1.1}.hero h1 span{color:var(--gold)}
-.content{padding:20px 4%;min-height:60vh}
-.grid{display:grid;grid-template-columns:1fr;gap:14px}
+.hero{padding:30px 4%;background:radial-gradient(800px 400px at 20% 0%,#1a3a8a,var(--blue));color:#fff;border-radius:0 0 20px 20px;margin:-20px -4% 20px}
+.content{padding:20px 4%;min-height:60vh}.grid{display:grid;grid-template-columns:1fr;gap:14px}
 .card{background:#fff;border-radius:16px;padding:14px;box-shadow:0 8px 20px rgba(0,0,0,.06);border-left:4px solid var(--gold);overflow:hidden}
 .btn{width:100%;padding:13px;border-radius:30px;border:none;font-weight:900;background:linear-gradient(90deg,var(--gold),#ffef99);cursor:pointer}
 .form{background:#fff;padding:14px;border-radius:16px;border:1px solid #e9e0c9}
@@ -32,18 +29,18 @@ header{background:var(--blue);color:#fff;padding:10px 4%;position:sticky;top:28p
 .social{position:fixed;right:12px;bottom:18px;display:flex;flex-direction:column;gap:8px;z-index:9998}
 .social a{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;font-weight:900;box-shadow:0 6px 18px rgba(0,0,0,.3)}
 .hidden{display:none}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--blue);color:var(--gold);padding:12px 20px;border-radius:30px;transition:.4s;z-index:30000;opacity:0;text-align:center;font-size:12px}.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
-/* CHAT BOT */
-#chatBtn{position:fixed;left:12px;bottom:18px;width:56px;height:56px;border-radius:50%;background:var(--blue);color:var(--gold);border:2px solid var(--gold);font-size:24px;cursor:pointer;z-index:9998;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+#chatBtn{position:fixed;left:12px;bottom:18px;width:56px;height:56px;border-radius:50%;background:var(--blue);color:var(--gold);border:2px solid var(--gold);font-size:24px;cursor:pointer;z-index:9998}
 #chatBox{display:none;position:fixed;left:12px;bottom:82px;width:88%;max-width:340px;height:380px;background:#fff;border-radius:16px;box-shadow:0 12px 30px rgba(0,0,0,.3);z-index:9999;flex-direction:column;overflow:hidden;border:1px solid var(--gold)}
 #chatHead{background:var(--blue);color:var(--gold);padding:10px 12px;font-weight:900;font-size:12px;display:flex;justify-content:space-between}
 #chatMsgs{flex:1;padding:10px;overflow:auto;font-size:12px;display:flex;flex-direction:column;gap:8px}
 .msg{padding:8px 10px;border-radius:12px;max-width:80%}.msg.bot{background:#f1f1f1;align-self:flex-start}.msg.user{background:var(--gold);align-self:flex-end;color:var(--blue)}
 #chatInput{display:flex;gap:4px;padding:8px;border-top:1px solid #eee}#chatInput input{flex:1;padding:10px;border-radius:20px;border:1px solid #ddd}
-@media(min-width:900px){.grid{grid-template-columns:repeat(3,1fr)}.hero h1{font-size:42px}#chatBox{width:340px}}
+.slider{position:relative;height:220px;overflow:hidden;border-radius:16px;background:#000}.slider img,.slider video{width:100%;height:220px;object-fit:cover;position:absolute;opacity:0;transition:opacity 1s}.slider .active{opacity:1}
+@media(min-width:900px){.grid{grid-template-columns:repeat(3,1fr)}.slider{height:320px}.slider img,.slider video{height:320px}}
 </style>
 </head>
 <body>
-<div class="marquee"><div class="marquee-track"><span id="marqueeText">🔥 FORMATION BUREAUTIQUE 50$ • 🔧 MAINTENANCE 24H HIMBI • 🌐 SITES WEB 100$ • CHARGEMENT...</span></div></div>
+<div class="marquee"><div class="marquee-track"><span id="marqueeText">🔥 FORMATION BUREAUTIQUE 50$ • 🔧 MAINTENANCE 24H HIMBI • 🌐 SITES WEB DÈS 100$ • 📍 HIMBI, GOMA RDC • 📧 pacifiquekakuru6@gmail.com •</span></div></div>
 
 <header>
 <div class="nav">
@@ -51,7 +48,7 @@ header{background:var(--blue);color:#fff;padding:10px 4%;position:sticky;top:28p
 <div class="menu">
 <a class="active" onclick="go('accueil',this)">Accueil</a>
 <a onclick="go('services',this)">Services</a>
-<a onclick="go('galerie',this)">Galerie 2Go</a>
+<a onclick="go('galerie',this)">Galerie</a>
 <a onclick="go('avis',this)">Avis</a>
 <a onclick="go('blog',this)">Blog</a>
 <a onclick="go('commander',this)">Commander</a>
@@ -60,16 +57,34 @@ header{background:var(--blue);color:#fff;padding:10px 4%;position:sticky;top:28p
 </div>
 </header>
 
-<div id="page-accueil" class="content"><div class="hero" style="margin:-20px -4% 20px;border-radius:0 0 20px 20px"><h1>On vend. On forme. On livre.<br><span>On certifie. On conçoit.</span></h1><p style="font-size:13px;opacity:.8;margin-top:10px">Himbi, Goma RDC - In God We Trust 🦁🙏🇨🇩</p><button class="btn" style="width:auto;margin-top:12px" onclick="go('commander',document.querySelectorAll('.menu a')[5])">Commander en 30s + Fichier</button></div><h3>Services Live</h3><div class="grid" id="gridServices"></div><h3 style="margin-top:20px">📸 Galerie 2Go - Visible</h3><div class="grid" id="gridGalerieAccueil"></div></div>
+<div id="page-accueil" class="content">
+<div class="hero">
+<h1>On vend. On forme. On livre.<br><span>On certifie. On conçoit.</span></h1>
+<p style="font-size:12px;opacity:.9" id="userCity">📍 Himbi, Goma RDC - In God We Trust 🦁🙏🇨🇩 - Localisation auto activée</p>
+<button class="btn" style="width:auto;margin-top:10px" onclick="locateMe()">📍 Me localiser</button>
+<a href="mailto:pacifiquekakuru6@gmail.com" class="btn" style="width:auto;background:#fff;color:var(--blue);text-decoration:none;display:inline-block;margin-left:6px">📧 Email</a>
+</div>
+
+<h3>Nos Réalisations - Dynamique Auto</h3>
+<div class="slider" id="sliderAccueil"><p style="color:#fff;padding:20px;font-size:12px">Chargement images...</p></div>
+
+<h3 style="margin-top:20px">Services</h3><div class="grid" id="gridServices"></div>
+
+<h3 style="margin-top:20px">📍 Nous trouver</h3>
+<div class="card"><p style="font-size:12px">📍 Himbi, Goma, Nord-Kivu, RDC<br>📧 pacifiquekakuru6@gmail.com<br>📱 +243 976 717 995</p>
+<iframe src="https://maps.google.com/maps?q=Himbi,Goma,RDC&t=&z=14&ie=UTF8&iwloc=&output=embed" style="width:100%;height:180px;border:0;border-radius:10px" loading="lazy"></iframe>
+<button class="btn" style="margin-top:8px" onclick="locateMe()">📍 Activer ma géolocalisation</button>
+</div>
+</div>
 
 <div id="page-services" class="hidden content"><h2>Nos Services</h2><div class="grid" id="gridServices2"></div></div>
-<div id="page-galerie" class="hidden content"><h2>📸 Galerie 2Go - Rôle Visible</h2><p style="font-size:11px;color:#666">Tous les fichiers jusqu'à 2Go - Images, PDF, Vidéos de formation</p><div class="grid" id="gridGalerie"></div></div>
+<div id="page-galerie" class="hidden content"><h2>📸 Galerie</h2><p style="font-size:11px;color:#666">Nos travaux, formations, produits</p><div class="grid" id="gridGalerie"></div></div>
 
 <div id="page-avis" class="hidden content">
 <h2>⭐ Avis Clients</h2>
-<div class="form"><h4>Donner votre avis + Choisir plateforme</h4>
+<div class="form"><h4>Donner votre avis</h4>
 <input id="a_nom" placeholder="Votre nom">
-<select id="a_platform"><option value="Site BKP">⭐ Sur ce site</option><option value="Facebook">📘 Sur Facebook</option><option value="WhatsApp">💬 Sur WhatsApp</option><option value="Google">🌍 Sur Google</option></select>
+<select id="a_platform"><option value="Site BKP">⭐ Sur ce site</option><option value="Facebook">📘 Sur Facebook</option><option value="WhatsApp">💬 Sur WhatsApp</option><option value="Gmail">📧 Sur Gmail</option></select>
 <select id="a_stars"><option value="5">⭐⭐⭐⭐⭐ Excellent</option><option value="4">⭐⭐⭐⭐ Bien</option></select>
 <textarea id="a_msg" placeholder="Votre expérience..."></textarea>
 <button class="btn" id="btnAvis">Publier mon avis</button><p id="a_status" style="font-size:11px"></p>
@@ -78,101 +93,37 @@ header{background:var(--blue);color:#fff;padding:10px 4%;position:sticky;top:28p
 
 <div id="page-blog" class="hidden content"><h2>📰 Articles & Annonces</h2><div class="grid" id="gridBlog"></div></div>
 
-<div id="page-commander" class="hidden content"><h2>🛒 Commander en 30s - Avec Pièce Jointe OK</h2><div class="form">
-<input id="c_nom" placeholder="Nom *"><input id="c_tel" placeholder="WhatsApp *">
+<div id="page-commander" class="hidden content"><h2>🛒 Commander en 30s</h2><div class="form">
+<input id="c_nom" placeholder="Nom *"><input id="c_tel" placeholder="Téléphone / WhatsApp / Email *">
 <select id="c_service"><option>Formation Bureautique</option><option>Maintenance PC</option><option>Sites Web</option><option>Vente Matériels</option><option>Infographie</option><option>Dépannage Domicile</option></select>
-<textarea id="c_msg" placeholder="Détails..."></textarea>
-<input type="file" id="c_file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.mp4,.mov"><small style="font-size:10px">Jusqu'à 2Go - ANTI STOCKAGE INSUFFISANT</small>
+<textarea id="c_msg" placeholder="Détails de votre besoin..."></textarea>
+<label style="font-size:11px;font-weight:800">📎 Pièce jointe (optionnel)</label>
+<input type="file" id="c_file" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.mp4,.mov"><small style="font-size:10px;color:#666">Vous pouvez sélectionner plusieurs fichiers</small>
 <div class="progress" id="pC"><div class="progress-bar" id="pCF"></div></div>
-<button class="btn" id="btnCmd">Envoyer + Fichier → Admin</button><p id="c_status" style="font-size:11px"></p>
+<button class="btn" id="btnCmd">Envoyer ma commande →</button>
+<p style="font-size:10px;margin-top:6px">Ou contactez : <a href="mailto:pacifiquekakuru6@gmail.com">📧 pacifiquekakuru6@gmail.com</a> | <a href="https://wa.me/243976717995">WhatsApp</a></p>
+<p id="c_status" style="font-size:11px"></p>
 </div></div>
 
 <button id="chatBtn">💬</button>
-<div id="chatBox">
-<div id="chatHead"><span>🤖 BKP Assistant - Goma</span><span id="chatClose" style="cursor:pointer">X</span></div>
-<div id="chatMsgs"><div class="msg bot">Salut! Je suis l'assistant BKP 🙏 Comment puis-je t'aider? Formation, maintenance, site web?</div></div>
-<div id="chatInput"><input id="chatText" placeholder="Écris ici..."><button id="chatSend" style="padding:8px 12px;border-radius:20px;border:none;background:var(--gold);font-weight:900">➤</button></div>
-</div>
+<div id="chatBox"><div id="chatHead"><span>🤖 BKP Assistant</span><span id="chatClose" style="cursor:pointer">X</span></div><div id="chatMsgs"><div class="msg bot">Salut! Assistant BKP 📍 Goma 🙏 Besoin d'une formation, maintenance, site web? Ou écris-moi sur 📧 pacifiquekakuru6@gmail.com</div></div><div id="chatInput"><input id="chatText" placeholder="Écris ici..."><button id="chatSend" style="padding:8px 12px;border-radius:20px;border:none;background:var(--gold);font-weight:900">➤</button></div></div>
 
-<div class="social"><a href="https://wa.me/243976717995" style="background:#25D366" target="_blank">W</a><a href="https://facebook.com" style="background:#1877F2" target="_blank">f</a></div>
+<div class="social">
+<a href="https://wa.me/243976717995" style="background:#25D366" target="_blank">W</a>
+<a href="mailto:pacifiquekakuru6@gmail.com" style="background:#EA4335" target="_blank">📧</a>
+<a href="https://facebook.com" style="background:#1877F2" target="_blank">f</a>
+</div>
 <div class="toast" id="toast"></div>
 
 <div id="adminView">
-<div class="admin-head"><div>🔐 ADMIN - Meta AI Décision Finale</div><button id="closeAdmin">X Fermer</button></div>
+<div class="admin-head"><div>🔐 ADMIN - Secret 2Go MAX 25Go</div><button id="closeAdmin">X</button></div>
 <div class="admin-tabs">
 <button class="active" onclick="aTab('produits',this)">📦 Services</button>
-<button onclick="aTab('galerie',this)">📸 Galerie 2Go</button>
-<button onclick="aTab('blogs',this)">📰 Articles Scroll</button>
-<button onclick="aTab('commandes',this)">📊 Commandes + Fichiers</button>
+<button onclick="aTab('galerie',this)">📸 Galerie (Multi 2Go)</button>
+<button onclick="aTab('blogs',this)">📰 Articles</button>
+<button onclick="aTab('commandes',this)">📊 Commandes</button>
 <button onclick="aTab('avis',this)">⭐ Avis</button>
 <button onclick="aTab('config',this)">⚙️ Config</button>
 </div>
 <div class="admin-content">
-<div id="adm-produits" class="admin-sec active"><input id="ad_p_nom" placeholder="Nom service"><input id="ad_p_desc" placeholder="Desc + Prix"><button class="btn" id="btnAddP">Ajouter Service</button><div id="adListP" style="margin-top:10px"></div></div>
-<div id="adm-galerie" class="admin-sec"><p style="font-size:11px">Upload 2Go direct Cloudinary - Plus de stockage insuffisant</p><input type="file" id="ad_file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.mp4,.mov"><input id="ad_titre" placeholder="Titre"><div class="progress" id="pAd" style="display:block"><div class="progress-bar" id="pAdF"></div></div><button class="btn" id="btnUpload">Uploader 2Go</button><p id="ad_status"></p><div id="adListG"></div></div>
-<div id="adm-blogs" class="admin-sec"><input id="ad_b_titre" placeholder="Titre article"><textarea id="ad_b_contenu" placeholder="Contenu"></textarea><button class="btn" id="btnAddB">Publier (auto-scroll)</button><div id="adListB"></div></div>
-<div id="adm-commandes" class="admin-sec"><div id="adListC"></div></div>
-<div id="adm-avis" class="admin-sec"><div id="adListA"></div></div>
-<div id="adm-config" class="admin-sec"><p style="font-size:10px">Config discrète: miap4jdu / bkp_2go - 2Go sans carte</p><p>MDP: <b id="passShow">bkp2026</b></p><input id="newPass" placeholder="Nouveau MDP"><button class="btn" id="btnPass">Changer</button></div>
-</div>
-</div>
-
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
-import { getFirestore, collection, addDoc, onSnapshot, serverTimestamp, query, orderBy, doc, deleteDoc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
-const firebaseConfig = { apiKey: "AIzaSyC__3NS0ZA9h8kd_Qyoovs-PiivzFqfhCI", authDomain: "bkp-technology.firebaseapp.com", projectId: "bkp-technology", storageBucket: "bkp-technology.firebasestorage.app", messagingSenderId: "463493266655", appId: "1:463493266655:web:5b6c78f89ce0e96c3a7d6a" };
-const app = initializeApp(firebaseConfig); const db=getFirestore(app);
-const CLOUD_NAME="miap4jdu", CLOUD_PRESET="bkp_2go";
-let adminPass="bkp2026"; async function loadPass(){ try{ const s=await getDoc(doc(db,"config","admin")); if(s.exists()){ adminPass=s.data().password; document.getElementById('passShow').innerText=adminPass; } }catch(e){} } loadPass();
-function toast(m){ const t=document.getElementById('toast'); t.innerText=m; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),4000); }
-window.go=(id,el)=>{ document.querySelectorAll('[id^="page-"]').forEach(p=>p.classList.add('hidden')); document.getElementById('page-'+id).classList.remove('hidden'); document.querySelectorAll('.menu a').forEach(a=>a.classList.remove('active')); if(el) el.classList.add('active'); window.scrollTo(0,0); }
-window.aTab=(id,el)=>{ document.querySelectorAll('.admin-sec').forEach(s=>s.classList.remove('active')); document.querySelectorAll('.admin-tabs button').forEach(b=>b.classList.remove('active')); document.getElementById('adm-'+id).classList.add('active'); el.classList.add('active'); }
-window.del=async(c,i)=>{ if(!confirm("Supprimer définitivement?")) return; await deleteDoc(doc(db,c,i)); toast("🗑️ Supprimé"); }
-// UPLOAD 100% CLOUDINARY - ANTI STOCKAGE INSUFFISANT
-async function uploadCloud(file,barF,bar){ const bf=document.getElementById(barF), b=document.getElementById(bar); b.style.display="block"; bf.style.width="0%";
- return new Promise((res,rej)=>{
-  const xhr=new XMLHttpRequest(); const fd=new FormData(); fd.append("file",file); fd.append("upload_preset",CLOUD_PRESET); fd.append("folder","bkp-technology");
-  xhr.open("POST",`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/auto/upload`);
-  xhr.upload.onprogress=e=>{ if(e.lengthComputable){ const pct=Math.round(e.loaded/e.total*100); bf.style.width=pct+"%"; } };
-  xhr.onload=()=>{ try{ const j=JSON.parse(xhr.responseText); if(j.secure_url) res(j.secure_url); else rej(new Error(j.error?.message||"Erreur Cloudinary")); }catch(e){ rej(e); } };
-  xhr.onerror=()=>rej(new Error("Réseau Goma - réessaie"));
-  xhr.send(fd);
- });
-}
-document.getElementById('openAdmin').onclick=async()=>{ await loadPass(); if(prompt("MDP Admin (Meta AI décision finale)")!==adminPass) return toast("❌ Mauvais MDP"); document.getElementById('adminView').style.display="block"; };
-document.getElementById('closeAdmin').onclick=()=>document.getElementById('adminView').style.display="none";
-
-// COMMANDER FIX - ANTI BLOCAGE
-document.getElementById('btnCmd').onclick=async()=>{
- const nom=document.getElementById('c_nom').value.trim(), tel=document.getElementById('c_tel').value.trim(), serv=document.getElementById('c_service').value, msg=document.getElementById('c_msg').value.trim(), file=document.getElementById('c_file').files[0];
- if(!nom||!tel) return toast("Nom + WhatsApp requis");
- const status=document.getElementById('c_status'); status.innerText="⏳ Envoi en cours...";
- try{
-  let fileUrl=""; if(file){ if(file.size>2*1024*1024*1024) return toast("❌ Fichier >2Go"); status.innerText="⏳ Upload fichier 2Go..."; fileUrl=await uploadCloud(file,'pCF','pC'); }
-  await addDoc(collection(db,"commandes"),{nom,tel,service:serv,msg,fileUrl,date:serverTimestamp()});
-  status.innerText="✅ Commande envoyée à BKP! On te contacte sur WhatsApp"; toast("✅ Commande reçue!");
-  document.getElementById('c_nom').value=""; document.getElementById('c_tel').value=""; document.getElementById('c_msg').value=""; document.getElementById('c_file').value=""; document.getElementById('pCF').style.width="0%";
- }catch(e){ status.innerText="❌ Erreur: "+e.message; toast("❌ "+e.message); }
-};
-document.getElementById('btnAvis').onclick=async()=>{ const nom=document.getElementById('a_nom').value, platform=document.getElementById('a_platform').value, stars=document.getElementById('a_stars').value, msg=document.getElementById('a_msg').value; if(!nom||!msg) return toast("Remplis tout"); await addDoc(collection(db,"avis"),{nom,platform,stars:parseInt(stars),msg,date:serverTimestamp()}); toast("✅ Avis publié sur "+platform); document.getElementById('a_nom').value=""; document.getElementById('a_msg').value=""; };
-document.getElementById('btnAddP').onclick=async()=>{ const n=document.getElementById('ad_p_nom').value.trim(), d=document.getElementById('ad_p_desc').value.trim(); if(!n) return toast("Nom requis"); await addDoc(collection(db,"produits"),{nom:n,desc:d,date:serverTimestamp()}); toast("✅ Service ajouté"); document.getElementById('ad_p_nom').value=""; document.getElementById('ad_p_desc').value=""; }; // FIX CASES MANUELLES
-document.getElementById('btnAddB').onclick=async()=>{ const t=document.getElementById('ad_b_titre').value.trim(), c=document.getElementById('ad_b_contenu').value.trim(); if(!t) return toast("Titre requis"); await addDoc(collection(db,"blogs"),{titre:t,contenu:c,date:serverTimestamp()}); toast("✅ Article publié - Scroll auto"); document.getElementById('ad_b_titre').value=""; document.getElementById('ad_b_contenu').value=""; };
-document.getElementById('btnUpload').onclick=async()=>{ const f=document.getElementById('ad_file').files[0], titre=document.getElementById('ad_titre').value.trim(); if(!f||!titre) return toast("Fichier + Titre requis"); document.getElementById('ad_status').innerText="⏳ Upload 2Go..."; try{ const url=await uploadCloud(f,'pAdF','pAd'); await addDoc(collection(db,"galerie"),{titre,url,type:f.type,date:serverTimestamp()}); document.getElementById('ad_status').innerText="✅ Galerie 2Go OK"; toast("✅ Galerie ajoutée - Visible sur Accueil"); document.getElementById('ad_titre').value=""; document.getElementById('ad_file').value=""; }catch(e){ document.getElementById('ad_status').innerText="❌ "+e.message; } };
-document.getElementById('btnPass').onclick=async()=>{ const np=document.getElementById('newPass').value; if(np.length<4) return toast("Trop court"); await setDoc(doc(db,"config","admin"),{password:np},{merge:true}); adminPass=np; document.getElementById('passShow').innerText=np; toast("🔑 MDP changé"); document.getElementById('newPass').value=""; };
-
-// CHAT BOT
-const chatBtn=document.getElementById('chatBtn'), chatBox=document.getElementById('chatBox'), chatClose=document.getElementById('chatClose'), chatMsgs=document.getElementById('chatMsgs'), chatText=document.getElementById('chatText');
-chatBtn.onclick=()=>{ chatBox.style.display= chatBox.style.display==="flex"? "none" : "flex"; }; chatClose.onclick=()=>chatBox.style.display="none";
-function addMsg(txt,who){ const d=document.createElement('div'); d.className='msg '+who; d.innerText=txt; chatMsgs.appendChild(d); chatMsgs.scrollTop=chatMsgs.scrollHeight; }
-function botReply(q){ q=q.toLowerCase(); if(q.includes("formation")) return "🎓 Formation Bureautique 50$ pour 2 mois à Himbi, Goma. Word, Excel, PowerPoint + Certificat. Tu veux t'inscrire?"; if(q.includes("site")||q.includes("web")) return "🌐 Sites web pro dès 100$. Rapide, avec ton domaine.com + hébergement. Envoie ton projet sur WhatsApp +243 976 717 995"; if(q.includes("prix")||q.includes("combien")) return "💰 Formation 50$, Maintenance 10-30$, Sites 100-300$. Dis-moi ce que tu veux et je te fais devis 30s."; if(q.includes("maintenance")||q.includes("pc")) return "🔧 Dépannage à domicile Himbi 24h. Windows, virus, installation. Envoie ton problème."; return "Merci 🙏 Je suis le bot BKP. Écris 'formation', 'site web', 'prix' ou contacte direct WhatsApp +243 976 717 995"; }
-document.getElementById('chatSend').onclick=()=>{ const q=chatText.value.trim(); if(!q) return; addMsg(q,'user'); chatText.value=""; setTimeout(()=>addMsg(botReply(q),'bot'),600); }; chatText.onkeydown=e=>{ if(e.key==="Enter") document.getElementById('chatSend').click(); };
-
-// LIVE DATA
-onSnapshot(collection(db,"produits"),s=>{ const render=id=>{ const g=document.getElementById(id); if(!g) return; g.innerHTML=""; if(s.empty){ g.innerHTML=`<div class="card"><h4>🎓 Formation</h4><p>50$</p></div><div class="card"><h4>🔧 Maintenance</h4><p>24h</p></div>`; return; } s.forEach(d=>{ g.innerHTML+=`<div class="card"><h4>${d.data().nom}</h4><p style="font-size:12px">${d.data().desc||''}</p><a href="https://wa.me/243976717995?text=${encodeURIComponent(d.data().nom)}" target="_blank" class="btn" style="padding:8px;display:block;text-align:center;text-decoration:none;width:auto">WhatsApp</a></div>`; }); }; render('gridServices'); render('gridServices2'); const ad=document.getElementById('adListP'); if(ad){ ad.innerHTML=""; s.forEach(d=>ad.innerHTML+=`<div style="padding:6px 0;border-bottom:1px solid #ddd">${d.data().nom} <button onclick="del('produits','${d.id}')">X</button></div>`); } });
-onSnapshot(query(collection(db,"blogs"),orderBy("date","desc")),s=>{ const g=document.getElementById('gridBlog'); g.innerHTML=""; let scrollText=""; const ad=document.getElementById('adListB'); if(ad) ad.innerHTML=""; s.forEach(d=>{ const x=d.data(); const dateStr=x.date?.toDate?x.date.toDate().toLocaleString('fr-FR',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'}):''; g.innerHTML+=`<div class="card"><h4>${x.titre}</h4><p style="font-size:12px">${(x.contenu||'').substring(0,150)}...</p><small style="font-size:9px;color:#888">${dateStr}</small></div>`; scrollText+=` • 📰 ${x.titre} (${dateStr})`; if(ad) ad.innerHTML+=`<div><b>${x.titre}</b> <small>${dateStr}</small> <button onclick="del('blogs','${d.id}')">X</button></div>`; }); document.getElementById('marqueeText').innerText=`🔥 FORMATION 50$ • 🔧 MAINTENANCE 24H • 🌐 SITES WEB 100$ ${scrollText} • 📍 HIMBI GOMA +243 976 717 995 •`; });
-onSnapshot(query(collection(db,"galerie"),orderBy("date","desc")),s=>{ const g=document.getElementById('gridGalerie'), g2=document.getElementById('gridGalerieAccueil'); if(g) g.innerHTML=""; if(g2) g2.innerHTML=""; const ad=document.getElementById('adListG'); if(ad) ad.innerHTML=""; s.forEach(d=>{ const x=d.data(); const isV=x.type?.includes('video')||x.url.includes('video')||x.url.includes('.mp4'); const html=isV?`<video src="${x.url}" controls style="width:100%;border-radius:10px"></video>`:`<img src="${x.url}" style="width:100%;border-radius:10px;max-height:200px;object-fit:cover">`; const card=`<div class="card">${html}<p style="font-size:12px">${x.titre}</p><a href="${x.url}" target="_blank" style="font-size:10px">Ouvrir / Télécharger ↗</a></div>`; if(g) g.innerHTML+=card; if(g2) g2.innerHTML+=card; if(ad) ad.innerHTML+=`<div style="border-bottom:1px solid #ddd;padding:6px 0">${x.titre} <button onclick="del('galerie','${d.id}')">X</button></div>`; }); });
-onSnapshot(query(collection(db,"avis"),orderBy("date","desc")),s=>{ const g=document.getElementById('gridAvis'); g.innerHTML=""; const ad=document.getElementById('adListA'); if(ad) ad.innerHTML=""; s.forEach(d=>{ const x=d.data(); const dateStr=x.date?.toDate?x.date.toDate().toLocaleString('fr-FR',{hour:'2-digit',minute:'2-digit'}):''; g.innerHTML+=`<div class="card"><b>${x.nom}</b> <small>(${x.platform||'Site'}) ${dateStr}</small> ${"⭐".repeat(x.stars||5)}<br><small>${x.msg}</small></div>`; if(ad) ad.innerHTML+=`<div><b>${x.nom}</b> [${x.platform}] ${x.msg} <button onclick="del('avis','${d.id}')">X</button></div>`; }); });
-onSnapshot(query(collection(db,"commandes"),orderBy("date","desc")),s=>{ const ad=document.getElementById('adListC'); if(!ad) return; ad.innerHTML=""; s.forEach(d=>{ const x=d.data(); const dateStr=x.date?.toDate?x.date.toDate().toLocaleString('fr-FR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}):''; ad.innerHTML+=`<div style="border-bottom:1px solid #ddd;padding:8px 0"><b>${x.nom}</b> ${x.tel} - ${x.service} <small>${dateStr}</small> ${x.fileUrl?`<a href="${x.fileUrl}" target="_blank">📎 Voir fichier 2Go</a>`:''}<br><small>${x.msg}</small> <button onclick="del('commandes','${d.id}')">X</button></div>`; }); });
-</script>
-</body>
-</html>
+<div id="adm-produits" class="admin-sec active"><input id="ad_p_nom" placeholder="Nom service"><input id="ad_p_desc" placeholder="Desc +
