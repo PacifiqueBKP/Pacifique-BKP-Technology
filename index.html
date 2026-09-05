@@ -17,13 +17,14 @@ header{background:var(--blue);color:#fff;padding:10px 4%;position:sticky;top:28p
 .content{padding:20px 4%;min-height:60vh}.grid{display:grid;grid-template-columns:1fr;gap:14px}
 .card{background:#fff;border-radius:16px;padding:14px;box-shadow:0 8px 20px rgba(0,0,0,.06);border-left:4px solid var(--gold)}
 .btn{width:100%;padding:13px;border-radius:30px;border:none;font-weight:900;background:linear-gradient(90deg,var(--gold),#ffef99);cursor:pointer}
+.btn:disabled{opacity:.5;cursor:not-allowed}
 .form{background:#fff;padding:14px;border-radius:16px;border:1px solid #e9e0c9}
 .form input,.form textarea,.form select{width:100%;padding:12px;margin:6px 0;border:1px solid #ddd;border-radius:10px;font-size:16px}
-.progress{height:12px;background:#eee;border-radius:10px;display:none;overflow:hidden;margin:8px 0;border:1px solid #ddd}.progress-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--gold),#00ff88);transition:.2s}
+.progress{height:14px;background:#eee;border-radius:10px;display:none;overflow:hidden;margin:8px 0;border:1px solid #ddd}.progress-bar{height:100%;width:0%;background:linear-gradient(90deg,var(--gold),#00ff88);transition:.2s}
 #adminView{display:none;position:fixed;inset:0;background:#f5f2e8;z-index:20000;overflow:auto}
 .admin-head{background:var(--blue);color:var(--gold);padding:12px 4%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:2}
 .admin-tabs{display:flex;gap:6px;overflow:auto;padding:10px 4%;background:#fff;border-bottom:1px solid #ddd;position:sticky;top:50px;z-index:1}
-.admin-tabs button{padding:8px 14px;border-radius:20px;border:1px solid var(--blue);background:#fff;font-size:11px;cursor:pointer;white-space:nowrap}
+.admin-tabs button{padding:8px 14px;border-radius:20px;border:1px solid var(--blue);background:#fff;font-size:11px;cursor:pointer}
 .admin-tabs button.active{background:var(--blue);color:var(--gold)}
 .admin-content{padding:14px 4%}.admin-sec{display:none}.admin-sec.active{display:block}
 .social{position:fixed;right:12px;bottom:98px;display:flex;flex-direction:column;gap:8px;z-index:9998}
@@ -40,7 +41,6 @@ header{background:var(--blue);color:#fff;padding:10px 4%;position:sticky;top:28p
 .slider img.active,.slider video.active{opacity:1;z-index:2}
 .cta-bar{position:fixed;bottom:0;left:0;right:0;background:#fff;padding:10px 4%;display:flex;gap:6px;overflow:auto;border-top:2px solid var(--gold);z-index:9990;box-shadow:0 -4px 18px rgba(0,0,0,.1)}
 .cta-bar a,.cta-bar button{padding:10px 14px;border-radius:20px;font-size:11px;font-weight:900;white-space:nowrap;text-decoration:none;border:none;cursor:pointer;display:inline-flex;align-items:center}
-@media(min-width:900px){.grid{grid-template-columns:repeat(3,1fr)}.slider{height:360px}}
 </style>
 </head>
 <body>
@@ -48,7 +48,7 @@ header{background:var(--blue);color:#fff;padding:10px 4%;position:sticky;top:28p
 <header><div class="nav"><div style="font-weight:900">PACIFIQUE BKP <span style="color:var(--gold)">TECHNOLOGY</span></div><div class="menu"><a class="active" onclick="go('accueil',this)">Accueil</a><a onclick="go('services',this)">Services</a><a onclick="go('galerie',this)">Galerie</a><a onclick="go('avis',this)">Avis</a><a onclick="go('blog',this)">Blog</a><a onclick="go('commander',this)">Commander</a><a style="background:var(--gold);color:var(--blue);font-weight:900" id="openAdmin">ADMIN 🔐</a></div></div></header>
 
 <div id="page-accueil" class="content">
-<div class="hero"><h1>On vend. On forme. On livre.<br><span>On certifie. On conçoit.</span></h1><p style="font-size:12px;opacity:.9" id="userCity">📍 Himbi, Goma RDC - In God We Trust 🦁🙏🇨🇩</p></div>
+<div class="hero"><h1>On vend. On forme. On livre.<br><span>On certifie. On conçoit.</span></h1><p style="font-size:12px;opacity:.9">📍 Himbi, Goma RDC - In God We Trust 🦁🙏🇨🇩</p></div>
 <h3>Nos Réalisations</h3><div class="slider" id="sliderAccueil"></div>
 <h3 style="margin-top:20px">Services</h3><div class="grid" id="gridServices"></div>
 <h3 style="margin-top:20px">📍 Nous trouver</h3><div class="card"><p style="font-size:12px">📍 Himbi, Goma<br>📧 pacifiquekakuru6@gmail.com<br>📱 +243 976 717 995</p><iframe src="https://maps.google.com/maps?q=Himbi,Goma,RDC&t=&z=14&ie=UTF8&iwloc=&output=embed" style="width:100%;height:180px;border:0;border-radius:10px" loading="lazy"></iframe></div>
@@ -68,16 +68,16 @@ header{background:var(--blue);color:#fff;padding:10px 4%;position:sticky;top:28p
 </div>
 
 <button id="chatBtn">💬</button>
-<div id="chatBox"><div id="chatHead"><span>🤖 BKP Assistant</span><span id="chatClose" style="cursor:pointer">X</span></div><div id="chatMsgs"><div class="msg bot">Salut! BKP 📍 Goma - besoin?</div></div><div id="chatInput"><input id="chatText" placeholder="Écris ici..."><button type="button" id="chatSend" style="padding:8px 12px;border-radius:20px;border:none;background:var(--gold);font-weight:900">➤</button></div></div>
+<div id="chatBox"><div id="chatHead"><span>🤖 BKP Assistant</span><span id="chatClose" style="cursor:pointer">X</span></div><div id="chatMsgs"><div class="msg bot">Salut! BKP 📍 Goma</div></div><div id="chatInput"><input id="chatText" placeholder="Écris ici..."><button type="button" id="chatSend" style="padding:8px 12px;border-radius:20px;border:none;background:var(--gold);font-weight:900">➤</button></div></div>
 <div class="social"><a href="https://wa.me/243976717995" style="background:#25D366" target="_blank">W</a><a href="mailto:pacifiquekakuru6@gmail.com" style="background:#EA4335" target="_blank">📧</a></div>
 <div class="toast" id="toast"></div>
 
 <div id="adminView">
-<div class="admin-head"><div>🔐 ADMIN MAX 25Go</div><button type="button" id="closeAdmin">X Fermer</button></div>
+<div class="admin-head"><div>🔐 ADMIN MAX 25Go - ANTI BOUCLE</div><button type="button" id="closeAdmin">X Fermer</button></div>
 <div class="admin-tabs"><button type="button" class="active" onclick="aTab('produits',this)">📦 Services</button><button type="button" onclick="aTab('galerie',this)">📸 Galerie</button><button type="button" onclick="aTab('blogs',this)">📰 Articles</button><button type="button" onclick="aTab('commandes',this)">📊 Commandes</button><button type="button" onclick="aTab('avis',this)">⭐ Avis</button><button type="button" onclick="aTab('config',this)">⚙️ Config</button></div>
 <div class="admin-content">
 <div id="adm-produits" class="admin-sec active"><input id="ad_p_nom" placeholder="Nom service"><input id="ad_p_desc" placeholder="Desc + Prix"><button type="button" class="btn" id="btnAddP">Ajouter</button><div id="adListP"></div></div>
-<div id="adm-galerie" class="admin-sec"><p style="font-size:10px;color:#b00">ADMIN SECRET: Multi 2Go max - reste ici pendant upload</p><input type="file" id="ad_file" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.mp4,.mov"><input id="ad_titre" placeholder="Titre pour tous les fichiers"><div class="progress" id="pAd"><div class="progress-bar" id="pAdF"></div></div><button type="button" class="btn" id="btnUpload">Uploader MAX - Reste ici</button><p id="ad_status"></p><div id="adListG"></div></div>
+<div id="adm-galerie" class="admin-sec"><p style="font-size:10px;color:#b00">ADMIN: Reste ici pendant upload - Ne retourne plus à l'accueil</p><input type="file" id="ad_file" multiple><input id="ad_titre" placeholder="Titre pour tous"><div class="progress" id="pAd"><div class="progress-bar" id="pAdF"></div></div><button type="button" class="btn" id="btnUpload">Uploader MAX - Reste ici</button><p id="ad_status"></p><div id="adListG"></div></div>
 <div id="adm-blogs" class="admin-sec"><input id="ad_b_titre" placeholder="Titre"><textarea id="ad_b_contenu" placeholder="Contenu"></textarea><button type="button" class="btn" id="btnAddB">Publier</button><div id="adListB"></div></div>
 <div id="adm-commandes" class="admin-sec"><div id="adListC"></div></div>
 <div id="adm-avis" class="admin-sec"><div id="adListA"></div></div>
@@ -93,44 +93,111 @@ const app = initializeApp(firebaseConfig); const db=getFirestore(app);
 const CLOUD_NAME="miap4jdu", CLOUD_PRESET="bkp_2go";
 let adminPass="bkp2026"; async function loadPass(){ try{ const s=await getDoc(doc(db,"config","admin")); if(s.exists()){ adminPass=s.data().password; document.getElementById('passShow').innerText=adminPass; } }catch(e){} } loadPass();
 function toast(m){ const t=document.getElementById('toast'); t.innerText=m; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),4000); }
-window.go=(id,el)=>{ try{ document.querySelectorAll('[id^="page-"]').forEach(p=>p.classList.add('hidden')); const target=document.getElementById('page-'+id); if(target) target.classList.remove('hidden'); if(el){ document.querySelectorAll('.menu a').forEach(a=>a.classList.remove('active')); el.classList.add('active'); } window.scrollTo({top:0,behavior:'smooth'}); }catch(e){} };
+// BLOCAGE ANTI-RETOUR ACCUEIL
+window.go=(id,el)=>{
+  const admin=document.getElementById('adminView');
+  if(admin && admin.style.display==="block"){
+    toast("🔒 Reste en ADMIN - Finis d'abord l'upload");
+    return;
+  }
+  try{
+    document.querySelectorAll('[id^="page-"]').forEach(p=>p.classList.add('hidden'));
+    const target=document.getElementById('page-'+id);
+    if(target) target.classList.remove('hidden');
+    if(el){ document.querySelectorAll('.menu a').forEach(a=>a.classList.remove('active')); el.classList.add('active'); }
+    window.scrollTo({top:0,behavior:'smooth'});
+  }catch(e){}
+};
 window.aTab=(id,el)=>{ document.querySelectorAll('.admin-sec').forEach(s=>s.classList.remove('active')); document.querySelectorAll('.admin-tabs button').forEach(b=>b.classList.remove('active')); document.getElementById('adm-'+id).classList.add('active'); el.classList.add('active'); }
 window.del=async(c,i)=>{ if(!confirm("Supprimer?")) return; await deleteDoc(doc(db,c,i)); toast("🗑️ Supprimé"); }
 window.locateMe=()=>{ if(!navigator.geolocation) return toast("Géo non supportée"); toast("📍 Localisation..."); navigator.geolocation.getCurrentPosition(p=>{ toast(`📍 ${p.coords.latitude.toFixed(3)},${p.coords.longitude.toFixed(3)} Himbi!`); },()=>toast("Active GPS")); };
-async function uploadCloud(file,barF,bar){ const bf=document.getElementById(barF), b=document.getElementById(bar); b.style.display="block"; bf.style.width="0%"; return new Promise((res,rej)=>{ const xhr=new XMLHttpRequest(); const fd=new FormData(); fd.append("file",file); fd.append("upload_preset",CLOUD_PRESET); fd.append("folder","bkp-technology"); xhr.open("POST",`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/auto/upload`); xhr.upload.onprogress=e=>{ if(e.lengthComputable) bf.style.width=Math.round(e.loaded/e.total*100)+"%"; }; xhr.onload=()=>{ try{ const j=JSON.parse(xhr.responseText); if(j.secure_url) res(j.secure_url); else rej(new Error(j.error?.message||"Erreur preset")); }catch(e){ rej(e); } }; xhr.onerror=()=>rej(new Error("Réseau Cloudinary")); xhr.send(fd); }); }
+async function uploadCloud(file,barF,bar){ const bf=document.getElementById(barF), b=document.getElementById(bar); b.style.display="block"; bf.style.width="0%"; return new Promise((res,rej)=>{ const xhr=new XMLHttpRequest(); const fd=new FormData(); fd.append("file",file); fd.append("upload_preset",CLOUD_PRESET); fd.append("folder","bkp-technology"); xhr.open("POST",`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/auto/upload`); xhr.upload.onprogress=e=>{ if(e.lengthComputable) bf.style.width=Math.round(e.loaded/e.total*100)+"%"; }; xhr.onload=()=>{ try{ const j=JSON.parse(xhr.responseText); if(j.secure_url) res(j.secure_url); else rej(new Error(j.error?.message||"Erreur")); }catch(e){ rej(e); } }; xhr.onerror=()=>rej(new Error("Réseau")); xhr.send(fd); }); }
 
 document.getElementById('openAdmin').onclick=async(e)=>{ e.preventDefault(); await loadPass(); if(prompt("MDP Admin")!==adminPass) return toast("❌ Mauvais MDP"); document.getElementById('adminView').style.display="block"; document.getElementById('ctaBar').style.display="none"; document.querySelector('.social').style.display="none"; document.getElementById('chatBtn').style.display="none"; };
 document.getElementById('closeAdmin').onclick=(e)=>{ e.preventDefault(); document.getElementById('adminView').style.display="none"; document.getElementById('ctaBar').style.display="flex"; document.querySelector('.social').style.display="flex"; document.getElementById('chatBtn').style.display="flex"; };
 
-document.getElementById('btnCmd').onclick=async(e)=>{ e.preventDefault(); e.stopPropagation(); const nom=document.getElementById('c_nom').value.trim(), tel=document.getElementById('c_tel').value.trim(), serv=document.getElementById('c_service').value, msg=document.getElementById('c_msg').value.trim(), files=document.getElementById('c_file').files; if(!nom||!tel) return toast("Nom + Contact requis"); const status=document.getElementById('c_status'); status.innerText="⏳ Envoi... ne change pas de page"; try{ let fileUrls=[]; if(files.length>0){ status.innerText=`⏳ ${files.length} fichiers...`; for(let f of files){ if(f.size>2*1024*1024*1024) throw new Error(f.name+" >2Go"); fileUrls.push(await uploadCloud(f,'pCF','pC')); } } await addDoc(collection(db,"commandes"),{nom,tel,service:serv,msg,fileUrl:fileUrls.join(','),fileUrls,date:serverTimestamp()}); status.innerText="✅ Envoyé! Reste ici"; toast("✅ Commande reçue!"); document.getElementById('c_nom').value=""; document.getElementById('c_tel').value=""; document.getElementById('c_msg').value=""; document.getElementById('c_file').value=""; document.getElementById('pC').style.display="none"; document.getElementById('pCF').style.width="0%"; }catch(err){ status.innerText="❌ "+err.message; toast("❌ "+err.message); } };
+document.getElementById('btnCmd').onclick=async(e)=>{ e.preventDefault(); e.stopPropagation(); const nom=document.getElementById('c_nom').value.trim(), tel=document.getElementById('c_tel').value.trim(), serv=document.getElementById('c_service').value, msg=document.getElementById('c_msg').value.trim(), files=document.getElementById('c_file').files; if(!nom||!tel) return toast("Nom + Contact"); const status=document.getElementById('c_status'); status.innerText="⏳ Envoi..."; const btn=e.currentTarget; btn.disabled=true; try{ let fileUrls=[]; if(files.length>0){ for(let f of files){ fileUrls.push(await uploadCloud(f,'pCF','pC')); } } await addDoc(collection(db,"commandes"),{nom,tel,service:serv,msg,fileUrl:fileUrls.join(','),fileUrls,date:serverTimestamp()}); status.innerText="✅ Envoyé!"; toast("✅ Commande reçue!"); document.getElementById('c_nom').value=""; document.getElementById('c_tel').value=""; document.getElementById('c_msg').value=""; document.getElementById('c_file').value=""; document.getElementById('pC').style.display="none"; }catch(err){ status.innerText="❌ "+err.message; } btn.disabled=false; };
+
 document.getElementById('btnAvis').onclick=async(e)=>{ e.preventDefault(); const nom=document.getElementById('a_nom').value, platform=document.getElementById('a_platform').value, stars=document.getElementById('a_stars').value, msg=document.getElementById('a_msg').value; if(!nom||!msg) return toast("Remplis tout"); await addDoc(collection(db,"avis"),{nom,platform,stars:parseInt(stars),msg,date:serverTimestamp()}); toast("✅ Avis publié"); document.getElementById('a_nom').value=""; document.getElementById('a_msg').value=""; };
 document.getElementById('btnAddP').onclick=async(e)=>{ e.preventDefault(); const n=document.getElementById('ad_p_nom').value.trim(), d=document.getElementById('ad_p_desc').value.trim(); if(!n) return toast("Nom requis"); await addDoc(collection(db,"produits"),{nom:n,desc:d,date:serverTimestamp()}); toast("✅ Service ajouté"); document.getElementById('ad_p_nom').value=""; document.getElementById('ad_p_desc').value=""; };
 document.getElementById('btnAddB').onclick=async(e)=>{ e.preventDefault(); const t=document.getElementById('ad_b_titre').value.trim(), c=document.getElementById('ad_b_contenu').value.trim(); if(!t) return toast("Titre requis"); await addDoc(collection(db,"blogs"),{titre:t,contenu:c,date:serverTimestamp()}); toast("✅ Article"); document.getElementById('ad_b_titre').value=""; document.getElementById('ad_b_contenu').value=""; };
-document.getElementById('btnUpload').onclick=async(e)=>{ e.preventDefault(); e.stopPropagation(); const files=document.getElementById('ad_file').files, titre=document.getElementById('ad_titre').value.trim(); if(files.length===0||!titre) return toast("Fichiers + Titre requis"); document.getElementById('pAd').style.display="block"; document.getElementById('ad_status').innerText=`⏳ ${files.length} fichiers - RESTE ICI`; try{ for(let f of files){ const url=await uploadCloud(f,'pAdF','pAd'); await addDoc(collection(db,"galerie"),{titre:titre+" - "+f.name,url,type:f.type,date:serverTimestamp()}); } document.getElementById('ad_status').innerText=`✅ ${files.length} OK - Terminé`; toast(`✅ ${files.length} uploadés`); document.getElementById('ad_titre').value=""; document.getElementById('ad_file').value=""; document.getElementById('pAd').style.display="none"; }catch(err){ document.getElementById('ad_status').innerText="❌ "+err.message; toast("❌ "+err.message); } };
+
+// FIX BOUCLE 2E IMAGE
+document.getElementById('btnUpload').onclick=async(e)=>{
+ e.preventDefault(); e.stopPropagation();
+ const btn=e.currentTarget; if(btn.disabled) return;
+ const files=document.getElementById('ad_file').files, titre=document.getElementById('ad_titre').value.trim();
+ if(files.length===0||!titre) return toast("Fichiers + Titre requis");
+ btn.disabled=true; btn.innerText="⏳ Upload en cours... Reste ici";
+ document.getElementById('pAd').style.display="block";
+ document.getElementById('ad_status').innerText=`⏳ ${files.length} fichiers - Ne quitte pas`;
+ try{
+   for(let f of files){
+     const url=await uploadCloud(f,'pAdF','pAd');
+     await addDoc(collection(db,"galerie"),{titre:titre+" - "+f.name,url,type:f.type,date:serverTimestamp()});
+   }
+   document.getElementById('ad_status').innerText=`✅ ${files.length} OK - Tu peux ajouter une 2e, 3e...`;
+   toast(`✅ ${files.length} uploadés - Reste en ADMIN`);
+   document.getElementById('ad_file').value="";
+ }catch(err){
+   document.getElementById('ad_status').innerText="❌ "+err.message;
+   toast("❌ "+err.message);
+ }
+ btn.disabled=false; btn.innerText="Uploader MAX - Reste ici";
+ document.getElementById('pAd').style.display="none";
+ document.getElementById('pAdF').style.width="0%";
+};
+
 document.getElementById('btnPass').onclick=async(e)=>{ e.preventDefault(); const np=document.getElementById('newPass').value; if(np.length<4) return toast("Trop court"); await setDoc(doc(db,"config","admin"),{password:np},{merge:true}); adminPass=np; document.getElementById('passShow').innerText=np; toast("🔑 MDP changé"); document.getElementById('newPass').value=""; };
 
 const chatBtn=document.getElementById('chatBtn'), chatBox=document.getElementById('chatBox'), chatClose=document.getElementById('chatClose'), chatMsgs=document.getElementById('chatMsgs'), chatText=document.getElementById('chatText');
 chatBtn.onclick=(e)=>{ e.preventDefault(); chatBox.style.display= chatBox.style.display==="flex"? "none" : "flex"; }; chatClose.onclick=(e)=>{ e.preventDefault(); chatBox.style.display="none"; };
 function addMsg(t,w){ const d=document.createElement('div'); d.className='msg '+w; d.innerText=t; chatMsgs.appendChild(d); chatMsgs.scrollTop=chatMsgs.scrollHeight; }
-function botReply(q){ q=q.toLowerCase(); if(q.includes("formation")) return "🎓 Formation 50$ - Himbi. Email: pacifiquekakuru6@gmail.com"; if(q.includes("site")) return "🌐 Sites 100$ + domaine."; return "Merci 🙏 Bot BKP: formation/site/prix ou pacifiquekakuru6@gmail.com"; }
+function botReply(q){ q=q.toLowerCase(); if(q.includes("formation")) return "🎓 Formation 50$ - Himbi. Email: pacifiquekakuru6@gmail.com"; if(q.includes("site")) return "🌐 Sites 100$ + domaine."; return "Merci 🙏 Bot BKP"; }
 document.getElementById('chatSend').onclick=(e)=>{ e.preventDefault(); const q=chatText.value.trim(); if(!q) return; addMsg(q,'user'); chatText.value=""; setTimeout(()=>addMsg(botReply(q),'bot'),600); }; chatText.onkeydown=e=>{ if(e.key==="Enter"){ e.preventDefault(); document.getElementById('chatSend').click(); } };
 
-onSnapshot(collection(db,"produits"),s=>{ const render=id=>{ const g=document.getElementById(id); if(!g) return; g.innerHTML=""; if(s.empty){ g.innerHTML=`<div class="card"><h4>🎓 Formation</h4><p>50$</p><button type="button" class="btn" onclick="go('commander',null)">🛒 Commander</button></div><div class="card"><h4>🔧 Maintenance</h4><p>24h</p><button type="button" class="btn" onclick="go('commander',null)">🛒 Commander</button></div>`; return; } s.forEach(d=>{ g.innerHTML+=`<div class="card"><h4>${d.data().nom}</h4><p style="font-size:12px">${d.data().desc||''}</p><button type="button" class="btn" onclick="go('commander',null)">🛒 Commander</button></div>`; }); }; render('gridServices'); render('gridServices2'); const ad=document.getElementById('adListP'); if(ad){ ad.innerHTML=""; s.forEach(d=>ad.innerHTML+=`<div style="padding:6px 0;border-bottom:1px solid #ddd">${d.data().nom} <button type="button" onclick="del('produits','${d.id}')">X</button></div>`); } });
+onSnapshot(collection(db,"produits"),s=>{ const render=id=>{ const g=document.getElementById(id); if(!g) return; g.innerHTML=""; if(s.empty){ g.innerHTML=`<div class="card"><h4>🎓 Formation</h4><p>50$</p><button type="button" class="btn" onclick="go('commander',null)">🛒 Commander</button></div>`; return; } s.forEach(d=>{ g.innerHTML+=`<div class="card"><h4>${d.data().nom}</h4><p style="font-size:12px">${d.data().desc||''}</p><button type="button" class="btn" onclick="go('commander',null)">🛒 Commander</button></div>`; }); }; render('gridServices'); render('gridServices2'); const ad=document.getElementById('adListP'); if(ad){ ad.innerHTML=""; s.forEach(d=>ad.innerHTML+=`<div style="padding:6px 0;border-bottom:1px solid #ddd">${d.data().nom} <button type="button" onclick="del('produits','${d.id}')">X</button></div>`); } });
+
 let sliderTimer=null;
 onSnapshot(query(collection(db,"galerie"),orderBy("date","desc")),s=>{
  const g=document.getElementById('gridGalerie'), slider=document.getElementById('sliderAccueil');
- if(g) g.innerHTML=""; if(slider) slider.innerHTML=""; const ad=document.getElementById('adListG'); if(ad) ad.innerHTML=""; let items=[];
- s.forEach(d=>{ const x=d.data(); items.push(x); const isV=x.type?.includes('video')||x.url.includes('video')||x.url.includes('.mp4'); const html=isV?`<video src="${x.url}" controls style="width:100%;border-radius:10px"></video>`:`<img src="${x.url}" style="width:100%;border-radius:10px;max-height:200px;object-fit:cover">`; const card=`<div class="card">${html}<p style="font-size:12px">${x.titre}</p><a href="${x.url}" target="_blank" style="font-size:10px">Ouvrir ↗</a><br><button type="button" class="btn" style="margin-top:6px" onclick="go('commander',null)">🛒 Commander ce modèle</button></div>`; if(g) g.innerHTML+=card; if(ad) ad.innerHTML+=`<div style="border-bottom:1px solid #ddd;padding:6px 0">${x.titre} <button type="button" onclick="del('galerie','${d.id}')">X</button></div>`; });
+ if(g) g.innerHTML=""; if(slider) slider.innerHTML="";
+ const ad=document.getElementById('adListG'); if(ad) ad.innerHTML="";
+ let items=[]; s.forEach(d=>items.push(d.data()));
+ // Galerie
+ s.forEach(d=>{
+   const x=d.data();
+   if(g){
+     const isV=x.type?.includes('video')||x.url.includes('video')||x.url.includes('.mp4');
+     const html=isV?`<video src="${x.url}" controls style="width:100%;border-radius:10px"></video>`:`<img src="${x.url}" style="width:100%;border-radius:10px;max-height:200px;object-fit:cover">`;
+     g.innerHTML+=`<div class="card">${html}<p style="font-size:12px">${x.titre}</p><a href="${x.url}" target="_blank">Ouvrir ↗</a></div>`;
+   }
+   if(ad) ad.innerHTML+=`<div style="border-bottom:1px solid #ddd;padding:6px 0">${x.titre} <button type="button" onclick="del('galerie','${d.id}')">X</button></div>`;
+ });
+ // Slider Accueil - PAUSE SI ADMIN OUVERT
  if(slider){
-   if(items.length===0){ slider.innerHTML='<p style="color:#fff;z-index:3;position:relative;padding:20px">Ajoute images en ADMIN pour voir ici</p>'; }
+   if(items.length===0){ slider.innerHTML='<p style="color:#fff;padding:20px">Ajoute images en ADMIN</p>'; }
    else{
-     items.forEach((x,i)=>{ const isV=x.type?.includes('video')||x.url.includes('.mp4'); const el=isV?document.createElement('video'):document.createElement('img'); el.src=x.url; if(isV){ el.muted=true; el.loop=true; } el.className=i===0?'active':''; slider.appendChild(el); });
+     items.forEach((x,i)=>{
+       const el=document.createElement(x.type?.includes('video')||x.url?.includes('.mp4')?'video':'img');
+       el.src=x.url; if(el.tagName==='VIDEO'){ el.muted=true; el.loop=true; }
+       el.className=i===0?'active':''; slider.appendChild(el);
+     });
      if(sliderTimer) clearInterval(sliderTimer);
-     let idx=0; sliderTimer=setInterval(()=>{ const els=slider.querySelectorAll('img,video'); if(els.length<2) return; els[idx].classList.remove('active'); idx=(idx+1)%els.length; els[idx].classList.add('active'); },4000);
+     let idx=0;
+     sliderTimer=setInterval(()=>{
+       const admin=document.getElementById('adminView');
+       if(admin && admin.style.display==="block") return;
+       const els=slider.querySelectorAll('img,video');
+       if(els.length<2) return;
+       els[idx].classList.remove('active');
+       idx=(idx+1)%els.length;
+       els[idx].classList.add('active');
+     },4000);
    }
  }
 });
-onSnapshot(query(collection(db,"blogs"),orderBy("date","desc")),s=>{ const g=document.getElementById('gridBlog'); g.innerHTML=""; let scrollText=""; const ad=document.getElementById('adListB'); if(ad) ad.innerHTML=""; s.forEach(d=>{ const x=d.data(); const dateStr=x.date?.toDate?x.date.toDate().toLocaleString('fr-FR',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'}):''; g.innerHTML+=`<div class="card"><h4>${x.titre}</h4><p style="font-size:12px">${(x.contenu||'').substring(0,150)}...</p><small style="font-size:9px">📅 ${dateStr}</small><br><button type="button" class="btn" style="margin-top:6px" onclick="go('commander',null)">🛒 Commander</button></div>`; scrollText+=` • ${x.titre} (${dateStr})`; if(ad) ad.innerHTML+=`<div><b>${x.titre}</b> <small>${dateStr}</small> <button type="button" onclick="del('blogs','${d.id}')">X</button></div>`; }); document.getElementById('marqueeText').innerText=`🔥 FORMATION 50$ • 🔧 MAINTENANCE 24H • 🌐 SITES WEB 100$ ${scrollText} • 📍 HIMBI GOMA • 📧 pacifiquekakuru6@gmail.com •`; });
+onSnapshot(query(collection(db,"blogs"),orderBy("date","desc")),s=>{ const g=document.getElementById('gridBlog'); g.innerHTML=""; let scrollText=""; const ad=document.getElementById('adListB'); if(ad) ad.innerHTML=""; s.forEach(d=>{ const x=d.data(); const dateStr=x.date?.toDate?x.date.toDate().toLocaleString('fr-FR',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'}):''; g.innerHTML+=`<div class="card"><h4>${x.titre}</h4><p style="font-size:12px">${(x.contenu||'').substring(0,150)}...</p><small>📅 ${dateStr}</small><br><button type="button" class="btn" style="margin-top:6px" onclick="go('commander',null)">🛒 Commander</button></div>`; scrollText+=` • ${x.titre} (${dateStr})`; if(ad) ad.innerHTML+=`<div><b>${x.titre}</b> <button type="button" onclick="del('blogs','${d.id}')">X</button></div>`; }); document.getElementById('marqueeText').innerText=`🔥 FORMATION 50$ • 🔧 MAINTENANCE 24H • 🌐 SITES WEB 100$ ${scrollText} • 📍 HIMBI GOMA • 📧 pacifiquekakuru6@gmail.com •`; });
 onSnapshot(query(collection(db,"avis"),orderBy("date","desc")),s=>{ const g=document.getElementById('gridAvis'); g.innerHTML=""; const ad=document.getElementById('adListA'); if(ad) ad.innerHTML=""; s.forEach(d=>{ const x=d.data(); const dateStr=x.date?.toDate?x.date.toDate().toLocaleString('fr-FR',{hour:'2-digit',minute:'2-digit'}):''; g.innerHTML+=`<div class="card"><b>${x.nom}</b> <small>(${x.platform}) ${dateStr}</small> ${"⭐".repeat(x.stars||5)}<br><small>${x.msg}</small><br><button type="button" class="btn" style="margin-top:6px;width:auto;padding:6px 12px" onclick="go('commander',null)">Je veux pareil</button></div>`; if(ad) ad.innerHTML+=`<div><b>${x.nom}</b> ${x.msg} <button type="button" onclick="del('avis','${d.id}')">X</button></div>`; }); });
 onSnapshot(query(collection(db,"commandes"),orderBy("date","desc")),s=>{ const ad=document.getElementById('adListC'); if(!ad) return; ad.innerHTML=""; s.forEach(d=>{ const x=d.data(); const dateStr=x.date?.toDate?x.date.toDate().toLocaleString('fr-FR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}):''; const files=(x.fileUrls||x.fileUrl||'').toString().split(',').filter(Boolean).map(u=>`<a href="${u}" target="_blank">📎 Fichier</a>`).join(' '); ad.innerHTML+=`<div style="border-bottom:1px solid #ddd;padding:8px 0"><b>${x.nom}</b> ${x.tel} - ${x.service} <small>${dateStr}</small> ${files}<br><small>${x.msg}</small> <button type="button" onclick="del('commandes','${d.id}')">X</button></div>`; }); });
 </script>
