@@ -1,1 +1,3 @@
-
+User-agent: *
+Allow: /
+Sitemap: https://pacifique-bkp.github.io/sitemap.xml
