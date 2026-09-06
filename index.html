@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pacifique BKP Technology - V6.3 PRO</title>
+<title>Pacifique BKP Technology - V6.4 Fusion</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;800&display=swap');
 :root{--blue:#070f26;--gold:#d4af37;--light:#fcfaf3}
@@ -11,18 +11,19 @@
 .marquee-track{display:inline-flex;animation:scroll 50s linear infinite}@keyframes scroll{0%{transform:translateX(80%)}100%{transform:translateX(-100%)}}
 header{background:var(--blue);color:#fff;padding:10px 4%;position:sticky;top:26px;z-index:10000;border-bottom:2px solid var(--gold)}
 .nav{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
-.logo-wrap{display:flex;align-items:center;gap:10px;flex-shrink:0;perspective:500px}
-.logo-anim{flex-shrink:0;width:36px;min-width:36px;height:36px;min-height:36px;background:linear-gradient(135deg,var(--gold),#ffef99);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;animation:spin 4s linear infinite;border:2px solid #fff;overflow:hidden;font-size:18px}
+.logo-wrap{display:flex;align-items:center;gap:10px;flex-shrink:0;perspective:600px}
+.logo-anim{flex-shrink:0!important;width:36px;min-width:36px;height:36px;min-height:36px;background:linear-gradient(135deg,var(--gold),#ffef99);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;animation:spin 4s linear infinite;border:2px solid #fff;overflow:hidden;font-size:18px}
+.logo-anim img{width:100%;height:100%;object-fit:cover;border-radius:50%}
 @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
-/* NOM 3D AUTOMATIQUE */
+/* NOM 3D AUTOMATIQUE - NOUVEAU */
 #logoText{font-weight:800;font-size:14px;white-space:nowrap;animation:move3D 3s ease-in-out infinite;display:inline-block;transform-style:preserve-3d}
-@keyframes move3D{0%,100%{transform:translateY(0) rotateY(0deg) scale(1)}50%{transform:translateY(-2px) rotateY(15deg) scale(1.05);text-shadow:0 2px 10px var(--gold)}}
+@keyframes move3D{0%,100%{transform:translateY(0) rotateY(0deg)}50%{transform:translateY(-2px) rotateY(12deg) scale(1.05);text-shadow:0 2px 12px var(--gold)}}
 .menu{display:flex;gap:6px;overflow:auto}.menu a{padding:8px 14px;border-radius:20px;background:rgba(255,255,255,.1);color:#ddd;font-size:11px;cursor:pointer;white-space:nowrap;text-decoration:none}
 .menu a.active{background:var(--gold);color:var(--blue);font-weight:900}
 .hero{padding:30px 4%;background:radial-gradient(800px 400px at 20% 0%,#1a3a8a,var(--blue));color:#fff;border-radius:0 0 20px 20px;margin:-20px -4% 20px}
 .content{padding:20px 4%;min-height:60vh}.grid{display:grid;grid-template-columns:1fr;gap:14px}
-.card{background:#fff;border-radius:16px;padding:14px;box-shadow:0 8px 20px rgba(0,0,0,.06);border-left:4px solid var(--gold);position:relative}
-.card.date-badge{font-size:9px;background:var(--blue);color:var(--gold);padding:3px 8px;border-radius:10px;position:absolute;top:8px;right:8px}
+.card{background:#fff;border-radius:16px;padding:14px;box-shadow:0 8px 20px rgba(0,0,0,.06);border-left:4px solid var(--gold);position:relative;padding-top:28px}
+.date-badge{position:absolute;top:6px;right:8px;font-size:8px;background:var(--blue);color:var(--gold);padding:2px 7px;border-radius:10px}
 .btn{width:100%;padding:12px;border-radius:30px;border:none;font-weight:800;background:linear-gradient(90deg,var(--gold),#ffef99);cursor:pointer}
 .form{background:#fff;padding:14px;border-radius:16px;border:1px solid #e9e0c9}
 .form input,.form textarea,.form select{width:100%;padding:11px;margin:6px 0;border:1px solid #ddd;border-radius:10px;font-size:16px}
@@ -34,10 +35,10 @@ header{background:var(--blue);color:#fff;padding:10px 4%;position:sticky;top:26p
 .admin-tabs button.active{background:var(--blue);color:var(--gold)}
 .admin-content{padding:14px 4%}.admin-sec{display:none}.admin-sec.active{display:block}
 .hidden{display:none}.toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--blue);color:var(--gold);padding:12px 20px;border-radius:30px;transition:.4s;z-index:30000;opacity:0;text-align:center;font-size:12px;max-width:90%}.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+.badge-notif{position:absolute;top:-6px;right:-6px;background:#ff3b3b;color:#fff;font-size:9px;padding:2px 6px;border-radius:10px;font-weight:900}
 .slider{position:relative;height:280px;overflow:hidden;border-radius:16px;background:#000;display:flex;align-items:center;justify-content:center}
 .slider img,.slider video{width:100%;height:100%;object-fit:contain;background:#000;position:absolute;inset:0;opacity:0;transition:opacity 1s ease}
 .slider img.active,.slider video.active{opacity:1;z-index:2}
-/* CHATBOT */
 #chatBtn{position:fixed;bottom:100px;right:14px;background:var(--gold);color:var(--blue);width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;z-index:9995;cursor:pointer;box-shadow:0 4px 15px rgba(0,0,0,.3);animation:pulse 2s infinite}
 @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.1)}100%{transform:scale(1)}}
 #chatBox{display:none;position:fixed;bottom:160px;right:14px;width:300px;max-width:90vw;height:380px;background:#fff;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.3);z-index:9996;flex-direction:column;overflow:hidden;border:2px solid var(--gold)}
@@ -48,7 +49,7 @@ header{background:var(--blue);color:#fff;padding:10px 4%;position:sticky;top:26p
 </style>
 </head>
 <body>
-<div class="marquee"><div class="marquee-track"><span id="marqueeText">📍 Himbi, Goma RDC • 🎓 Formation 50$ • 🔧 Maintenance 24H • 🌐 Sites Web 100$ •</span></div></div>
+<div class="marquee"><div class="marquee-track"><span id="marqueeText">📍 Himbi, Goma RDC • 🎓 Formation 50$ • 🔧 Maintenance 24H • 🌐 Sites Web 100$ • V6.4 Fusion Stable •</span></div></div>
 <header><div class="nav"><div class="logo-wrap"><span class="logo-anim" id="logoContainer">🦁</span><div id="logoText">PACIFIQUE BKP <span style="color:var(--gold)">TECHNOLOGY</span></div></div><div class="menu"><a class="active" onclick="go('accueil',this)">Accueil</a><a onclick="go('services',this)">Services</a><a onclick="go('galerie',this)">Galerie</a><a onclick="go('avis',this)">Avis</a><a onclick="go('blog',this)">Blog</a><a onclick="go('commander',this)">Commander</a><a style="background:var(--gold);color:var(--blue);font-weight:900" id="openAdmin">ADMIN</a></div></div></header>
 
 <div id="page-accueil" class="content">
@@ -56,91 +57,4 @@ header{background:var(--blue);color:#fff;padding:10px 4%;position:sticky;top:26p
 <h3>Nos Réalisations</h3><div class="slider" id="sliderAccueil"></div>
 <h3 style="margin-top:20px">Nos Services</h3><div class="grid" id="gridServices"></div>
 </div>
-<div id="page-services" class="hidden content"><h2>Nos Services</h2><div class="grid" id="gridServices2"></div></div>
-<div id="page-galerie" class="hidden content"><h2>Galerie</h2><div class="grid" id="gridGalerie"></div></div>
-<div id="page-avis" class="hidden content"><h2>Avis Clients <small style="font-size:10px">(tri par date)</small></h2>
-<div class="form"><input id="a_nom" placeholder="Votre nom"><select id="a_service_type"><option>Service reçu: Formation</option><option>Service reçu: Maintenance</option><option>Service reçu: Sites Web</option><option>Service reçu: Vente Matériel</option><option value="autre">Autre... je m'exprime librement ✍️</option></select><input id="a_custom" placeholder="Exprime-toi librement ici..." style="display:none"><select id="a_stars"><option value="5">⭐⭐⭐⭐⭐ Excellent</option><option value="4">⭐⭐⭐⭐ Bien</option><option value="3">⭐⭐⭐ Moyen</option><option value="2">⭐⭐ Passable</option><option value="1">⭐ Déçu</option></select><textarea id="a_msg" placeholder="Votre expérience détaillée..."></textarea><button type="button" class="btn" id="btnAvis">Publier avec date</button></div><div class="grid" id="gridAvis" style="margin-top:14px"></div></div>
-<div id="page-blog" class="hidden content"><h2>Actualités</h2><div class="grid" id="gridBlog"></div></div>
-<div id="page-commander" class="hidden content"><h2>Commander</h2><div class="form">
-<input id="c_nom" placeholder="Nom complet *"><input id="c_tel" placeholder="Téléphone / Email *">
-<select id="c_service"><option>Formation Bureautique</option><option>Maintenance PC</option><option>Sites Web</option><option>Vente Matériels</option><option value="autre">Autre service - je m'explique ✍️</option></select>
-<input id="c_custom" placeholder="Décris ton besoin librement..." style="display:none">
-<textarea id="c_msg" placeholder="Détails..."></textarea><input type="file" id="c_file" multiple accept="image/*,video/*,.pdf">
-<div style="background:#fff3cd;padding:10px;border-radius:10px;margin:8px 0;border:1px solid #ffc107">
-<label style="font-size:12px;display:flex;align-items:center;gap:8px"><input type="checkbox" id="c_robot"> Je ne suis pas un robot 🤖</label>
-<div style="margin-top:6px;font-size:12px">Anti-spam: Combien font <b id="captchaQ">2+3</b>? <input id="c_captcha" placeholder="Réponse" style="width:80px;display:inline-block;padding:6px"></div>
-</div>
-<div class="progress" id="pC"><div class="progress-bar" id="pCF"></div></div><button type="button" class="btn" id="btnCmd">Envoyer ma commande</button><p id="c_status" style="font-size:11px"></p></div></div>
-
-<!-- CHATBOT -->
-<div id="chatBtn" onclick="toggleChat()">💬</div>
-<div id="chatBox"><div class="chat-head"><b>Pacifique BKP Bot</b><span onclick="toggleChat()" style="cursor:pointer">X</span></div><div class="chat-msgs" id="chatMsgs"><div class="msg bot">Salut! 👋 Je suis le bot de Pacifique BKP Technology à Himbi, Goma. Comment je peux t'aider?<br><br>1. Formation<br>2. Maintenance<br>3. Sites Web<br>4. Prix</div></div><div style="display:flex;padding:8px;gap:6px"><input id="chatInput" placeholder="Écris ici..." style="flex:1;padding:8px;border-radius:20px;border:1px solid #ddd"><button onclick="sendChat()" style="padding:8px 14px;border-radius:20px;background:var(--gold);border:none;font-weight:800">▶️</button></div></div>
-
-<div class="cta-bar"><a onclick="locateMe()" style="background:#070f26;color:#d4af37">📍 GPS Réel</a><a href="mailto:pacifiquekakuru6@gmail.com" style="background:#EA4335;color:#fff">Email</a><a href="https://wa.me/243976717995" target="_blank" style="background:#25D366;color:#fff">WhatsApp</a><a onclick="go('commander',null)" style="background:#d4af37;color:#070f26">Commander</a></div>
-<div class="toast" id="toast"></div>
-
-<div id="adminView">
-<div class="admin-head"><div>ADMIN V6.3 PRO</div><div style="display:flex;gap:8px"><button onclick="enableNotif()" style="padding:6px 10px;border-radius:20px;border:1px solid var(--gold);background:transparent;color:var(--gold);font-size:10px">🔔 Son</button><button type="button" id="closeAdmin">Fermer</button></div></div>
-<div class="admin-tabs"><button class="active" onclick="aTab('textes',this)">📝 Textes</button><button onclick="aTab('produits',this)">Services</button><button onclick="aTab('logo',this)">Logo 3D</button><button onclick="aTab('galerie',this)">Galerie</button><button onclick="aTab('blogs',this)">Articles</button><button onclick="aTab('commandes',this)">Commandes</button><button onclick="aTab('avis',this)">Avis</button><button onclick="aTab('outils',this)">Outils</button><button onclick="aTab('config',this)">Config</button></div>
-<div class="admin-content">
-<div id="adm-textes" class="admin-sec active">
-<p style="font-size:11px;background:#d4edda;padding:8px;border-radius:8px">V6.3 - Tout avec date + 3D + Libre choix</p>
-<label style="font-size:11px;font-weight:800">Barre défile:</label><input id="ad_marquee">
-<label style="font-size:11px;font-weight:800;margin-top:8px;display:block">Adresse:</label><input id="ad_heroAdresse">
-<label style="font-size:11px;font-weight:800;margin-top:8px;display:block">Nom 3D auto-mouvement:</label><input id="ad_logoText">
-<button type="button" class="btn" id="btnSaveTextes" style="margin-top:10px">💾 Sauver</button>
-</div>
-<div id="adm-produits" class="admin-sec"><input id="ad_p_nom" placeholder="Nom service"><input id="ad_p_desc" placeholder="Description + Prix"><button type="button" class="btn" id="btnAddP">Ajouter</button><div id="adListP"></div></div>
-<div id="adm-logo" class="admin-sec"><input type="file" id="ad_logo_file" accept="image/*"><input id="ad_logo_emoji" placeholder="Emoji 🦁"><div class="progress" id="pLogo"><div class="progress-bar" id="pLogoF"></div></div><button type="button" class="btn" id="btnAddLogo">Changer Logo 3D</button><div id="adListLogo"></div><button type="button" class="btn" onclick="resetLogo()" style="background:#ff3b3b;color:#fff;margin-top:8px">Remettre 🦁</button></div>
-<div id="adm-galerie" class="admin-sec"><input type="file" id="ad_file" multiple accept="image/*,video/*"><input id="ad_titre" placeholder="Titre"><div class="progress" id="pAd"><div class="progress-bar" id="pAdF"></div></div><button type="button" class="btn" id="btnUpload">Uploader</button><p id="ad_status"></p><div id="adListG"></div></div>
-<div id="adm-blogs" class="admin-sec"><input id="ad_b_titre" placeholder="Titre"><textarea id="ad_b_contenu" placeholder="Contenu"></textarea><button type="button" class="btn" id="btnAddB">Publier</button><div id="adListB"></div></div>
-<div id="adm-commandes" class="admin-sec"><div id="adListC"></div></div>
-<div id="adm-avis" class="admin-sec"><div id="adListA"></div></div>
-<div id="adm-outils" class="admin-sec"><div class="card"><button type="button" class="btn" onclick="cloneAccueil()">📋 Cloner</button><button type="button" class="btn" style="margin-top:8px" onclick="receiveEmail()">📧 Gmail</button><button type="button" class="btn" style="margin-top:8px" onclick="exportCommandes()">📥 Exporter</button><textarea id="exportArea" style="width:100%;height:100px;margin-top:8px;font-size:10px"></textarea></div></div>
-<div id="adm-config" class="admin-sec"><p>MDP: <b id="passShow">bkp2026</b></p><input id="newPass" placeholder="Nouveau MDP"><button type="button" class="btn" id="btnPass">Changer</button><p>Notifs: <span id="notifStatus">Désactivées</span></p></div>
-</div>
-</div>
-
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
-import { getFirestore, collection, addDoc, onSnapshot, serverTimestamp, query, orderBy, doc, deleteDoc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
-const firebaseConfig = { apiKey: "AIzaSyC__3NS0ZA9h8kd_Qyoovs-PiivzFqfhCI", authDomain: "bkp-technology.firebaseapp.com", projectId: "bkp-technology", storageBucket: "bkp-technology.firebasestorage.app", messagingSenderId: "463493266655", appId: "1:463493266655:web:5b6c78f89ce0e96c3a7d6a" };
-const app = initializeApp(firebaseConfig); const db=getFirestore(app);
-const CLOUD_NAME="miap4jdu", CLOUD_PRESET="bkp_2go";
-let adminPass="bkp2026"; async function loadPass(){ try{ const s=await getDoc(doc(db,"config","admin")); if(s.exists()){ adminPass=s.data().password; document.getElementById('passShow').innerText=adminPass; } }catch(e){} } loadPass();
-function toast(m){ const t=document.getElementById('toast'); t.innerText=m; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),5000); }
-function formatDate(ts){ if(!ts) return "À l'instant"; try{ const d=ts.toDate?ts.toDate():new Date(ts); return d.toLocaleString('fr-FR',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'}) }catch(e){return ""} }
-window.go=(id,el)=>{ document.querySelectorAll('[id^="page-"]').forEach(p=>p.classList.add('hidden')); document.getElementById('page-'+id).classList.remove('hidden'); if(el){ document.querySelectorAll('.menu a').forEach(a=>a.classList.remove('active')); el.classList.add('active'); } window.scrollTo({top:0,behavior:'smooth'}); };
-window.aTab=(id,el)=>{ document.querySelectorAll('.admin-sec').forEach(s=>s.classList.remove('active')); document.querySelectorAll('.admin-tabs button').forEach(b=>b.classList.remove('active')); document.getElementById('adm-'+id).classList.add('active'); el.classList.add('active'); }
-window.del=async(c,i)=>{ if(!confirm("Supprimer?")) return; await deleteDoc(doc(db,c,i)); toast("Supprimé"); }
-window.locateMe=()=>{ if(!navigator.geolocation) return toast("Géo non supportée"); toast("📡 GPS réel..."); navigator.geolocation.getCurrentPosition(async p=>{ const lat=p.coords.latitude.toFixed(5), lng=p.coords.longitude.toFixed(5); let city=""; try{ const r=await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}&localityLanguage=fr`); const d=await r.json(); city=`${d.locality||d.city||''}, ${d.countryName||''}` }catch(e){ city=`${lat},${lng}` } toast(`📍 ${city} - ${lat},${lng}`); if(confirm(`Tu es à ${city}\nOuvrir Maps?`)) window.open(`https://www.google.com/maps?q=${lat},${lng}`,'_blank'); },e=>toast("Erreur GPS: "+e.message),{enableHighAccuracy:true}); };
-window.cloneAccueil=()=>{ const hero=document.querySelector('.hero').cloneNode(true); document.getElementById('page-accueil').appendChild(hero); toast("Cloné"); }
-window.receiveEmail=()=>{ window.open('https://mail.google.com/mail/?view=cm&fs=1&to=pacifiquekakuru6@gmail.com','_blank'); }
-window.exportCommandes=()=>{ document.getElementById('exportArea').value=document.getElementById('adListC').innerText.substring(0,5000); toast("Export prêt"); }
-// CHATBOT
-window.toggleChat=()=>{ document.getElementById('chatBox').classList.toggle('active'); }
-window.sendChat=()=>{ const input=document.getElementById('chatInput'); const txt=input.value.trim(); if(!txt) return; const msgs=document.getElementById('chatMsgs'); msgs.innerHTML+=`<div class="msg user">${txt}</div>`; input.value=""; setTimeout(()=>{ let reply="Merci pour ton message! Pour commander, clique sur Commander ou WhatsApp 0976717995. On est à Himbi, Goma."; const l=txt.toLowerCase(); if(l.includes('formation')||l.includes('1')) reply="🎓 Formation: Word, Excel, PowerPoint à 50$. Durée 1 mois + certificat Pacifique BKP."; else if(l.includes('maintenance')||l.includes('2')) reply="🔧 Maintenance PC: 24H chrono, à Himbi ou à domicile Goma."; else if(l.includes('site')||l.includes('web')||l.includes('3')) reply="🌐 Sites Web: 100$ site vitrine pro, comme celui-ci!"; else if(l.includes('prix')||l.includes('4')) reply="💰 Prix: Formation 50$, Maintenance 20$, Site 100$, Matériels à partir de 50$."; msgs.innerHTML+=`<div class="msg bot">${reply}</div>`; msgs.scrollTop=msgs.scrollHeight; },600); msgs.scrollTop=msgs.scrollHeight; }
-document.getElementById('chatInput').addEventListener('keypress',e=>{ if(e.key==='Enter') sendChat(); });
-async function loadTextes(){ try{ const snap=await getDoc(doc(db,"config","textes")); if(snap.exists()){ const d=snap.data(); if(d.marquee){ document.getElementById('marqueeText').innerText=d.marquee; document.getElementById('ad_marquee').value=d.marquee; } if(d.heroAdresse){ document.getElementById('heroAdresse').innerText=d.heroAdresse; document.getElementById('ad_heroAdresse').value=d.heroAdresse; } if(d.logoText){ document.getElementById('logoText').innerHTML=d.logoText; } } }catch(e){} } loadTextes();
-document.getElementById('btnSaveTextes').onclick=async(e)=>{ e.preventDefault(); const marquee=document.getElementById('ad_marquee').value.trim(); const heroAdresse=document.getElementById('ad_heroAdresse').value.trim(); const logoText=document.getElementById('ad_logoText').value.trim(); if(!marquee&&!heroAdresse&&!logoText) return toast("Écris texte"); try{ await setDoc(doc(db,"config","textes"),{marquee:marquee||document.getElementById('marqueeText').innerText, heroAdresse:heroAdresse||document.getElementById('heroAdresse').innerText, logoText:logoText||document.getElementById('logoText').innerHTML, date:serverTimestamp()},{merge:true}); if(marquee) document.getElementById('marqueeText').innerText=marquee; if(heroAdresse) document.getElementById('heroAdresse').innerText=heroAdresse; if(logoText) document.getElementById('logoText').innerHTML=logoText; toast("✅ Textes sauvés!"); }catch(err){ toast("Erreur "+err.message); } };
-async function uploadCloud(file,barF,bar){ const bf=document.getElementById(barF), b=document.getElementById(bar); b.style.display="block"; bf.style.width="0%"; const isVideo=file.type.startsWith('video/'); const endpoint=`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/${isVideo?'video':'auto'}/upload`; return new Promise((res,rej)=>{ const xhr=new XMLHttpRequest(); const fd=new FormData(); fd.append("file",file); fd.append("upload_preset",CLOUD_PRESET); fd.append("folder","bkp-technology"); xhr.open("POST", endpoint); xhr.upload.onprogress=e=>{ if(e.lengthComputable) bf.style.width=Math.round(e.loaded/e.total*100)+"%"; }; xhr.onload=()=>{ try{ const j=JSON.parse(xhr.responseText); if(j.secure_url) res(j.secure_url); else rej(new Error(j.error?.message)); }catch(e){ rej(new Error("Erreur")); } }; xhr.onerror=()=>rej(new Error("Réseau")); xhr.send(fd); }); }
-document.getElementById('openAdmin').onclick=async(e)=>{ e.preventDefault(); await loadPass(); if(prompt("MDP Admin")!==adminPass) return toast("Mauvais MDP"); document.getElementById('adminView').style.display="block"; await loadTextes(); };
-document.getElementById('closeAdmin').onclick=(e)=>{ e.preventDefault(); document.getElementById('adminView').style.display="none"; };
-let notifEnabled=false; let audioCtx=null;
-window.enableNotif=()=>{ notifEnabled=true; document.getElementById('notifStatus').innerText='Activées'; if(Notification&&Notification.permission!=='granted'){ Notification.requestPermission(); } try{ audioCtx=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} toast('Notifs activées'); }
-function playBeep(){ if(!notifEnabled||!audioCtx) return; try{ const o=audioCtx.createOscillator(); const g=audioCtx.createGain(); o.type='sine'; o.frequency.value=880; o.connect(g); g.connect(audioCtx.destination); g.gain.value=0.2; o.start(); setTimeout(()=>{o.stop()},250); }catch(e){} }
-async function loadLogo(){ try{ const snap=await getDoc(doc(db,"config","logo")); if(snap.exists()){ const data=snap.data(); const container=document.getElementById('logoContainer'); if(data.url) container.innerHTML=`<img src="${data.url}">`; else if(data.emoji) container.innerHTML=data.emoji; } }catch(e){} } loadLogo();
-window.resetLogo=async()=>{ await setDoc(doc(db,"config","logo"),{emoji:"🦁",url:""},{merge:true}); document.getElementById('logoContainer').innerHTML="🦁"; toast("Logo remis"); }
-document.getElementById('btnAddLogo').onclick=async(e)=>{ e.preventDefault(); const file=document.getElementById('ad_logo_file').files[0]; const emoji=document.getElementById('ad_logo_emoji').value.trim(); if(!file&&!emoji) return toast("Choisis image ou emoji"); document.getElementById('pLogo').style.display="block"; try{ if(file){ const url=await uploadCloud(file,'pLogoF','pLogo'); await setDoc(doc(db,"config","logo"),{url:url,emoji:""},{merge:true}); document.getElementById('logoContainer').innerHTML=`<img src="${url}">`; } else { await setDoc(doc(db,"config","logo"),{emoji:emoji,url:""},{merge:true}); document.getElementById('logoContainer').innerHTML=emoji; } toast("Logo 3D changé"); document.getElementById('ad_logo_file').value=""; document.getElementById('ad_logo_emoji').value=""; }catch(err){ toast("Erreur "+err.message); } document.getElementById('pLogo').style.display="none"; };
-// RUBRIQUES LIBRE CHOIX
-document.getElementById('a_service_type').onchange=(e)=>{ const custom=document.getElementById('a_custom'); custom.style.display=e.target.value==='autre'?'block':'none'; };
-document.getElementById('c_service').onchange=(e)=>{ const custom=document.getElementById('c_custom'); custom.style.display=e.target.value==='autre'?'block':'none'; };
-// CAPTCHA SIMPLE
-let captchaA=Math.floor(Math.random()*5)+1, captchaB=Math.floor(Math.random()*5)+1;
-function refreshCaptcha(){ captchaA=Math.floor(Math.random()*5)+1; captchaB=Math.floor(Math.random()*5)+1; document.getElementById('captchaQ').innerText=captchaA+"+"+captchaB+"="+(captchaA+captchaB); document.getElementById('captchaQ').dataset.ans=captchaA+captchaB; }
-refreshCaptcha();
-document.getElementById('btnCmd').onclick=async(e)=>{ e.preventDefault(); const nom=document.getElementById('c_nom').value.trim(), tel=document.getElementById('c_tel').value.trim(), serv=document.getElementById('c_service').value, custom=document.getElementById('c_custom').value.trim(), msg=document.getElementById('c_msg').value.trim(), files=document.getElementById('c_file').files; const isRobot=document.getElementById('c_robot').checked; const captAns=document.getElementById('c_captcha').value.trim(); const trueAns=document.getElementById('captchaQ').dataset.ans; if(!nom||!tel) return toast("Nom + Contact requis"); if(!isRobot) return toast("Coche 'Je ne suis pas robot'"); if(captAns!==trueAns) { refreshCaptcha(); return toast("Mauvais calcul anti-spam, réessaye"); } if(serv==='autre'&&!custom) return toast("Décris ton autre service"); const status=document.getElementById('c_status'); status.innerText="Envoi..."; const btn=e.currentTarget; btn.disabled=true; try{ let fileUrls=[]; if(files.length>0){ for(let f of files){ fileUrls.push(await uploadCloud(f,'pCF','pC')); } } await addDoc(collection(db,"commandes"),{ nom,tel,service:serv==='autre'?custom:serv,msg:custom?custom+" | "+msg:msg,fileUrl:fileUrls.join(','),fileUrls, date:serverTimestamp() }); status.innerText="Commande envoyée avec date!"; toast("Commande envoyée ✅"); document.getElementById('c_captcha').value=""; document.getElementById('c_robot').checked=false; refreshCaptcha(); }catch(err){ status.innerText="Erreur "+err.message; } btn.disabled=false; };
-document.getElementById('btnAvis').onclick=async(e)=>{ e.preventDefault(); const nom=document.getElementById('a_nom').value.trim(), serv=document.getElementById('a_service_type').value, custom=document.getElementById('a_custom').value.trim(), stars=document.getElementById('a_stars').value, msg=document.getElementById('a_msg').value.trim(); if(!nom||!msg) return toast("Remplis tout"); if(serv==='autre'&&!custom) return toast("Exprime-toi librement"); await addDoc(collection(db,"avis"),{nom,service:serv==='autre'?custom:serv,custom:custom||'',stars:parseInt(stars),msg,date:serverTimestamp()}); toast("Avis publié avec date ✅"); };
-document.getElementById('btnAddP').onclick=async(e)=>{ e.preventDefault(); const n=document.getElementById('ad_p_nom').value.trim(), d=document.getElementById('ad_p_desc').value.trim(); if(!n) return toast("Nom requis"); await addDoc(collection(db,"produits"),{nom:n,desc:d,date:serverTimestamp()}); toast("Service ajouté"); };
-document.getElementById('btnAddB').onclick=async(e)=>{ e.preventDefault(); const t=document.getElementById('ad_b_titre').value.trim(), c=document.getElementById('ad_b_contenu').value.trim(); if(!t) return toast("Titre requis"); await addDoc(collection(db,"blogs"),{titre:t,contenu:c,date:serverTimestamp()}); toast("Article publié"); };
-document.getElementById('btn
+<div id="page-services" class="hidden content"><h2>Nos Services</h2><div class="grid" id="gridServices2"></
